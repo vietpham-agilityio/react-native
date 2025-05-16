@@ -1,7 +1,8 @@
 import React from 'react';
 
 // Components
-import {View, Text} from 'react-native';
+import { View } from 'react-native';
+import { Text } from '@components/common';
 
 const LoginScreen = () => {
   return (

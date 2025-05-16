@@ -1,97 +1,138 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Bazer Books Mobile App
 
-# Getting Started
+A React Native CLI project for creating a feature-rich e-commerce mobile application for books.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## 📱 Project Overview
 
-## Step 1: Start Metro
+Bazer Books is a mobile application designed to provide users with a seamless experience for browsing, discovering, and purchasing books. The app includes features such as onboarding, authentication, book browsing by categories, detailed product views, shopping cart functionality, and a streamlined checkout process.
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## ✨ Features
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+- **Onboarding**: Step-by-step introduction to the app's features
+- **Authentication**: Sign in with email and password
+- **Home Screen**: 
+  - Carousel thumbnails
+  - Product cards
+  - Vendor listings
+  - Author listings
+  - Interactive product details
+- **Category Browsing**: Filter books by category
+- **Shopping Cart**: Add books and manage quantities
+- **Checkout Process**: Address information and order summary
 
-```sh
-# Using npm
-npm start
+## 🚀 Getting Started
 
-# OR using Yarn
-yarn start
+### Prerequisites
+
+- Node.js (v18 or newer)
+- npm or yarn
+- React Native CLI
+- Android Studio (for Android development)
+- Xcode (for iOS development, macOS only)
+- CocoaPods (for iOS dependencies, macOS only)
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone git@gitlab.asoft-python.com:viet.pham/reactnative.git
+cd BazerBooksApplication
 ```
 
-## Step 2: Build and run your app
+2. Install dependencies:
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+```bash
+npm install
+# or
+yarn install
 ```
 
-### iOS
+3. Install iOS dependencies (macOS only):
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+```bash
+npm run pod-install
 ```
 
-Then, and every time you update your native dependencies, run:
+### Running the app
 
-```sh
-bundle exec pod install
+#### Start Metro Bundler separately
+
+```bash
+npm run metro
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+#### iOS (macOS only)
 
-```sh
-# Using npm
+```bash
 npm run ios
-
-# OR using Yarn
+# or
 yarn ios
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+#### Android
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+```bash
+npm run android
+# or
+yarn android
+```
 
-## Step 3: Modify your app
+## 🛠️ Tech Stack
 
-Now that you have successfully run the app, let's make changes!
+- **React Native CLI**: Core framework for native mobile development
+- **TypeScript**: Type-safe code development
+- **React Navigation**: Navigation and routing
+- **Jest & React Testing Library**: Unit and component testing
+- **Storybook**: Component documentation and visualization
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+## 📂 Project Structure
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+```
+Will update later
+```
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+## 🧪 Testing
 
-## Congratulations! :tada:
+The application has a robust testing setup with Jest and React Testing Library.
 
-You've successfully run and modified your React Native App. :partying_face:
+```bash
+# Run all tests
+npm test
+# or
+yarn test
 
-### Now what?
+# Run tests with coverage report
+npm test -- --coverage
+# or
+yarn test --coverage
+```
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+Target test coverage: > 80%
 
-# Troubleshooting
+## 📦 Building for Production
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+### Android
 
-# Learn More
+```bash
+# Generate APK
+npm run build:android
+# or
+yarn build:android
+```
 
-To learn more about React Native, take a look at the following resources:
+The APK file will be generated at `android/app/build/outputs/apk/release/app-release.apk`
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## 🧩 Scripts
+
+- `npm start`: Start Metro Bundler
+- `npm run android`: Build and run on Android
+- `npm run ios`: Build and run on iOS
+- `npm run test`: Run tests
+- `npm run lint`: Run ESLint
+
+## ✍️ Acknowledgments
+
+- Developed at [Agility.io](https://www.agilityio.com)
+- Author by [viet.pham](viet.pham@asnet.com.vn) 🧑‍💻 
+- Part of React Native Training (May 2025)

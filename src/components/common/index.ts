@@ -1,1 +1,1 @@
-export * from './Text';
+export { default as Heading } from './Heading';

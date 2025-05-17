@@ -2,12 +2,12 @@ import React from 'react';
 
 // Components
 import { View } from 'react-native';
-import { Text } from '@components/common';
+import { Heading } from '@components/common';
 
 const LoginScreen = () => {
   return (
     <View>
-      <Text>Login Screen</Text>
+      <Heading>Login Screen</Heading>
     </View>
   );
 };

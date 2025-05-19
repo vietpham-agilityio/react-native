@@ -9,7 +9,7 @@ import AuthorCard from './';
 import { AUTHORS_DATA_MOCK } from '@/mock/data';
 
 const meta = {
-  title: 'Common/AuthorCard',
+  title: 'Feature/AuthorCard',
   component: AuthorCard,
   args: {
     ...AUTHORS_DATA_MOCK[0],

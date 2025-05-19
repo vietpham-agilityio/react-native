@@ -5,6 +5,9 @@ import Button from './';
 // Types
 import type { Meta, StoryObj } from '@storybook/react';
 
+// Theme
+import { colors, fontSizes } from '@/theme';
+
 const meta = {
   title: 'Common/Button',
   component: Button,
@@ -129,7 +132,7 @@ export const CustomStyle: Story = {
     variant: 'primary',
     size: 'medium',
     title: 'Custom',
-    style: { backgroundColor: '#FF69B4', width: '100%' },
-    textStyle: { fontSize: 20 },
+    style: { backgroundColor: colors.primary, width: '100%' },
+    textStyle: { fontSize: fontSizes.h4 },
   },
 };

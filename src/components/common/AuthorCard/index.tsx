@@ -9,6 +9,9 @@ import {
 // Components
 import { Typography } from '@/components/common';
 
+// Theme
+import { colors, radius } from '@/theme';
+
 interface AuthorCardProps {
   image: ImageSourcePropType;
   name: string;
@@ -44,16 +47,16 @@ const styles = StyleSheet.create({
   avatar: {
     width: 102,
     height: 102,
-    borderRadius: 50,
+    borderRadius: radius.large,
     marginBottom: 14,
-    backgroundColor: '#eee',
+    backgroundColor: colors.grayBackground,
   },
   name: {
-    color: '#121212',
+    color: colors.textDark,
     marginBottom: 4,
   },
   role: {
-    color: '#A6A6A6',
+    color: colors.grayMedium,
   },
 });
 

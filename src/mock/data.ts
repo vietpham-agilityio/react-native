@@ -78,3 +78,26 @@ export const BOOKS_DATA_MOCK = [
     reviews: 6720,
   },
 ];
+
+export const VENDOR_DATA_MOCK = [
+  {
+    id: '1',
+    name: 'Warehouse',
+    image: require('@assets/images/vendors/ware-house.png'),
+  },
+  {
+    id: '2',
+    name: 'Kuromi',
+    image: require('@assets/images/vendors/kuromi.png'),
+  },
+  {
+    id: '3',
+    name: 'Gooday',
+    image: require('@assets/images/vendors/gooday.png'),
+  },
+  {
+    id: '4',
+    name: 'Crane Company',
+    image: require('@assets/images/vendors/crane-co.png'),
+  },
+];

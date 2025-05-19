@@ -28,6 +28,7 @@ const BookCard = ({ image, title, price, onPress }: BookCardProps) => (
     <Image
       source={image}
       style={styles.cover}
+      alt={title}
       accessibilityRole="image"
       testID="book-image"
     />

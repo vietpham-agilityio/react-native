@@ -45,6 +45,9 @@ const colors = {
   border: baseColors.gray[700],
   borderLight: baseColors.gray[400],
 
+  // Card colors
+  cardBackground: baseColors.gray[100],
+
   // Status colors
   error: baseColors.red.error,
   white: baseColors.white,

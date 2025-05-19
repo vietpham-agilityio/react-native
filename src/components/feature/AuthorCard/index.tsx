@@ -28,6 +28,7 @@ const AuthorCard = ({ image, name, role, onPress }: AuthorCardProps) => (
     <Image
       source={image}
       style={styles.avatar}
+      alt={name}
       accessibilityRole="image"
       testID="author-image"
     />

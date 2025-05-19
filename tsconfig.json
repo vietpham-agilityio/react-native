@@ -10,7 +10,8 @@
       "@navigation/*": ["./src/navigation/*"],
       "@utils/*": ["./src/utils/*"],
       "@hooks/*": ["./src/hooks/*"],
-      "@types/*": ["./src/types/*"]
+      "@types/*": ["./src/types/*"],
+      "@mock/*": ["./src/mock/*"]
     }
   }
 }

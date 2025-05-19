@@ -10,6 +10,9 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
+// Theme
+import { colors, fontSizes, radius } from '@/theme';
+
 // Icons
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -43,7 +46,7 @@ const Input = ({
         <Icon
           name={leftIcon}
           size={22}
-          color="#B8B8B8"
+          color={colors.grayNeutral}
           style={styles.leftIcon}
         />
       );
@@ -67,7 +70,7 @@ const Input = ({
           <Icon
             name={rightIcon === 'eye' && !showPassword ? 'eye' : 'eye-off'}
             size={22}
-            color="#B8B8B8"
+            color={colors.grayNeutral}
           />
         </TouchableOpacity>
       );
@@ -87,7 +90,7 @@ const Input = ({
         {renderLeftIcon()}
         <TextInput
           style={[styles.input, style]}
-          placeholderTextColor="#B8B8B8"
+          placeholderTextColor={colors.grayNeutral}
           secureTextEntry={secureTextEntry && !showPassword}
           onFocus={handleFocus}
           onBlur={handleBlur}
@@ -102,31 +105,31 @@ const Input = ({
 
 const styles = StyleSheet.create({
   label: {
-    fontSize: 14,
+    fontSize: fontSizes.typoMedium,
     fontWeight: '600',
     marginBottom: 6,
-    color: '#222',
+    color: colors.text,
   },
   inputContainer: {
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#F9F9F9',
-    borderRadius: 10,
+    backgroundColor: colors.inputBackground,
+    borderRadius: radius.small,
     borderWidth: 1,
-    borderColor: '#FAFAFA',
+    borderColor: colors.inputBorder,
   },
   inputFocused: {
     borderWidth: 1,
-    borderColor: '#54408C',
+    borderColor: colors.inputBorderFocused,
   },
   inputError: {
-    borderColor: '#E57373',
+    borderColor: colors.inputBorderError,
   },
   input: {
     flex: 1,
-    fontSize: 16,
-    color: '#222',
+    fontSize: fontSizes.typoLarge,
+    color: colors.text,
     paddingVertical: 12,
     paddingHorizontal: 16,
   },
@@ -137,8 +140,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
   },
   error: {
-    color: '#E57373',
-    fontSize: 12,
+    color: colors.error,
+    fontSize: fontSizes.typoSmall,
     marginTop: 4,
     marginLeft: 4,
   },

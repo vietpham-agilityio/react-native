@@ -10,6 +10,9 @@ import {
   View,
 } from 'react-native';
 
+// Theme
+import { colors, fontSizes, radius } from '@/theme';
+
 interface ButtonProps {
   title: string;
   onPress?: (event: GestureResponderEvent) => void;
@@ -92,25 +95,25 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 40,
+    borderRadius: radius.medium,
     marginVertical: 8,
     paddingHorizontal: 24,
   },
 
   // Variants
   primary: {
-    backgroundColor: '#54408C',
+    backgroundColor: colors.primary,
   },
   secondary: {
-    backgroundColor: '#FAF9FD',
+    backgroundColor: colors.secondary,
   },
   ghost: {
-    backgroundColor: '#FAF9FD',
+    backgroundColor: colors.secondary,
   },
   thirdParty: {
-    backgroundColor: '#D6E4DE',
+    backgroundColor: colors.secondary,
     borderWidth: 1,
-    borderColor: '#E8E8E8',
+    borderColor: colors.borderLight,
   },
 
   // Sizes
@@ -129,13 +132,13 @@ const styles = StyleSheet.create({
 
   // Disabled
   disabled: {
-    backgroundColor: '#FAF9FD',
-    borderColor: '#E8E8E8',
+    backgroundColor: colors.secondary,
+    borderColor: colors.borderLight,
     borderWidth: 1,
     opacity: 0.5,
   },
   disabledText: {
-    color: '#A6A6A6',
+    color: colors.grayMedium,
   },
 
   // Text
@@ -144,25 +147,25 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   primaryText: {
-    color: '#fff',
+    color: colors.white,
   },
   secondaryText: {
-    color: '#54408C',
+    color: colors.primary,
   },
   ghostText: {
-    color: '#B3B3B3',
+    color: colors.grayMedium,
   },
   thirdPartyText: {
-    color: '#222',
+    color: colors.textDark,
   },
   largeText: {
-    fontSize: 24,
+    fontSize: fontSizes.h3,
   },
   mediumText: {
-    fontSize: 18,
+    fontSize: fontSizes.h5,
   },
   smallText: {
-    fontSize: 16,
+    fontSize: fontSizes.h6,
   },
   icon: {
     marginRight: 12,

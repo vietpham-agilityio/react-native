@@ -1,6 +1,9 @@
 import React from 'react';
 import { Text as RNText, TextProps as RNTextProps } from 'react-native';
 
+// Theme
+import { colors } from '@/theme';
+
 export type Variant = 'typoXLarge' | 'typoLarge' | 'typoMedium' | 'typoSmall';
 export type Weight = 'bold' | 'semibold' | 'medium' | 'regular';
 
@@ -37,7 +40,7 @@ const Typography = ({
         {
           fontFamily: fontWeightMap[weight],
           fontSize: fontSizeMap[variant],
-          color: '#333',
+          color: colors.textLight,
         },
         style,
       ]}

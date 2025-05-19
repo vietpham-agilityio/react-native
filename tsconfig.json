@@ -11,7 +11,8 @@
       "@utils/*": ["./src/utils/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@types/*": ["./src/types/*"],
-      "@mock/*": ["./src/mock/*"]
+      "@mock/*": ["./src/mock/*"],
+      "@theme/*": ["./src/theme/*"]
     }
   }
 }

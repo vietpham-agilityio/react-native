@@ -5,6 +5,9 @@ import { render, fireEvent } from '@testing-library/react-native';
 import { Text } from 'react-native';
 import Button from '../index';
 
+// Theme
+import { fontSizes } from '@/theme';
+
 describe('Button', () => {
   it('renders with default props', () => {
     const { getByText } = render(<Button title="Button" onPress={() => {}} />);
@@ -78,7 +81,7 @@ describe('Button', () => {
       <Button
         title="Styled"
         style={{ backgroundColor: 'red' }}
-        textStyle={{ fontSize: 30 }}
+        textStyle={{ fontSize: fontSizes.h2 }}
         onPress={() => {}}
       />,
     );

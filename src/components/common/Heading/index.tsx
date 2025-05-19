@@ -5,7 +5,10 @@ import {
   StyleSheet,
 } from 'react-native';
 
-export interface HeadingProps extends RNTextProps {
+// Theme
+import { colors, fontSizes } from '@/theme';
+
+interface HeadingProps extends RNTextProps {
   level?: 1 | 2 | 3 | 4 | 5 | 6;
 }
 
@@ -19,25 +22,25 @@ const styles = StyleSheet.create({
   base: {
     fontFamily: 'Open Sans',
     fontWeight: 'bold',
-    color: '#333',
+    color: colors.textLight,
   },
   h1: {
-    fontSize: 40,
+    fontSize: fontSizes.h1,
   },
   h2: {
-    fontSize: 32,
+    fontSize: fontSizes.h2,
   },
   h3: {
-    fontSize: 24,
+    fontSize: fontSizes.h3,
   },
   h4: {
-    fontSize: 20,
+    fontSize: fontSizes.h4,
   },
   h5: {
-    fontSize: 18,
+    fontSize: fontSizes.h5,
   },
   h6: {
-    fontSize: 16,
+    fontSize: fontSizes.h6,
   },
 });
 

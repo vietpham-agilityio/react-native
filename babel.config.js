@@ -16,6 +16,7 @@ module.exports = {
           '@utils': './src/utils',
           '@hooks': './src/hooks',
           '@types': './src/types',
+          '@mock': './src/mock',
         },
       },
     ],

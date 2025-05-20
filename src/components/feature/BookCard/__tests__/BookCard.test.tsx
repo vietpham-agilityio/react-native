@@ -42,4 +42,29 @@ describe('BookCard', () => {
 
     expect(mockOnPress).toHaveBeenCalled();
   });
+
+  it('matches snapshot without isCategory', () => {
+    const element = render(
+      <BookCard
+        image={mockImage}
+        title={mockTitle}
+        price={mockPrice}
+        onPress={mockOnPress}
+      />,
+    ).toJSON();
+    expect(element).toMatchSnapshot();
+  });
+
+  it('matches snapshot with isCategory', () => {
+    const element = render(
+      <BookCard
+        image={mockImage}
+        title={mockTitle}
+        price={mockPrice}
+        onPress={mockOnPress}
+        isCategory
+      />,
+    ).toJSON();
+    expect(element).toMatchSnapshot();
+  });
 });

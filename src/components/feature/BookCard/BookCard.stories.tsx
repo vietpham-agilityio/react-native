@@ -29,7 +29,17 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const BookCardSingle: Story = {
-  render: () => <BookCard {...BOOKS_DATA_MOCK[0]} onPress={() => {}} />,
+  args: {
+    ...BOOKS_DATA_MOCK[0],
+    onPress: () => {},
+  },
+};
+
+export const BookCardCategorySingle: Story = {
+  args: {
+    ...BookCardSingle,
+    isCategory: true,
+  },
 };
 
 export const BookCardList: Story = {
@@ -38,6 +48,24 @@ export const BookCardList: Story = {
       {BOOKS_DATA_MOCK.map(book => (
         <View style={{ marginRight: 16 }} key={book.id}>
           <BookCard
+            image={book.image}
+            title={book.title}
+            price={book.price}
+            onPress={() => {}}
+          />
+        </View>
+      ))}
+    </ScrollView>
+  ),
+};
+
+export const BookCardCategoryList: Story = {
+  render: () => (
+    <ScrollView horizontal>
+      {BOOKS_DATA_MOCK.map(book => (
+        <View style={{ marginRight: 16 }} key={book.id}>
+          <BookCard
+            isCategory
             image={book.image}
             title={book.title}
             price={book.price}

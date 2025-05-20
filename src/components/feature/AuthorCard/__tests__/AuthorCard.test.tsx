@@ -7,9 +7,6 @@ import AuthorCard from '../index';
 // Mock data
 import { AUTHORS_DATA_MOCK } from '@/mock/data';
 
-// Mock vector icons
-jest.mock('react-native-vector-icons/MaterialCommunityIcons', () => 'Icon');
-
 describe('AuthorCard', () => {
   const mockOnPress = jest.fn();
 

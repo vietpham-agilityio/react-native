@@ -7,9 +7,6 @@ import VendorCard from '../index';
 // Mock
 import { VENDOR_DATA_MOCK } from '@/mock/data';
 
-// Mock vector icons
-jest.mock('react-native-vector-icons/MaterialCommunityIcons', () => 'Icon');
-
 describe('VendorCard', () => {
   const mockOnPress = jest.fn();
   const vendor = VENDOR_DATA_MOCK[0];

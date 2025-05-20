@@ -14,7 +14,9 @@ const baseColors = {
     700: '#B3B3B3',
     800: '#333',
     900: '#222',
-    1000: '#121212',
+  },
+  black: {
+    primary: '#121212',
   },
   red: {
     error: '#E57373',
@@ -31,7 +33,7 @@ const colors = {
 
   // Text colors
   text: baseColors.gray[900],
-  textDark: baseColors.gray[1000],
+  textDark: baseColors.black.primary,
   textLight: baseColors.gray[800],
 
   // Gray variations
@@ -40,6 +42,9 @@ const colors = {
   grayNeutral: baseColors.gray[500],
   grayMedium: baseColors.gray[600],
   grayBackground: '#eee',
+
+  // Black variations
+  black: baseColors.black.primary,
 
   // Borders
   border: baseColors.gray[700],

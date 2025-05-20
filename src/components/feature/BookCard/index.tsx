@@ -16,10 +16,17 @@ interface BookCardProps {
   image: ImageSourcePropType;
   title: string;
   price: number;
+  isCategory?: boolean;
   onPress: () => void;
 }
 
-const BookCard = ({ image, title, price, onPress }: BookCardProps) => (
+const BookCard = ({
+  image,
+  title,
+  price,
+  isCategory,
+  onPress,
+}: BookCardProps) => (
   <TouchableOpacity
     style={styles.container}
     activeOpacity={0.7}
@@ -27,15 +34,24 @@ const BookCard = ({ image, title, price, onPress }: BookCardProps) => (
     accessibilityRole="button">
     <Image
       source={image}
-      style={styles.cover}
+      style={[
+        styles.cover,
+        isCategory ? styles.coverCategory : styles.coverBook,
+      ]}
       alt={title}
       accessibilityRole="image"
       testID="book-image"
     />
-    <Typography style={styles.title} variant="typoMedium" weight="medium">
+    <Typography
+      style={styles.title}
+      variant={isCategory ? 'typoLarge' : 'typoMedium'}
+      weight="medium">
       {title}
     </Typography>
-    <Typography style={styles.price} variant="typoSmall" weight="bold">
+    <Typography
+      style={styles.price}
+      variant={isCategory ? 'typoMedium' : 'typoSmall'}
+      weight="bold">
       ${price.toFixed(2)}
     </Typography>
   </TouchableOpacity>
@@ -46,12 +62,18 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   cover: {
-    width: 130,
-    height: 150,
     borderRadius: radius.small,
     marginBottom: 8,
     backgroundColor: colors.grayBackground,
     resizeMode: 'cover',
+  },
+  coverBook: {
+    width: 130,
+    height: 150,
+  },
+  coverCategory: {
+    width: 160,
+    height: 160,
   },
   title: {
     color: colors.textDark,

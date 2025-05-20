@@ -1,0 +1,254 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Carousel matches snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "width": "100%",
+      },
+      undefined,
+    ]
+  }
+>
+  <RCTScrollView
+    data={
+      [
+        {
+          "$$typeof": Symbol(react.transitional.element),
+          "_owner": null,
+          "_store": {},
+          "key": "1",
+          "props": {
+            "children": {
+              "$$typeof": Symbol(react.transitional.element),
+              "_owner": null,
+              "_store": {},
+              "key": null,
+              "props": {
+                "children": "Slide 1",
+              },
+              "type": [Function],
+            },
+          },
+          "type": [Function],
+        },
+        {
+          "$$typeof": Symbol(react.transitional.element),
+          "_owner": null,
+          "_store": {},
+          "key": "2",
+          "props": {
+            "children": {
+              "$$typeof": Symbol(react.transitional.element),
+              "_owner": null,
+              "_store": {},
+              "key": null,
+              "props": {
+                "children": "Slide 2",
+              },
+              "type": [Function],
+            },
+          },
+          "type": [Function],
+        },
+        {
+          "$$typeof": Symbol(react.transitional.element),
+          "_owner": null,
+          "_store": {},
+          "key": "3",
+          "props": {
+            "children": {
+              "$$typeof": Symbol(react.transitional.element),
+              "_owner": null,
+              "_store": {},
+              "key": null,
+              "props": {
+                "children": "Slide 3",
+              },
+              "type": [Function],
+            },
+          },
+          "type": [Function],
+        },
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={true}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    onViewableItemsChanged={[Function]}
+    pagingEnabled={true}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={0.0001}
+    showsHorizontalScrollIndicator={false}
+    stickyHeaderIndices={[]}
+    testID="carousel-list"
+    viewabilityConfig={
+      {
+        "viewAreaCoveragePercentThreshold": 50,
+      }
+    }
+    viewabilityConfigCallbackPairs={
+      [
+        {
+          "onViewableItemsChanged": [Function],
+          "viewabilityConfig": {
+            "viewAreaCoveragePercentThreshold": 50,
+          },
+        },
+      ]
+    }
+  >
+    <View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={
+          [
+            {
+              "flexDirection": "row",
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "width": 750,
+            }
+          }
+        >
+          <View>
+            <Text>
+              Slide 1
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={
+          [
+            {
+              "flexDirection": "row",
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "width": 750,
+            }
+          }
+        >
+          <View>
+            <Text>
+              Slide 2
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={
+          [
+            {
+              "flexDirection": "row",
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "width": 750,
+            }
+          }
+        >
+          <View>
+            <Text>
+              Slide 3
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+  <View
+    style={
+      {
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "marginTop": 8,
+      }
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "borderRadius": 6,
+            "marginHorizontal": 4,
+          },
+          {
+            "backgroundColor": "#54408C",
+            "height": 8,
+            "width": 8,
+          },
+        ]
+      }
+      testID="carousel-dot"
+    />
+    <View
+      style={
+        [
+          {
+            "borderRadius": 6,
+            "marginHorizontal": 4,
+          },
+          {
+            "backgroundColor": "#E5DEF8",
+            "height": 4,
+            "width": 4,
+          },
+        ]
+      }
+      testID="carousel-dot"
+    />
+    <View
+      style={
+        [
+          {
+            "borderRadius": 6,
+            "marginHorizontal": 4,
+          },
+          {
+            "backgroundColor": "#E5DEF8",
+            "height": 4,
+            "width": 4,
+          },
+        ]
+      }
+      testID="carousel-dot"
+    />
+  </View>
+</View>
+`;

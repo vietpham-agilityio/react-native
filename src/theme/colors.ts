@@ -3,6 +3,7 @@ const baseColors = {
   purple: {
     primary: '#54408C',
     accent: '#7B6F97',
+    secondary: '#E5DEF8',
   },
   gray: {
     100: '#FAFAFA',
@@ -27,6 +28,7 @@ const baseColors = {
 const colors = {
   // Theme colors
   primary: baseColors.purple.primary,
+  primaryLight: baseColors.purple.secondary,
   secondary: baseColors.gray[300],
   background: baseColors.gray[300],
   accent: baseColors.purple.accent,

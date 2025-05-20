@@ -7,9 +7,6 @@ import BookCard from '../index';
 // Mock
 import { BOOKS_DATA_MOCK } from '@/mock/data';
 
-// Mock vector icons
-jest.mock('react-native-vector-icons/MaterialCommunityIcons', () => 'Icon');
-
 describe('BookCard', () => {
   const mockImage = BOOKS_DATA_MOCK[0].image;
   const mockTitle = BOOKS_DATA_MOCK[0].title;

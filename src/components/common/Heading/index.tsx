@@ -8,7 +8,7 @@ import {
 // Theme
 import { colors, fontSizes } from '@/theme';
 
-interface HeadingProps extends RNTextProps {
+export interface HeadingProps extends RNTextProps {
   level?: 1 | 2 | 3 | 4 | 5 | 6;
 }
 

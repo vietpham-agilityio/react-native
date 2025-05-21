@@ -1,0 +1,673 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookModal matches snapshot 1`] = `
+<Modal
+  animationType="slide"
+  hardwareAccelerated={false}
+  onRequestClose={[Function]}
+  transparent={true}
+  visible={true}
+>
+  <View
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": undefined,
+        "expanded": undefined,
+        "selected": undefined,
+      }
+    }
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "backgroundColor": "#000",
+        "flex": 1,
+        "opacity": 0.3,
+      }
+    }
+  />
+  <View
+    style={
+      {
+        "alignItems": "stretch",
+        "backgroundColor": "#fff",
+        "borderTopLeftRadius": 24,
+        "borderTopRightRadius": 24,
+        "bottom": 0,
+        "left": 0,
+        "padding": 24,
+        "paddingTop": 42,
+        "position": "absolute",
+        "right": 0,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "backgroundColor": "#fff",
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignSelf": "center",
+          }
+        }
+      >
+        <Image
+          alt="I Talk About Running"
+          source={
+            {
+              "testUri": "../../../assets/images/books/what-i-talk-when-running.webp",
+            }
+          }
+          style={
+            {
+              "borderRadius": 16,
+              "height": 330,
+              "marginBottom": 16,
+              "width": 240,
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          }
+        }
+      >
+        <Text
+          style={
+            [
+              {
+                "fontSize": 20,
+              },
+              {
+                "color": "#333",
+                "fontFamily": "Open Sans",
+                "fontWeight": "bold",
+              },
+              {
+                "color": "#121212",
+                "marginBottom": 12,
+              },
+            ]
+          }
+        >
+          I Talk About Running
+        </Text>
+        <Text
+          accessibilityRole="button"
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": undefined,
+              "expanded": undefined,
+              "selected": undefined,
+            }
+          }
+          accessible={true}
+          allowFontScaling={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          selectable={false}
+          style={
+            [
+              {
+                "color": "#A5A5A5",
+                "fontSize": 24,
+              },
+              undefined,
+              {
+                "fontFamily": "FontAwesome",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              {},
+            ]
+          }
+          testID="favorite-btn"
+        >
+          
+        </Text>
+      </View>
+      <Image
+        alt="vendor logo"
+        resizeMode="contain"
+        source={
+          {
+            "testUri": "../../../assets/images/vendors/gooday.png",
+          }
+        }
+        style={
+          {
+            "height": 32,
+            "marginBottom": 12,
+          }
+        }
+      />
+      <Text
+        style={
+          [
+            {
+              "color": "#333",
+              "fontFamily": "Roboto-Regular",
+              "fontSize": 12,
+            },
+            {
+              "color": "#A5A5A5",
+              "marginBottom": 24,
+            },
+          ]
+        }
+      >
+        What I Talk About When I Talk About Running is a memoir by Haruki Murakami in which he writes about his interest and participation in long-distance running. The book is translated to English by Philip Gabriel.
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "gap": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "fontSize": 18,
+            },
+            {
+              "color": "#333",
+              "fontFamily": "Open Sans",
+              "fontWeight": "bold",
+            },
+            {
+              "color": "#121212",
+            },
+          ]
+        }
+      >
+        Review
+      </Text>
+      <View
+        style={
+          {
+            "alignItems": "flex-end",
+            "flexDirection": "row",
+            "gap": 4,
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          selectable={false}
+          style={
+            [
+              {
+                "color": "#FFD700",
+                "fontSize": 24,
+              },
+              undefined,
+              {
+                "fontFamily": "anticon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              {},
+            ]
+          }
+          testID="star-filled"
+        >
+          
+        </Text>
+        <Text
+          allowFontScaling={false}
+          selectable={false}
+          style={
+            [
+              {
+                "color": "#FFD700",
+                "fontSize": 24,
+              },
+              undefined,
+              {
+                "fontFamily": "anticon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              {},
+            ]
+          }
+          testID="star-filled"
+        >
+          
+        </Text>
+        <Text
+          allowFontScaling={false}
+          selectable={false}
+          style={
+            [
+              {
+                "color": "#FFD700",
+                "fontSize": 24,
+              },
+              undefined,
+              {
+                "fontFamily": "anticon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              {},
+            ]
+          }
+          testID="star-filled"
+        >
+          
+        </Text>
+        <Text
+          allowFontScaling={false}
+          selectable={false}
+          style={
+            [
+              {
+                "color": "#FFD700",
+                "fontSize": 24,
+              },
+              undefined,
+              {
+                "fontFamily": "anticon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              {},
+            ]
+          }
+          testID="star-filled"
+        >
+          
+        </Text>
+        <Text
+          allowFontScaling={false}
+          selectable={false}
+          style={
+            [
+              {
+                "color": "#121212",
+                "fontSize": 24,
+              },
+              undefined,
+              {
+                "fontFamily": "anticon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              {},
+            ]
+          }
+          testID="star-empty"
+        >
+          
+        </Text>
+        <Text
+          style={
+            [
+              {
+                "color": "#333",
+                "fontFamily": "Roboto-SemiBold",
+                "fontSize": 16,
+              },
+              undefined,
+            ]
+          }
+        >
+          (4.0)
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "gap": 16,
+          "marginBottom": 10,
+          "marginTop": 24,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "backgroundColor": "#FAFAFA",
+            "borderRadius": 10,
+            "flexDirection": "row",
+            "gap": 16,
+            "padding": 8,
+          }
+        }
+        testID="quantity-bar"
+      >
+        <View
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": true,
+              "expanded": undefined,
+              "selected": undefined,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={false}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "alignItems": "center",
+              "backgroundColor": "#E8E8E8",
+              "borderRadius": 50,
+              "height": 24,
+              "justifyContent": "center",
+              "opacity": 1,
+              "width": 24,
+            }
+          }
+          testID="decrease-btn"
+        >
+          <Text
+            allowFontScaling={false}
+            selectable={false}
+            style={
+              [
+                {
+                  "color": "#fff",
+                  "fontSize": 16,
+                },
+                undefined,
+                {
+                  "fontFamily": "Feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+        <Text
+          style={
+            [
+              {
+                "color": "#333",
+                "fontFamily": "Roboto-Medium",
+                "fontSize": 16,
+              },
+              {
+                "minWidth": 24,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          1
+        </Text>
+        <View
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": false,
+              "expanded": undefined,
+              "selected": undefined,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "alignItems": "center",
+              "backgroundColor": "#54408C",
+              "borderRadius": 50,
+              "height": 24,
+              "justifyContent": "center",
+              "opacity": 1,
+              "width": 24,
+            }
+          }
+          testID="increase-btn"
+        >
+          <Text
+            allowFontScaling={false}
+            selectable={false}
+            style={
+              [
+                {
+                  "color": "#fff",
+                  "fontSize": 16,
+                },
+                undefined,
+                {
+                  "fontFamily": "Feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+      <Text
+        style={
+          [
+            {
+              "color": "#333",
+              "fontFamily": "Roboto-SemiBold",
+              "fontSize": 16,
+            },
+            {
+              "color": "#54408C",
+            },
+          ]
+        }
+      >
+        $
+        8.99
+      </Text>
+    </View>
+    <View
+      style={
+        [
+          {
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          },
+          {
+            "marginBottom": 8,
+          },
+        ]
+      }
+    >
+      <View
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": false,
+            "expanded": undefined,
+            "selected": undefined,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "alignItems": "center",
+            "backgroundColor": "#54408C",
+            "borderRadius": 40,
+            "flexDirection": "row",
+            "height": 48,
+            "justifyContent": "center",
+            "opacity": 1,
+            "paddingHorizontal": 24,
+          }
+        }
+      >
+        <Text
+          style={
+            [
+              {
+                "fontWeight": "700",
+                "textAlign": "center",
+              },
+              {
+                "color": "#fff",
+              },
+              {
+                "fontSize": 18,
+              },
+            ]
+          }
+        >
+          Continue shopping
+        </Text>
+      </View>
+      <View
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": false,
+            "expanded": undefined,
+            "selected": undefined,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "alignItems": "center",
+            "backgroundColor": "#FAF9FD",
+            "borderRadius": 40,
+            "flexDirection": "row",
+            "height": 48,
+            "justifyContent": "center",
+            "opacity": 1,
+            "paddingHorizontal": 24,
+          }
+        }
+      >
+        <Text
+          style={
+            [
+              {
+                "fontWeight": "700",
+                "textAlign": "center",
+              },
+              {
+                "color": "#54408C",
+              },
+              {
+                "fontSize": 18,
+              },
+            ]
+          }
+        >
+          View cart
+        </Text>
+      </View>
+    </View>
+  </View>
+</Modal>
+`;

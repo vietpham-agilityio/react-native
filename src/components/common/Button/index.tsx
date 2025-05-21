@@ -96,7 +96,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: radius.medium,
-    marginVertical: 8,
     paddingHorizontal: 24,
   },
 
@@ -118,7 +117,6 @@ const styles = StyleSheet.create({
 
   // Sizes
   large: {
-    marginVertical: 12,
     height: 72,
   },
   medium: {

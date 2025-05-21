@@ -1,0 +1,256 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SummaryCard matches snapshot 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#fff",
+      "borderColor": "#E8E8E8",
+      "borderRadius": 8,
+      "borderWidth": 1,
+      "marginVertical": 16,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "paddingHorizontal": 16,
+        "paddingTop": 16,
+      }
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "fontSize": 18,
+          },
+          {
+            "color": "#333",
+            "fontFamily": "Open Sans",
+            "fontWeight": "bold",
+          },
+          {
+            "color": "#121212",
+            "marginBottom": 16,
+          },
+        ]
+      }
+    >
+      Summary
+    </Text>
+    <View
+      style={
+        [
+          {
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          },
+          {
+            "marginBottom": 8,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "color": "#333",
+              "fontFamily": "Roboto-Regular",
+              "fontSize": 14,
+            },
+            {
+              "color": "#121212",
+            },
+          ]
+        }
+      >
+        Price
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "color": "#333",
+              "fontFamily": "Roboto-Regular",
+              "fontSize": 14,
+            },
+            {
+              "color": "#121212",
+            },
+          ]
+        }
+      >
+        $
+        87.10
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "color": "#333",
+              "fontFamily": "Roboto-Regular",
+              "fontSize": 14,
+            },
+            {
+              "color": "#121212",
+            },
+          ]
+        }
+      >
+        Shipping
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "color": "#333",
+              "fontFamily": "Roboto-Regular",
+              "fontSize": 14,
+            },
+            {
+              "color": "#121212",
+            },
+          ]
+        }
+      >
+        $
+        2
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "backgroundColor": "#E8E8E8",
+          "height": 1,
+          "marginVertical": 16,
+        }
+      }
+    />
+    <View
+      style={
+        {
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "color": "#333",
+              "fontFamily": "Roboto-Bold",
+              "fontSize": 16,
+            },
+            {
+              "color": "#121212",
+            },
+          ]
+        }
+      >
+        Total Payment
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "color": "#333",
+              "fontFamily": "Roboto-Bold",
+              "fontSize": 16,
+            },
+            {
+              "color": "#121212",
+            },
+          ]
+        }
+      >
+        $
+        89.10
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "backgroundColor": "#E8E8E8",
+        "height": 1,
+        "marginVertical": 16,
+      }
+    }
+  />
+  <View
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": undefined,
+        "expanded": undefined,
+        "selected": undefined,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "alignItems": "center",
+        "alignSelf": "flex-start",
+        "flexDirection": "row",
+        "gap": 4,
+        "opacity": 1,
+        "paddingBottom": 16,
+        "paddingHorizontal": 16,
+      }
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "color": "#333",
+            "fontFamily": "Roboto-Bold",
+            "fontSize": 14,
+          },
+          {
+            "color": "#54408C",
+          },
+        ]
+      }
+    >
+      See details
+    </Text>
+    <Icon
+      color="#54408C"
+      name="chevron-right"
+      size={20}
+    />
+  </View>
+</View>
+`;

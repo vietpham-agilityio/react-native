@@ -5,7 +5,6 @@ exports[`BookDetailCard matches snapshot 1`] = `
   style={
     {
       "backgroundColor": "#fff",
-      "marginHorizontal": 24,
     }
   }
 >
@@ -85,6 +84,7 @@ exports[`BookDetailCard matches snapshot 1`] = `
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       size={24}
+      testID="favorite-btn"
     />
   </View>
   <Image

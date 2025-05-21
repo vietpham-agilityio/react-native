@@ -43,7 +43,7 @@ const QuantityControlBar = ({
   }, [quantity, max, onChange]);
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} testID="quantity-bar">
       <TouchableOpacity
         style={[
           styles.circle,

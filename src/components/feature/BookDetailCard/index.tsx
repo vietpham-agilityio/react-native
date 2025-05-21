@@ -49,6 +49,7 @@ const BookDetailCard = ({
           {title}
         </Heading>
         <TouchableWithoutFeedback
+          testID="favorite-btn"
           onPress={handleToggleFavorite}
           accessibilityRole="button">
           <Icon
@@ -74,7 +75,6 @@ const BookDetailCard = ({
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.white,
-    marginHorizontal: 24,
   },
   imageWrapper: {
     alignSelf: 'center',

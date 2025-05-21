@@ -74,6 +74,7 @@ exports[`CartItem matches snapshot 1`] = `
             "padding": 8,
           }
         }
+        testID="quantity-bar"
       >
         <View
           accessibilityState={

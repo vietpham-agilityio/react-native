@@ -7,3 +7,4 @@ export { default as QuantityControlBar } from './QuantityControlBar';
 export { default as BookDetailCard } from './BookDetailCard';
 export { default as OfferDiscountCard } from './OfferDiscountCard';
 export { default as AddressCard } from './AddressCard';
+export { default as SummaryCard } from './SummaryCard';

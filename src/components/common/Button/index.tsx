@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
   },
   small: {
-    height: 40,
+    height: 36,
     paddingHorizontal: 20,
   },
 

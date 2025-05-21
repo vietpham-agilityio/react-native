@@ -39,10 +39,10 @@ exports[`BookCard matches snapshot with isCategory 1`] = `
 >
   <Image
     accessibilityRole="image"
-    alt="Her Come Tomorrow"
+    alt="I Talk About Running"
     source={
       {
-        "testUri": "../../../assets/images/books/her-come-tomorrow.webp",
+        "testUri": "../../../assets/images/books/what-i-talk-when-running.webp",
       }
     }
     style={
@@ -76,7 +76,7 @@ exports[`BookCard matches snapshot with isCategory 1`] = `
       ]
     }
   >
-    Her Come Tomorrow
+    I Talk About Running
   </Text>
   <Text
     style={
@@ -137,10 +137,10 @@ exports[`BookCard matches snapshot without isCategory 1`] = `
 >
   <Image
     accessibilityRole="image"
-    alt="Her Come Tomorrow"
+    alt="I Talk About Running"
     source={
       {
-        "testUri": "../../../assets/images/books/her-come-tomorrow.webp",
+        "testUri": "../../../assets/images/books/what-i-talk-when-running.webp",
       }
     }
     style={
@@ -174,7 +174,7 @@ exports[`BookCard matches snapshot without isCategory 1`] = `
       ]
     }
   >
-    Her Come Tomorrow
+    I Talk About Running
   </Text>
   <Text
     style={

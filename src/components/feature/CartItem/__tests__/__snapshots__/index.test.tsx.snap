@@ -17,7 +17,7 @@ exports[`CartItem matches snapshot 1`] = `
   <Image
     source={
       {
-        "testUri": "../../../assets/images/books/her-come-tomorrow.webp",
+        "testUri": "../../../assets/images/books/what-i-talk-when-running.webp",
       }
     }
     style={
@@ -52,7 +52,7 @@ exports[`CartItem matches snapshot 1`] = `
         ]
       }
     >
-      Her Come Tomorrow
+      I Talk About Running
     </Text>
     <View
       style={

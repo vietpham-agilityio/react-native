@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookDetailCard matches snapshot 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#fff",
+      "marginHorizontal": 24,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "alignSelf": "center",
+      }
+    }
+  >
+    <Image
+      alt="I Talk About Running"
+      source={
+        {
+          "testUri": "../../../assets/images/books/what-i-talk-when-running.webp",
+        }
+      }
+      style={
+        {
+          "borderRadius": 16,
+          "height": 330,
+          "marginBottom": 16,
+          "width": 240,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+      }
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "fontSize": 20,
+          },
+          {
+            "color": "#333",
+            "fontFamily": "Open Sans",
+            "fontWeight": "bold",
+          },
+          {
+            "color": "#121212",
+            "marginBottom": 12,
+          },
+        ]
+      }
+    >
+      I Talk About Running
+    </Text>
+    <Icon
+      accessibilityRole="button"
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessible={true}
+      color="#A5A5A5"
+      focusable={true}
+      name="heart"
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      size={24}
+    />
+  </View>
+  <Image
+    alt="vendor logo"
+    resizeMode="contain"
+    source={
+      {
+        "testUri": "../../../assets/images/vendors/gooday.png",
+      }
+    }
+    style={
+      {
+        "height": 32,
+        "marginBottom": 12,
+      }
+    }
+  />
+  <Text
+    style={
+      [
+        {
+          "color": "#333",
+          "fontFamily": "Roboto-Regular",
+          "fontSize": 12,
+        },
+        {
+          "color": "#A5A5A5",
+          "marginBottom": 24,
+        },
+      ]
+    }
+  >
+    What I Talk About When I Talk About Running is a memoir by Haruki Murakami in which he writes about his interest and participation in long-distance running. The book is translated to English by Philip Gabriel.
+  </Text>
+</View>
+`;

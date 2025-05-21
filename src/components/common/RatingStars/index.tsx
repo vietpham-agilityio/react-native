@@ -52,7 +52,7 @@ const RatingStars = ({
   return (
     <View style={styles.container}>
       {stars}
-      <Typography variant="typoMedium" weight="semibold">
+      <Typography variant="typoLarge" weight="semibold">
         {`(${rating.toFixed(1)})`}
       </Typography>
     </View>
@@ -62,7 +62,7 @@ const RatingStars = ({
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-end',
     gap: 4,
   },
 });

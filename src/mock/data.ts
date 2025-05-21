@@ -1,3 +1,26 @@
+export const VENDOR_DATA_MOCK = [
+  {
+    id: '1',
+    name: 'Warehouse',
+    image: require('@assets/images/vendors/ware-house.png'),
+  },
+  {
+    id: '2',
+    name: 'Kuromi',
+    image: require('@assets/images/vendors/kuromi.png'),
+  },
+  {
+    id: '3',
+    name: 'Gooday',
+    image: require('@assets/images/vendors/gooday.png'),
+  },
+  {
+    id: '4',
+    name: 'Crane Company',
+    image: require('@assets/images/vendors/crane-co.png'),
+  },
+];
+
 export const AUTHORS_DATA_MOCK = [
   {
     id: '1',
@@ -29,10 +52,12 @@ export const AUTHORS_DATA_MOCK = [
 export const BOOKS_DATA_MOCK = [
   {
     id: '1',
-    title: 'Her Come Tomorrow',
-    author: 'Nhat Anh',
-    image: require('@assets/images/books/her-come-tomorrow.webp'),
-    description: 'A novel about the American Dream',
+    title: 'I Talk About Running',
+    author: 'Haruki Murakami',
+    image: require('@assets/images/books/what-i-talk-when-running.webp'),
+    description:
+      'What I Talk About When I Talk About Running is a memoir by Haruki Murakami in which he writes about his interest and participation in long-distance running. The book is translated to English by Philip Gabriel.',
+    vendor: VENDOR_DATA_MOCK[2],
     price: 8.99,
     rating: 4,
     reviews: 1200,
@@ -42,7 +67,9 @@ export const BOOKS_DATA_MOCK = [
     title: 'Kafka on the Beach',
     author: 'Haruki Murakami',
     image: require('@assets/images/books/kafka-on-beach.webp'),
-    description: 'A novel about the American Dream',
+    description:
+      'Kafka on the Shore is a 2002 novel by Japanese author Haruki Murakami. Its 2005 English translation was among "The 10 Best Books of 2005" from The New York Times and received the World Fantasy Award for 2006.',
+    vendor: VENDOR_DATA_MOCK[1],
     price: 10.99,
     rating: 5,
     reviews: 380,
@@ -53,6 +80,7 @@ export const BOOKS_DATA_MOCK = [
     author: 'Harper Lee',
     image: require('@assets/images/books/kill-a-mocking.webp'),
     description: 'A novel about the American Dream',
+    vendor: VENDOR_DATA_MOCK[0],
     price: 12.99,
     rating: 4,
     reviews: 2340,
@@ -63,6 +91,7 @@ export const BOOKS_DATA_MOCK = [
     author: 'Jose Mauro Torre',
     image: require('@assets/images/books/my-orange-tree.webp'),
     description: 'A novel about the American Dream',
+    vendor: VENDOR_DATA_MOCK[3],
     price: 13.3,
     rating: 4,
     reviews: 872,
@@ -73,31 +102,9 @@ export const BOOKS_DATA_MOCK = [
     author: 'Haruki Murakami',
     image: require('@assets/images/books/norwegian-wood.webp'),
     description: 'A novel about the American Dream',
+    vendor: VENDOR_DATA_MOCK[1],
     price: 12.99,
     rating: 5,
     reviews: 6720,
-  },
-];
-
-export const VENDOR_DATA_MOCK = [
-  {
-    id: '1',
-    name: 'Warehouse',
-    image: require('@assets/images/vendors/ware-house.png'),
-  },
-  {
-    id: '2',
-    name: 'Kuromi',
-    image: require('@assets/images/vendors/kuromi.png'),
-  },
-  {
-    id: '3',
-    name: 'Gooday',
-    image: require('@assets/images/vendors/gooday.png'),
-  },
-  {
-    id: '4',
-    name: 'Crane Company',
-    image: require('@assets/images/vendors/crane-co.png'),
   },
 ];

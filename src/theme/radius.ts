@@ -1,4 +1,5 @@
 const radius = {
+  extraSmall: 8,
   small: 10,
   extraMedium: 16,
   medium: 40,

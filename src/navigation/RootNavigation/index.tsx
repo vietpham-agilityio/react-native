@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Platform } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // Screens
@@ -13,6 +14,7 @@ import {
 const Stack = createNativeStackNavigator();
 
 const RootNavigation = () => {
+  const isIOS = Platform.OS === 'ios';
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -22,7 +24,6 @@ const RootNavigation = () => {
         name="OnboardingFirstStep"
         component={OnboardingFirstStep}
       />
-      <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen
         options={{
           headerShown: false,
@@ -36,6 +37,16 @@ const RootNavigation = () => {
         }}
         name="OnboardingLastStep"
         component={OnboardingLastStep}
+      />
+      <Stack.Screen
+        options={{
+          headerTitle: '',
+          // headerBackTitle: ' ',
+          headerBackVisible: isIOS ? false : true,
+          headerShadowVisible: false,
+        }}
+        name="Login"
+        component={LoginScreen}
       />
     </Stack.Navigator>
   );

@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
 
   // Sizes
   large: {
-    height: 72,
+    height: 56,
   },
   medium: {
     height: 48,

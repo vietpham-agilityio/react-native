@@ -1,13 +1,24 @@
 import React from 'react';
 
-// Components
-import {View, Text} from 'react-native';
+import { OnboardingStepScreen } from '@/screens';
 
-const OnboardingSecondStep = () => {
+const OnboardingSecondStep = ({ navigation }: { navigation: any }) => {
+  const handleContinue = () => {
+    navigation.navigate('OnboardingLastStep');
+  };
+
+  const handleSignIn = () => {
+    navigation.navigate('Login');
+  };
+
   return (
-    <View>
-      <Text>Onboarding Second Step</Text>
-    </View>
+    <OnboardingStepScreen
+      stepKey="STEP_TWO"
+      onSkip={handleSignIn}
+      onContinue={handleContinue}
+      onSignIn={handleSignIn}
+      continueLabel="Continue"
+    />
   );
 };
 

@@ -9,28 +9,40 @@ import {
 } from 'react-native';
 
 // Components
-import { Button, ListDot, Typography } from '@/components';
+import { Button, ListDot, Typography, Heading } from '@/components';
 
 // Constants
 import { LIST_ONBOARDING_STEPS } from '@/constants/listData';
 
-// Styles
+// Theme
 import { colors } from '@/theme';
 
-const OnboardingFirstStep = ({ navigation }: { navigation: any }) => {
+interface OnBoardingStepScreenProps {
+  stepKey: keyof typeof LIST_ONBOARDING_STEPS;
+  onSkip: () => void;
+  onContinue: () => void;
+  onSignIn: () => void;
+  continueLabel?: string;
+}
+
+const OnBoardingStepScreen = ({
+  stepKey,
+  onSkip,
+  onContinue,
+  onSignIn,
+  continueLabel = 'Continue',
+}: OnBoardingStepScreenProps) => {
   const isIOS = Platform.OS === 'ios';
 
-  const handleSkipOnboarding = () => navigation.navigate('Login');
-  const handleContinue = () => navigation.navigate('OnboardingSecondStep');
-  const handleSignIn = () => navigation.navigate('Login');
+  const step = LIST_ONBOARDING_STEPS[stepKey];
+  const stepKeys = Object.keys(LIST_ONBOARDING_STEPS);
+  const activeIndex = stepKeys.indexOf(stepKey);
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: colors.white }}>
       <View style={styles.container}>
         {/* Skip Button */}
-        <TouchableOpacity
-          onPress={handleSkipOnboarding}
-          style={styles.skipButton}>
+        <TouchableOpacity onPress={onSkip} style={styles.skipButton}>
           <Typography
             variant="typoMedium"
             weight="medium"
@@ -42,47 +54,57 @@ const OnboardingFirstStep = ({ navigation }: { navigation: any }) => {
         {/* Illustration */}
         <View style={styles.illustrationContainer}>
           <Image
-            source={LIST_ONBOARDING_STEPS.STEP_ONE.image}
-            style={[
-              styles.illustration,
+            source={step.image}
+            style={
               isIOS
                 ? styles.illustrationSizeIOS
-                : styles.illustrationSizeAndroid,
-            ]}
+                : styles.illustrationSizeAndroid
+            }
             resizeMode="contain"
           />
-          {/* Description */}
-          <Typography
-            variant="typoLarge"
-            weight="regular"
-            style={[
-              styles.description,
-              isIOS ? { marginHorizontal: 26 } : { marginHorizontal: 56 },
-            ]}>
-            {LIST_ONBOARDING_STEPS.STEP_ONE.description}
-          </Typography>
+          <View style={styles.contentContainer}>
+            {step.title && (
+              <Heading
+                level={3}
+                style={[
+                  styles.heading,
+                  { marginBottom: stepKey === 'STEP_THREE' ? 44 : 12 },
+                ]}>
+                {step.title}
+              </Heading>
+            )}
+            <Typography
+              variant="typoLarge"
+              weight="regular"
+              style={[
+                styles.description,
+                !isIOS && { fontSize: 18, marginHorizontal: 10 },
+              ]}>
+              {step.description}
+            </Typography>
+          </View>
         </View>
 
         <ListDot
-          count={Object.keys(LIST_ONBOARDING_STEPS).length}
-          activeIndex={Object.keys(LIST_ONBOARDING_STEPS).indexOf('STEP_ONE')}
+          count={stepKeys.length}
+          activeIndex={activeIndex}
           style={styles.dotContainer}
         />
 
         {/* Buttons */}
         <View style={styles.buttonContainer}>
           <Button
-            title="Continue"
+            title={continueLabel}
             variant="primary"
             size="small"
-            onPress={handleContinue}
+            onPress={onContinue}
             style={styles.button}
           />
           <Button
             title="Sign in"
             variant="secondary"
             size="small"
-            onPress={handleSignIn}
+            onPress={onSignIn}
             style={styles.button}
           />
         </View>
@@ -103,18 +125,13 @@ const styles = StyleSheet.create({
     width: 60,
     padding: 16,
   },
-  skipText: { color: '#6C4AB6' },
-
+  skipText: {
+    color: '#6C4AB6',
+  },
   illustrationContainer: {
     flex: 1,
-    position: 'relative',
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
     alignItems: 'center',
-  },
-  illustration: {
-    position: 'absolute',
-    top: '28%',
-    zIndex: 1,
   },
   illustrationSizeIOS: {
     width: 320,
@@ -124,11 +141,16 @@ const styles = StyleSheet.create({
     width: 350,
     height: 350,
   },
+  contentContainer: {
+    paddingHorizontal: 24,
+  },
+  heading: {
+    marginTop: 14,
+    textAlign: 'center',
+  },
   description: {
-    position: 'absolute',
     textAlign: 'center',
     color: colors.grayMedium,
-    bottom: 0,
   },
   dotContainer: {
     marginTop: 28,
@@ -144,4 +166,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default OnboardingFirstStep;
+export default OnBoardingStepScreen;

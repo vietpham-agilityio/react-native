@@ -3,6 +3,7 @@ const radius = {
   small: 10,
   extraMedium: 16,
   medium: 40,
+  extraLarge: 48,
   large: 50,
 };
 

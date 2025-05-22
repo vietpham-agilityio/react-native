@@ -75,7 +75,6 @@ const styles = StyleSheet.create({
     borderRadius: radius.extraSmall,
     borderWidth: 1,
     borderColor: colors.borderLight,
-    marginVertical: 16,
   },
   topContainer: {
     paddingTop: 16,

@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // Screens
 import {
+  CheckoutScreen,
   LoginScreen,
   OnboardingFirstStep,
   OnboardingLastStep,
@@ -41,12 +42,20 @@ const RootNavigation = () => {
       <Stack.Screen
         options={{
           headerTitle: '',
-          // headerBackTitle: ' ',
           headerBackVisible: isIOS ? false : true,
           headerShadowVisible: false,
         }}
         name="Login"
         component={LoginScreen}
+      />
+      <Stack.Screen
+        options={{
+          headerTitle: 'Confirm Order',
+          headerShadowVisible: false,
+          headerTitleAlign: 'center',
+        }}
+        name="Checkout"
+        component={CheckoutScreen}
       />
     </Stack.Navigator>
   );

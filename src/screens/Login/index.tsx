@@ -24,7 +24,7 @@ const SignInScreen = ({ navigation }: { navigation: any }) => {
 
   const handleLogin = () => {
     Keyboard.dismiss();
-    navigation.navigate('Home');
+    navigation.navigate('Checkout');
   };
 
   const handleSignUp = () => {

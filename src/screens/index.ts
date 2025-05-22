@@ -1,5 +1,6 @@
-export { default as LoginScreen } from './LoginScreen';
-export { default as OnboardingStepScreen } from './OnboardingScreen/OnBoardingStep';
-export { default as OnboardingFirstStep } from './OnboardingScreen/FirstStep';
-export { default as OnboardingSecondStep } from './OnboardingScreen/SecondStep';
-export { default as OnboardingLastStep } from './OnboardingScreen/LastStep';
+export { default as LoginScreen } from './Login';
+export { default as OnboardingStepScreen } from './Onboarding/OnBoardingStep';
+export { default as OnboardingFirstStep } from './Onboarding/FirstStep';
+export { default as OnboardingSecondStep } from './Onboarding/SecondStep';
+export { default as OnboardingLastStep } from './Onboarding/LastStep';
+export { default as CheckoutScreen } from './Checkout';

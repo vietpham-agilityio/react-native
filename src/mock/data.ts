@@ -2,22 +2,22 @@ export const VENDOR_DATA_MOCK = [
   {
     id: '1',
     name: 'Warehouse',
-    image: require('@assets/images/vendors/ware-house.png'),
+    image: require('@assets/images/vendors/ware-house.webp'),
   },
   {
     id: '2',
     name: 'Kuromi',
-    image: require('@assets/images/vendors/kuromi.png'),
+    image: require('@assets/images/vendors/kuromi.webp'),
   },
   {
     id: '3',
     name: 'Gooday',
-    image: require('@assets/images/vendors/gooday.png'),
+    image: require('@assets/images/vendors/gooday.webp'),
   },
   {
     id: '4',
     name: 'Crane Company',
-    image: require('@assets/images/vendors/crane-co.png'),
+    image: require('@assets/images/vendors/crane-co.webp'),
   },
 ];
 

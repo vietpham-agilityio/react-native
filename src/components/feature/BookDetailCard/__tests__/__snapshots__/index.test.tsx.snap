@@ -92,7 +92,7 @@ exports[`BookDetailCard matches snapshot 1`] = `
     resizeMode="contain"
     source={
       {
-        "testUri": "../../../assets/images/vendors/gooday.png",
+        "testUri": "../../../assets/images/vendors/gooday.webp",
       }
     }
     style={

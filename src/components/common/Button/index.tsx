@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.secondary,
   },
   thirdParty: {
-    backgroundColor: colors.secondary,
+    backgroundColor: colors.white,
     borderWidth: 1,
     borderColor: colors.borderLight,
   },
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
     fontSize: fontSizes.h6,
   },
   icon: {
-    marginRight: 12,
+    marginRight: 14,
   },
 });
 

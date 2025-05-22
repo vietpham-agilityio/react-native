@@ -130,8 +130,10 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: fontSizes.typoLarge,
     color: colors.text,
-    paddingVertical: 12,
+    paddingTop: 22,
+    paddingBottom: 8,
     paddingHorizontal: 16,
+    height: 48,
   },
   leftIcon: {
     marginLeft: 12,

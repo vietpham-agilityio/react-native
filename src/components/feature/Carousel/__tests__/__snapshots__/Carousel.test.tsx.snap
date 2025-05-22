@@ -195,6 +195,7 @@ exports[`Carousel matches snapshot 1`] = `
   <View
     style={
       {
+        "alignItems": "center",
         "flexDirection": "row",
         "justifyContent": "center",
         "marginTop": 8,
@@ -204,6 +205,7 @@ exports[`Carousel matches snapshot 1`] = `
     <View
       style={
         [
+          undefined,
           {
             "borderRadius": 6,
             "marginHorizontal": 4,
@@ -220,6 +222,7 @@ exports[`Carousel matches snapshot 1`] = `
     <View
       style={
         [
+          undefined,
           {
             "borderRadius": 6,
             "marginHorizontal": 4,
@@ -236,6 +239,7 @@ exports[`Carousel matches snapshot 1`] = `
     <View
       style={
         [
+          undefined,
           {
             "borderRadius": 6,
             "marginHorizontal": 4,

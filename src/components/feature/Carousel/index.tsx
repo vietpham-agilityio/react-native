@@ -7,8 +7,8 @@ import {
   ViewToken,
 } from 'react-native';
 
-// Theme
-import { colors } from '@/theme';
+// Components
+import { ListDot } from '@/components';
 
 const { width } = Dimensions.get('window');
 
@@ -43,28 +43,11 @@ const Carousel = ({ children, style }: CarouselProps) => {
         onViewableItemsChanged={onViewRef.current}
         viewabilityConfig={{ viewAreaCoveragePercentThreshold: 50 }}
       />
-      <View style={styles.dotsContainer}>
-        {children.map((_, idx) => {
-          const isActive = idx === activeIndex;
-
-          return (
-            <View
-              key={idx}
-              testID="carousel-dot"
-              style={[
-                styles.dot,
-                {
-                  width: isActive ? 8 : 4,
-                  height: isActive ? 8 : 4,
-                  backgroundColor: isActive
-                    ? colors.primary
-                    : colors.primaryLight,
-                },
-              ]}
-            />
-          );
-        })}
-      </View>
+      <ListDot
+        count={children.length}
+        activeIndex={activeIndex}
+        testID="carousel-dot"
+      />
     </View>
   );
 };
@@ -72,15 +55,6 @@ const Carousel = ({ children, style }: CarouselProps) => {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-  },
-  dotsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginTop: 8,
-  },
-  dot: {
-    borderRadius: 6,
-    marginHorizontal: 4,
   },
 });
 

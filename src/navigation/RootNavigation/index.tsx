@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {
   CheckoutScreen,
   LoginScreen,
+  CartScreen,
   OnboardingFirstStep,
   OnboardingLastStep,
   OnboardingSecondStep,
@@ -53,9 +54,24 @@ const RootNavigation = () => {
           headerTitle: 'Confirm Order',
           headerShadowVisible: false,
           headerTitleAlign: 'center',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
         }}
         name="Checkout"
         component={CheckoutScreen}
+      />
+      <Stack.Screen
+        options={{
+          headerTitle: 'My Cart',
+          headerShadowVisible: false,
+          headerTitleAlign: 'center',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}
+        name="Cart"
+        component={CartScreen}
       />
     </Stack.Navigator>
   );

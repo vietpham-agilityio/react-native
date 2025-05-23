@@ -22,6 +22,27 @@ describe('Input Component', () => {
     expect(getByPlaceholderText('Your email')).toBeTruthy();
   });
 
+  it('renders left icon', () => {
+    const { getByTestId } = render(<Input leftIcon="email" label="Email" />);
+
+    expect(getByTestId('left-icon')).toBeTruthy();
+  });
+
+  it('trigger press event on right icon', () => {
+    const onRightIconPress = jest.fn();
+    const { getByTestId } = render(
+      <Input
+        rightIcon="eye"
+        label="Email"
+        onRightIconPress={onRightIconPress}
+      />,
+    );
+
+    fireEvent.press(getByTestId('right-icon'));
+
+    expect(onRightIconPress).toHaveBeenCalled();
+  });
+
   it('shows error message', () => {
     const { getByText } = render(
       <Input

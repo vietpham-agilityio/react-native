@@ -44,6 +44,7 @@ const Input = ({
     if (leftIcon) {
       return (
         <Icon
+          testID="left-icon"
           name={leftIcon}
           size={22}
           color={colors.grayNeutral}
@@ -58,6 +59,7 @@ const Input = ({
     if (rightIcon) {
       return (
         <TouchableOpacity
+          testID="right-icon"
           onPress={() => {
             if (onRightIconPress) {
               onRightIconPress();

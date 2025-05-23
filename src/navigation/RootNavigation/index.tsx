@@ -4,14 +4,12 @@ import { Platform } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // Bottom Tab Navigation
-import BottomTabNavigation from '../BottomTabNavigation';
+import BottomTabNavigation from '@/navigation/BottomTabNavigation';
 
 // Screens
 import {
   CheckoutScreen,
   LoginScreen,
-  CartScreen,
-  HomeScreen,
   OnboardingFirstStep,
   OnboardingLastStep,
   OnboardingSecondStep,
@@ -24,18 +22,6 @@ const RootNavigation = () => {
 
   return (
     <Stack.Navigator>
-      <Stack.Screen
-        options={{ headerShown: false }}
-        name="Main"
-        component={BottomTabNavigation}
-      />
-      <Stack.Screen
-        options={{
-          headerShown: false,
-        }}
-        name="Home"
-        component={HomeScreen}
-      />
       <Stack.Screen
         options={{
           headerShown: false,
@@ -67,6 +53,11 @@ const RootNavigation = () => {
         component={LoginScreen}
       />
       <Stack.Screen
+        options={{ headerShown: false }}
+        name="Main"
+        component={BottomTabNavigation}
+      />
+      <Stack.Screen
         options={{
           headerTitle: 'Confirm Order',
           headerShadowVisible: false,
@@ -77,18 +68,6 @@ const RootNavigation = () => {
         }}
         name="Checkout"
         component={CheckoutScreen}
-      />
-      <Stack.Screen
-        options={{
-          headerTitle: 'My Cart',
-          headerShadowVisible: false,
-          headerTitleAlign: 'center',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
-        }}
-        name="Cart"
-        component={CartScreen}
       />
     </Stack.Navigator>
   );

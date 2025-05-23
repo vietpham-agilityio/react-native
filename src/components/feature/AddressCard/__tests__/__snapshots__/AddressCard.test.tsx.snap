@@ -37,7 +37,6 @@ exports[`AddressCard matches snapshot 1`] = `
       {
         "alignItems": "flex-start",
         "flexDirection": "row",
-        "marginBottom": 12,
       }
     }
   >

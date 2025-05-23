@@ -7,16 +7,14 @@ import { AddressCard, SummaryCard, SelectionCard, Button } from '@/components';
 // Theme
 import { colors, radius } from '@/theme';
 
-const CheckoutScreen = ({ navigation }: { navigation: any }) => {
+const CheckoutScreen = () => {
   const handleChangeAddress = () => {};
 
   const handleChangeDateAndTime = () => {};
 
   const handleChangePayment = () => {};
 
-  const handleOrder = () => {
-    navigation.navigate('Cart');
-  };
+  const handleOrder = () => {};
 
   return (
     <View style={styles.container}>

@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
   },
   carouselSection: {
-    marginTop: 24,
+    paddingTop: 16,
   },
   sectionsWrapper: {
     marginTop: 26,

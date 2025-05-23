@@ -25,7 +25,7 @@ const CartScreen = ({ navigation }: { navigation: any }) => {
       <ScrollView
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}>
-        {BOOKS_DATA_MOCK.map(({ id, image, title, price }) => (
+        {BOOKS_DATA_MOCK.slice(0, 2).map(({ id, image, title, price }) => (
           <CartItem
             key={id}
             image={image}

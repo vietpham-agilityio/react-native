@@ -15,7 +15,7 @@ describe('SummaryCard', () => {
     const { getByText } = render(
       <SummaryCard
         price={price}
-        shipping={shipping}
+        shipping={0.99}
         total={total}
         onSeeDetails={() => {}}
       />,
@@ -25,7 +25,7 @@ describe('SummaryCard', () => {
     expect(getByText('Shipping')).toBeTruthy();
     expect(getByText('Total Payment')).toBeTruthy();
     expect(getByText('$87.10')).toBeTruthy();
-    expect(getByText('$2')).toBeTruthy();
+    expect(getByText('$0.99')).toBeTruthy();
     expect(getByText('$89.10')).toBeTruthy();
   });
 

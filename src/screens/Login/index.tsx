@@ -22,21 +22,27 @@ const SignInScreen = ({ navigation }: { navigation: any }) => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleLogin = () => {
+  const handleDismissKeyboard = () => {
     Keyboard.dismiss();
-    navigation.navigate('Checkout');
+  };
+
+  const handleLogin = () => {
+    handleDismissKeyboard();
+    navigation.navigate('Main');
   };
 
   const handleSignUp = () => {
-    Keyboard.dismiss();
+    handleDismissKeyboard();
   };
 
   const handleForgotPassword = () => {
-    Keyboard.dismiss();
+    handleDismissKeyboard();
   };
 
   return (
-    <TouchableWithoutFeedback onPress={handleLogin} accessible={false}>
+    <TouchableWithoutFeedback
+      onPress={handleDismissKeyboard}
+      accessible={false}>
       <View style={styles.container}>
         {/* Title */}
         <Heading level={3} style={styles.title}>

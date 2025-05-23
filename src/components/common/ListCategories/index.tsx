@@ -1,5 +1,5 @@
 import React, { memo, useCallback, useState } from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 
 // Components
 import { TopicItem } from '@/components/common';
@@ -19,14 +19,16 @@ const ListCategories = () => {
       horizontal
       showsHorizontalScrollIndicator={false}
       style={styles.scroll}>
-      {LIST_TOPICS.map(topic => (
-        <TopicItem
-          key={topic.id}
-          label={topic.label}
-          isActive={activeId === topic.label}
-          onPress={() => handlePress(topic.label)}
-        />
-      ))}
+      <View style={styles.container}>
+        {LIST_TOPICS.map(topic => (
+          <TopicItem
+            key={topic.id}
+            label={topic.label}
+            isActive={activeId === topic.label}
+            onPress={() => handlePress(topic.label)}
+          />
+        ))}
+      </View>
     </ScrollView>
   );
 };
@@ -34,6 +36,9 @@ const ListCategories = () => {
 const styles = StyleSheet.create({
   scroll: {
     paddingVertical: 2,
+  },
+  container: {
+    flexDirection: 'row',
     gap: 24,
   },
 });

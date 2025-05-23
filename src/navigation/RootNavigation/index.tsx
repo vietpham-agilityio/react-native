@@ -3,11 +3,15 @@ import React from 'react';
 import { Platform } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+// Bottom Tab Navigation
+import BottomTabNavigation from '../BottomTabNavigation';
+
 // Screens
 import {
   CheckoutScreen,
   LoginScreen,
   CartScreen,
+  HomeScreen,
   OnboardingFirstStep,
   OnboardingLastStep,
   OnboardingSecondStep,
@@ -17,8 +21,21 @@ const Stack = createNativeStackNavigator();
 
 const RootNavigation = () => {
   const isIOS = Platform.OS === 'ios';
+
   return (
     <Stack.Navigator>
+      <Stack.Screen
+        options={{ headerShown: false }}
+        name="Main"
+        component={BottomTabNavigation}
+      />
+      <Stack.Screen
+        options={{
+          headerShown: false,
+        }}
+        name="Home"
+        component={HomeScreen}
+      />
       <Stack.Screen
         options={{
           headerShown: false,

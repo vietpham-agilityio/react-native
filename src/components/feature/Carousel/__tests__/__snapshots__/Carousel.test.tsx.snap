@@ -125,7 +125,7 @@ exports[`Carousel matches snapshot 1`] = `
           style={
             {
               "alignItems": "center",
-              "width": 750,
+              "width": 702,
             }
           }
         >
@@ -152,7 +152,7 @@ exports[`Carousel matches snapshot 1`] = `
           style={
             {
               "alignItems": "center",
-              "width": 750,
+              "width": 702,
             }
           }
         >
@@ -179,7 +179,7 @@ exports[`Carousel matches snapshot 1`] = `
           style={
             {
               "alignItems": "center",
-              "width": 750,
+              "width": 702,
             }
           }
         >

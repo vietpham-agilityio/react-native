@@ -34,7 +34,9 @@ const Carousel = ({ children, style }: CarouselProps) => {
         data={children}
         testID="carousel-list"
         renderItem={({ item }) => (
-          <View style={{ width, alignItems: 'center' }}>{item}</View>
+          <View style={{ width: width - 48, alignItems: 'center' }}>
+            {item}
+          </View>
         )}
         keyExtractor={(_, idx) => idx.toString()}
         horizontal

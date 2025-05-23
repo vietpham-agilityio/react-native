@@ -1,5 +1,8 @@
 export { default as LoginScreen } from './Login';
 export { default as CartScreen } from './Cart';
+export { default as HomeScreen } from './Home';
+export { default as CategoryScreen } from './Category';
+export { default as ProfileScreen } from './Profile';
 export { default as OnboardingStepScreen } from './Onboarding/OnBoardingStep';
 export { default as OnboardingFirstStep } from './Onboarding/FirstStep';
 export { default as OnboardingSecondStep } from './Onboarding/SecondStep';

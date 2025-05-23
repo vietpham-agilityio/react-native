@@ -30,7 +30,7 @@ const TopicItem = ({ label, isActive, onPress }: TopicItemProps) => (
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    marginHorizontal: 24,
+    paddingBottom: 2,
   },
   text: {
     color: colors.grayMedium,

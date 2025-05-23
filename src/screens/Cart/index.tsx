@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 
 // Components
-import { Button, CartItem } from '@/components';
+import { Button, CartItem, Header } from '@/components';
 
 // Theme
 import { colors, radius } from '@/theme';
@@ -21,12 +21,13 @@ const CartScreen = ({ navigation }: { navigation: any }) => {
 
   return (
     <View style={styles.container}>
+      <Header title="My Cart" />
       <ScrollView
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}>
-        {BOOKS_DATA_MOCK.map(({ image, title, price }) => (
+        {BOOKS_DATA_MOCK.map(({ id, image, title, price }) => (
           <CartItem
-            key={title}
+            key={id}
             image={image}
             title={title}
             price={price}
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
   },
   scrollContent: {
-    padding: 24,
+    paddingHorizontal: 24,
     paddingBottom: 0,
     gap: 16,
   },

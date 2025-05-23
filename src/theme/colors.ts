@@ -20,7 +20,7 @@ const baseColors = {
     primary: '#121212',
   },
   red: {
-    error: '#E57373',
+    error: '#EF5A56',
   },
   white: '#fff',
 };

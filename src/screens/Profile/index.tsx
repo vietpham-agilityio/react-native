@@ -2,22 +2,35 @@ import React from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 
 // Components
-import { Header } from '@/components';
+import { Header, Button } from '@/components';
 
 // Theme
 import { colors } from '@/theme';
 
-const ProfileScreen = () => (
-  <View>
-    <Header title="Profile" showSearchIcon showNotificationDot />
-    <View style={styles.screenContainer}>
-      <Image
-        source={require('@assets/images/profile-not-implement.png')}
-        style={styles.profileImage}
-      />
+// Store
+import { useAuth } from '@/store/AuthContext';
+
+const ProfileScreen = () => {
+  const { signOut } = useAuth();
+
+  return (
+    <View>
+      <Header title="Profile" showSearchIcon showNotificationDot />
+      <View style={styles.screenContainer}>
+        <Image
+          source={require('@assets/images/profile-not-implement.png')}
+          style={styles.profileImage}
+        />
+        <Button
+          title="Sign Out"
+          variant="primary"
+          size="medium"
+          onPress={signOut}
+        />
+      </View>
     </View>
-  </View>
-);
+  );
+};
 
 const styles = StyleSheet.create({
   screenContainer: {

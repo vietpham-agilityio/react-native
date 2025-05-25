@@ -17,18 +17,61 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 // Theme
 import { colors, radius } from '@/theme';
 
-const SignInScreen = ({ navigation }: { navigation: any }) => {
+// Store
+import { useAuth } from '@/store/AuthContext';
+
+const SignInScreen = () => {
+  const { signIn } = useAuth();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
 
   const handleDismissKeyboard = () => {
     Keyboard.dismiss();
   };
 
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validatePassword = (password: string) => {
+    return password.length >= 8;
+  };
+
   const handleLogin = () => {
     handleDismissKeyboard();
-    navigation.navigate('Main');
+
+    const trimmedEmail = email.trim();
+    const trimmedPassword = password.trim();
+
+    let emailErr = '';
+    let passwordErr = '';
+
+    if (!trimmedEmail) {
+      emailErr = 'Email is required';
+    } else if (!validateEmail(trimmedEmail)) {
+      emailErr = 'Invalid email';
+    }
+
+    if (!trimmedPassword) {
+      passwordErr = 'Password is required';
+    } else if (!validatePassword(trimmedPassword)) {
+      passwordErr = 'Password must be at least 8 characters';
+    }
+
+    setEmailError(emailErr);
+    setPasswordError(passwordErr);
+
+    if (emailErr || passwordErr) {
+      return;
+    }
+
+    // Simulate sign in
+    signIn({ email: trimmedEmail, password: trimmedPassword });
   };
 
   const handleSignUp = () => {
@@ -59,6 +102,7 @@ const SignInScreen = ({ navigation }: { navigation: any }) => {
         <Input
           label="Email"
           placeholder="Your email"
+          error={emailError}
           value={email}
           onChangeText={setEmail}
           keyboardType="email-address"
@@ -70,6 +114,7 @@ const SignInScreen = ({ navigation }: { navigation: any }) => {
         <Input
           label="Password"
           placeholder="Your password"
+          error={passwordError}
           value={password}
           onChangeText={setPassword}
           secureTextEntry={!showPassword}
@@ -140,7 +185,7 @@ const SignInScreen = ({ navigation }: { navigation: any }) => {
           }
           style={styles.socialButton}
           textStyle={styles.socialButtonText}
-          onPress={handleLogin}
+          onPress={handleDismissKeyboard}
         />
         <Button
           title="Sign in with Apple"
@@ -156,7 +201,7 @@ const SignInScreen = ({ navigation }: { navigation: any }) => {
           }
           style={styles.socialButton}
           textStyle={styles.socialButtonText}
-          onPress={handleLogin}
+          onPress={handleDismissKeyboard}
         />
       </View>
     </TouchableWithoutFeedback>

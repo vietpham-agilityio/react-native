@@ -1,9 +1,13 @@
-import React from 'react';
-
+import React, { useReducer } from 'react';
 import { Platform } from 'react-native';
+
+// Native Stack
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-// Bottom Tab Navigation
+import { AuthContext } from '@/store/AuthContext';
+
+// Navigation
+import { NavigationContainer } from '@react-navigation/native';
 import BottomTabNavigation from '@/navigation/BottomTabNavigation';
 
 // Screens
@@ -15,61 +19,88 @@ import {
   OnboardingSecondStep,
 } from '@/screens';
 
+// Store
+import authReducer, { initialState } from '@/store/AuthReducer';
+
 const Stack = createNativeStackNavigator();
 
 const RootNavigation = () => {
+  const [state, dispatch] = useReducer(authReducer, initialState);
   const isIOS = Platform.OS === 'ios';
 
+  const authContext = {
+    signIn: async (data: { email: string; password: string }) => {
+      dispatch({ type: 'SIGN_IN', token: 'dummy-auth-token' });
+      console.log(data);
+    },
+    signOut: () => dispatch({ type: 'SIGN_OUT', token: null }),
+  };
+
   return (
-    <Stack.Navigator>
-      <Stack.Screen
-        options={{
-          headerShown: false,
-        }}
-        name="OnboardingFirstStep"
-        component={OnboardingFirstStep}
-      />
-      <Stack.Screen
-        options={{
-          headerShown: false,
-        }}
-        name="OnboardingSecondStep"
-        component={OnboardingSecondStep}
-      />
-      <Stack.Screen
-        options={{
-          headerShown: false,
-        }}
-        name="OnboardingLastStep"
-        component={OnboardingLastStep}
-      />
-      <Stack.Screen
-        options={{
-          headerTitle: '',
-          headerBackVisible: isIOS ? false : true,
-          headerShadowVisible: false,
-        }}
-        name="Login"
-        component={LoginScreen}
-      />
-      <Stack.Screen
-        options={{ headerShown: false }}
-        name="Main"
-        component={BottomTabNavigation}
-      />
-      <Stack.Screen
-        options={{
-          headerTitle: 'Confirm Order',
-          headerShadowVisible: false,
-          headerTitleAlign: 'center',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
-        }}
-        name="Checkout"
-        component={CheckoutScreen}
-      />
-    </Stack.Navigator>
+    <AuthContext.Provider value={authContext}>
+      <NavigationContainer>
+        <Stack.Navigator>
+          {!state.userToken ? (
+            <>
+              {!state.isSignout && (
+                <>
+                  <Stack.Screen
+                    options={{
+                      headerShown: false,
+                    }}
+                    name="OnboardingFirstStep"
+                    component={OnboardingFirstStep}
+                  />
+                  <Stack.Screen
+                    options={{
+                      headerShown: false,
+                    }}
+                    name="OnboardingSecondStep"
+                    component={OnboardingSecondStep}
+                  />
+                  <Stack.Screen
+                    options={{
+                      headerShown: false,
+                    }}
+                    name="OnboardingLastStep"
+                    component={OnboardingLastStep}
+                  />
+                </>
+              )}
+              <Stack.Screen
+                options={{
+                  headerTitle: '',
+                  headerBackVisible: isIOS ? false : true,
+                  headerShadowVisible: false,
+                }}
+                name="Login"
+                component={LoginScreen}
+              />
+            </>
+          ) : (
+            <>
+              <Stack.Screen
+                options={{ headerShown: false }}
+                name="Main"
+                component={BottomTabNavigation}
+              />
+              <Stack.Screen
+                options={{
+                  headerTitle: 'Confirm Order',
+                  headerShadowVisible: false,
+                  headerTitleAlign: 'center',
+                  headerTitleStyle: {
+                    fontWeight: 'bold',
+                  },
+                }}
+                name="Checkout"
+                component={CheckoutScreen}
+              />
+            </>
+          )}
+        </Stack.Navigator>
+      </NavigationContainer>
+    </AuthContext.Provider>
   );
 };
 

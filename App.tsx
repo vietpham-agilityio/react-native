@@ -6,16 +6,7 @@ import { DevSettings } from 'react-native';
 // Bottom Sheet
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 
-// Navigation
-import { NavigationContainer } from '@react-navigation/native';
-
 import RootNavigation from '@navigation/RootNavigation';
-
-const MyNavigationStack = () => (
-  <NavigationContainer>
-    <RootNavigation />
-  </NavigationContainer>
-);
 
 const App = () => {
   const [showStorybook, setShowStorybook] = useState(false);
@@ -40,7 +31,7 @@ const App = () => {
 
   return (
     <BottomSheetModalProvider>
-      <MyNavigationStack />
+      <RootNavigation />
     </BottomSheetModalProvider>
   );
 };

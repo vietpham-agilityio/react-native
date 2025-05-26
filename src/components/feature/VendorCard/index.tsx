@@ -1,13 +1,8 @@
 import React from 'react';
-import {
-  Image,
-  StyleSheet,
-  ImageSourcePropType,
-  TouchableOpacity,
-} from 'react-native';
+import { Image, ImageSourcePropType, TouchableOpacity } from 'react-native';
 
-// Theme
-import { colors, radius } from '@/theme';
+// Styles
+import styles from './VendorCard.style';
 
 interface VendorCardProps {
   image: ImageSourcePropType;
@@ -31,25 +26,5 @@ const VendorCard = ({ image, name, onPress }: VendorCardProps) => (
     />
   </TouchableOpacity>
 );
-
-const styles = StyleSheet.create({
-  card: {
-    backgroundColor: colors.cardBackground,
-    borderRadius: radius.small,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 5,
-    paddingVertical: 15,
-    shadowColor: colors.grayMedium,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.06,
-    shadowRadius: 8,
-    elevation: 2,
-  },
-  logo: {
-    width: 70,
-    height: 50,
-  },
-});
 
 export default VendorCard;

@@ -1,4 +1,4 @@
-import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 
 // Components
 import { Heading, Typography } from '@/components/common';
@@ -7,7 +7,10 @@ import { Heading, Typography } from '@/components/common';
 import Icon from 'react-native-vector-icons/Feather';
 
 // Theme
-import { colors, radius } from '@/theme';
+import { colors } from '@/theme';
+
+// Styles
+import styles from './SummaryCard.style';
 
 interface SummaryCardProps {
   price: number;
@@ -68,45 +71,5 @@ const SummaryCard = ({
     </TouchableOpacity>
   </View>
 );
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: colors.white,
-    borderRadius: radius.extraSmall,
-    borderWidth: 1,
-    borderColor: colors.borderLight,
-  },
-  topContainer: {
-    paddingTop: 16,
-    paddingHorizontal: 16,
-  },
-  heading: {
-    marginBottom: 16,
-    color: colors.textDark,
-  },
-  row: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  colorText: {
-    color: colors.textDark,
-  },
-  divider: {
-    height: 1,
-    backgroundColor: colors.borderLight,
-    marginVertical: 16,
-  },
-  seeDetailsRow: {
-    paddingHorizontal: 16,
-    paddingBottom: 16,
-    flexDirection: 'row',
-    alignItems: 'center',
-    alignSelf: 'flex-start',
-    gap: 4,
-  },
-  seeDetailsText: {
-    color: colors.primary,
-  },
-});
 
 export default SummaryCard;

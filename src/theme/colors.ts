@@ -22,6 +22,10 @@ const baseColors = {
   red: {
     error: '#EF5A56',
   },
+  yellow: {
+    primary: '#FFD700',
+  },
+
   white: '#fff',
 };
 
@@ -58,6 +62,7 @@ const colors = {
   // Status colors
   error: baseColors.red.error,
   white: baseColors.white,
+  warning: baseColors.yellow.primary,
 
   // Input colors
   inputBackground: baseColors.gray[200],

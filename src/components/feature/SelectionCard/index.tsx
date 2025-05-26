@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 
 // Components
 import { Typography, Heading } from '@/components/common';
@@ -8,7 +8,10 @@ import { Typography, Heading } from '@/components/common';
 import Icon from 'react-native-vector-icons/Feather';
 
 // Theme
-import { colors, radius } from '@/theme';
+import { colors } from '@/theme';
+
+// Styles
+import styles from './SelectionCard.style';
 
 interface SelectionCardProps {
   title: string;
@@ -45,46 +48,5 @@ const SelectionCard = ({
     </TouchableOpacity>
   </View>
 );
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: colors.white,
-    borderRadius: radius.extraSmall,
-    borderWidth: 1,
-    borderColor: colors.borderLight,
-    padding: 16,
-  },
-  heading: {
-    marginBottom: 16,
-    lineHeight: 24,
-    color: colors.textDark,
-  },
-  row: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  iconCircle: {
-    width: 44,
-    height: 44,
-    marginRight: 16,
-    borderRadius: radius.large,
-    backgroundColor: colors.background,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  info: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  label: {
-    color: colors.textDark,
-    lineHeight: 20,
-  },
-  description: {
-    color: colors.grayMedium,
-    lineHeight: 20,
-  },
-});
 
 export default SelectionCard;

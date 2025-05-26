@@ -3,15 +3,14 @@ import React, { memo, useCallback } from 'react';
 import {
   TouchableOpacity,
   Text,
-  StyleSheet,
   ViewStyle,
   TextStyle,
   GestureResponderEvent,
   View,
 } from 'react-native';
 
-// Theme
-import { colors, fontSizes, radius } from '@/theme';
+// Styles
+import styles from './Button.style';
 
 interface ButtonProps {
   title: string;
@@ -89,85 +88,5 @@ const Button = ({
     </TouchableOpacity>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: radius.medium,
-    paddingHorizontal: 24,
-  },
-
-  // Variants
-  primary: {
-    backgroundColor: colors.primary,
-  },
-  secondary: {
-    backgroundColor: colors.secondary,
-  },
-  ghost: {
-    backgroundColor: colors.secondary,
-  },
-  thirdParty: {
-    backgroundColor: colors.white,
-    borderWidth: 1,
-    borderColor: colors.borderLight,
-  },
-
-  // Sizes
-  large: {
-    height: 56,
-  },
-  medium: {
-    height: 48,
-    paddingHorizontal: 24,
-  },
-  small: {
-    height: 36,
-    paddingHorizontal: 20,
-  },
-
-  // Disabled
-  disabled: {
-    backgroundColor: colors.secondary,
-    borderColor: colors.borderLight,
-    borderWidth: 1,
-    opacity: 0.5,
-  },
-  disabledText: {
-    color: colors.grayMedium,
-  },
-
-  // Text
-  text: {
-    fontWeight: '700',
-    textAlign: 'center',
-  },
-  primaryText: {
-    color: colors.white,
-  },
-  secondaryText: {
-    color: colors.primary,
-  },
-  ghostText: {
-    color: colors.grayMedium,
-  },
-  thirdPartyText: {
-    color: colors.textDark,
-  },
-  largeText: {
-    fontSize: fontSizes.h3,
-  },
-  mediumText: {
-    fontSize: fontSizes.h5,
-  },
-  smallText: {
-    fontSize: fontSizes.h6,
-  },
-  icon: {
-    marginRight: 14,
-  },
-});
 
 export default memo(Button);

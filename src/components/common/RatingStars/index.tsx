@@ -1,11 +1,16 @@
 import React from 'react';
 
 // Components
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import { Typography } from '@/components/common';
+
+// Styles
+import styles from './RatingStars.style';
 
 // Icon
 import Icon from 'react-native-vector-icons/AntDesign';
+
+// Theme
 import { colors } from '@/theme';
 
 interface RatingStarsProps {
@@ -19,7 +24,7 @@ const RatingStars = ({
   rating,
   maxStars = 5,
   starSize = 24,
-  starColor = '#FFD700',
+  starColor = colors.warning,
 }: RatingStarsProps) => {
   const stars = [];
 
@@ -58,13 +63,5 @@ const RatingStars = ({
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'flex-end',
-    gap: 4,
-  },
-});
 
 export default RatingStars;

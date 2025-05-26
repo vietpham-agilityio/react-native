@@ -16,7 +16,7 @@ interface AuthorCardProps {
   image: ImageSourcePropType;
   name: string;
   role: string;
-  onPress: () => void;
+  onPress?: () => void;
 }
 
 const AuthorCard = ({ image, name, role, onPress }: AuthorCardProps) => (

@@ -1,3 +1,5 @@
+import { ImageSourcePropType } from 'react-native';
+
 export const LIST_TOPICS = [
   { id: 'all', label: 'All' },
   { id: 'novels', label: 'Novels' },
@@ -6,9 +8,16 @@ export const LIST_TOPICS = [
   { id: 'romance', label: 'Romance' },
 ];
 
-export const LIST_ONBOARDING_STEPS = {
+export const LIST_ONBOARDING_STEPS: Record<
+  string,
+  {
+    title: string;
+    description: string;
+    image: ImageSourcePropType;
+  }
+> = {
   STEP_ONE: {
-    title: '',
+    title: 'Now reading books will be easier',
     description:
       'Discover new worlds, join a vibrant reading community. Start your reading adventure effortlessly with us.',
     image: require('@assets/images/onBoarding/on-boarding-step-one.webp'),

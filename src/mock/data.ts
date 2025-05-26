@@ -1,4 +1,6 @@
-export const VENDOR_DATA_MOCK = [
+import { Author, Book, Vendor } from '@/types/models';
+
+export const VENDOR_DATA_MOCK: Vendor[] = [
   {
     id: '1',
     name: 'Warehouse',
@@ -21,7 +23,7 @@ export const VENDOR_DATA_MOCK = [
   },
 ];
 
-export const AUTHORS_DATA_MOCK = [
+export const AUTHORS_DATA_MOCK: Author[] = [
   {
     id: '1',
     image: require('@assets/images/authors/harper-lee.webp'),
@@ -49,7 +51,7 @@ export const AUTHORS_DATA_MOCK = [
   },
 ];
 
-export const BOOKS_DATA_MOCK = [
+export const BOOKS_DATA_MOCK: Book[] = [
   {
     id: '1',
     title: 'I Talk About Running',

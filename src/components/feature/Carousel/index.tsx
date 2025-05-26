@@ -1,23 +1,31 @@
 import React, { memo, ReactNode, useRef, useState } from 'react';
-import {
-  View,
-  FlatList,
-  StyleSheet,
-  Dimensions,
-  ViewToken,
-} from 'react-native';
+import { View, FlatList, Dimensions, ViewToken } from 'react-native';
+
+// Styles
+import styles from './Carousel.style';
 
 // Components
 import { ListDot } from '@/components';
 
 const { width } = Dimensions.get('window');
 
+export interface CarouselItem {
+  id: string;
+  item: ReactNode;
+}
+
 interface CarouselProps {
-  children: ReactNode[];
+  listItems: CarouselItem[];
   style?: object;
 }
 
-const Carousel = ({ children, style }: CarouselProps) => {
+const Item = ({ item }: { item: CarouselItem }) => {
+  return (
+    <View style={{ width: width - 48, alignItems: 'center' }}>{item.item}</View>
+  );
+};
+
+const Carousel = ({ listItems, style }: CarouselProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const onViewRef = useRef(
@@ -31,33 +39,23 @@ const Carousel = ({ children, style }: CarouselProps) => {
   return (
     <View style={[styles.container, style]}>
       <FlatList
-        data={children}
-        testID="carousel-list"
-        renderItem={({ item }) => (
-          <View style={{ width: width - 48, alignItems: 'center' }}>
-            {item}
-          </View>
-        )}
-        keyExtractor={(_, idx) => idx.toString()}
         horizontal
         pagingEnabled
+        testID="carousel-list"
+        data={listItems}
+        renderItem={({ item }: { item: CarouselItem }) => <Item item={item} />}
+        keyExtractor={item => item.id}
         showsHorizontalScrollIndicator={false}
         onViewableItemsChanged={onViewRef.current}
         viewabilityConfig={{ viewAreaCoveragePercentThreshold: 50 }}
       />
       <ListDot
-        count={children.length}
+        count={listItems.length}
         activeIndex={activeIndex}
         testID="carousel-dot"
       />
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-  },
-});
 
 export default memo(Carousel);

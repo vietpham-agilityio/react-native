@@ -11,13 +11,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import BottomTabNavigation from '@/navigation/BottomTabNavigation';
 
 // Screens
-import {
-  CheckoutScreen,
-  LoginScreen,
-  OnboardingFirstStep,
-  OnboardingLastStep,
-  OnboardingSecondStep,
-} from '@/screens';
+import { CheckoutScreen, LoginScreen, OnboardingScreen } from '@/screens';
 
 // Store
 import authReducer, { initialState } from '@/store/AuthReducer';
@@ -48,22 +42,8 @@ const RootNavigation = () => {
                     options={{
                       headerShown: false,
                     }}
-                    name="OnboardingFirstStep"
-                    component={OnboardingFirstStep}
-                  />
-                  <Stack.Screen
-                    options={{
-                      headerShown: false,
-                    }}
-                    name="OnboardingSecondStep"
-                    component={OnboardingSecondStep}
-                  />
-                  <Stack.Screen
-                    options={{
-                      headerShown: false,
-                    }}
-                    name="OnboardingLastStep"
-                    component={OnboardingLastStep}
+                    name="Onboarding"
+                    component={OnboardingScreen}
                   />
                 </>
               )}

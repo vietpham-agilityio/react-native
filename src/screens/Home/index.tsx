@@ -31,15 +31,16 @@ import {
   VENDOR_DATA_MOCK,
 } from '@/mock/data';
 
+// Types
+import { Book } from '@/types/models';
+
 const HomeScreen = ({ navigation }: { navigation: any }) => {
   const isIOS = Platform.OS === 'ios';
 
   const [isBookDetailModalVisible, setIsBookDetailModalVisible] =
     useState(false);
 
-  const [selectedBook, setSelectedBook] = useState<any | null>(
-    BOOKS_DATA_MOCK[0],
-  );
+  const [selectedBook, setSelectedBook] = useState<Book | null>(null);
 
   const handleClickTopWeekSeeAll = useCallback(() => {
     navigation.navigate('Category');
@@ -63,22 +64,29 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
     <View style={styles.screenContainer}>
       <Header title="Home" showSearchIcon showNotificationDot />
       <ScrollView
-        style={styles.carouselSection}
+        showsVerticalScrollIndicator={false}
         contentContainerStyle={
           isIOS ? { paddingBottom: 100 } : { paddingBottom: 80 }
         }
-        showsVerticalScrollIndicator={false}>
-        <Carousel>
-          {BOOKS_DATA_MOCK.slice(0, 5).map(book => (
-            <OfferDiscountCard
-              key={book.id}
-              title="Special Offer"
-              discountPercentage={25}
-              image={book.image}
-              onPress={() => handleBookPress(book)}
-            />
-          ))}
-        </Carousel>
+        style={styles.carouselSection}>
+        <Carousel
+          listItems={BOOKS_DATA_MOCK.slice(0, 5).map((book: Book) => {
+            const { id, image } = book;
+
+            return {
+              id,
+              item: (
+                <OfferDiscountCard
+                  key={id}
+                  title="Special Offer"
+                  discountPercentage={25}
+                  image={image}
+                  onPress={() => handleBookPress(book)}
+                />
+              ),
+            };
+          })}
+        />
         <View style={styles.sectionsWrapper}>
           {/* Top book week */}
           <View style={styles.sectionContainer}>
@@ -175,13 +183,13 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
         visible={isBookDetailModalVisible}
         onCloseModal={handleCloseModal}
         book={{
-          image: selectedBook.image,
-          title: selectedBook.title,
-          brandLogo: selectedBook.vendor.image,
-          description: selectedBook.description,
+          image: selectedBook?.image || '',
+          title: selectedBook?.title || '',
+          brandLogo: selectedBook?.vendor.image || '',
+          description: selectedBook?.description || '',
           isFavorite: false,
-          price: selectedBook.price,
-          rating: selectedBook.rating,
+          price: selectedBook?.price || 0,
+          rating: selectedBook?.rating || 0,
         }}
         onAddToCart={handleAddToCart}
         onToggleFavorite={() => {}}

@@ -15,61 +15,70 @@ exports[`Carousel matches snapshot 1`] = `
     data={
       [
         {
-          "$$typeof": Symbol(react.transitional.element),
-          "_owner": null,
-          "_store": {},
-          "key": "1",
-          "props": {
-            "children": {
-              "$$typeof": Symbol(react.transitional.element),
-              "_owner": null,
-              "_store": {},
-              "key": null,
-              "props": {
-                "children": "Slide 1",
+          "id": "1",
+          "item": {
+            "$$typeof": Symbol(react.transitional.element),
+            "_owner": null,
+            "_store": {},
+            "key": null,
+            "props": {
+              "children": {
+                "$$typeof": Symbol(react.transitional.element),
+                "_owner": null,
+                "_store": {},
+                "key": null,
+                "props": {
+                  "children": "Slide 1",
+                },
+                "type": [Function],
               },
-              "type": [Function],
             },
+            "type": [Function],
           },
-          "type": [Function],
         },
         {
-          "$$typeof": Symbol(react.transitional.element),
-          "_owner": null,
-          "_store": {},
-          "key": "2",
-          "props": {
-            "children": {
-              "$$typeof": Symbol(react.transitional.element),
-              "_owner": null,
-              "_store": {},
-              "key": null,
-              "props": {
-                "children": "Slide 2",
+          "id": "2",
+          "item": {
+            "$$typeof": Symbol(react.transitional.element),
+            "_owner": null,
+            "_store": {},
+            "key": null,
+            "props": {
+              "children": {
+                "$$typeof": Symbol(react.transitional.element),
+                "_owner": null,
+                "_store": {},
+                "key": null,
+                "props": {
+                  "children": "Slide 2",
+                },
+                "type": [Function],
               },
-              "type": [Function],
             },
+            "type": [Function],
           },
-          "type": [Function],
         },
         {
-          "$$typeof": Symbol(react.transitional.element),
-          "_owner": null,
-          "_store": {},
-          "key": "3",
-          "props": {
-            "children": {
-              "$$typeof": Symbol(react.transitional.element),
-              "_owner": null,
-              "_store": {},
-              "key": null,
-              "props": {
-                "children": "Slide 3",
+          "id": "3",
+          "item": {
+            "$$typeof": Symbol(react.transitional.element),
+            "_owner": null,
+            "_store": {},
+            "key": null,
+            "props": {
+              "children": {
+                "$$typeof": Symbol(react.transitional.element),
+                "_owner": null,
+                "_store": {},
+                "key": null,
+                "props": {
+                  "children": "Slide 3",
+                },
+                "type": [Function],
               },
-              "type": [Function],
             },
+            "type": [Function],
           },
-          "type": [Function],
         },
       ]
     }

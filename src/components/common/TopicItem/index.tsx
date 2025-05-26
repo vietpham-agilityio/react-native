@@ -1,9 +1,11 @@
 import React, { memo } from 'react';
-import { TouchableOpacity, View, StyleSheet } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 
 // Components
 import { Typography } from '@/components/common';
-import { colors } from '@/theme';
+
+// Styles
+import styles from './TopicItem.style';
 
 interface TopicItemProps {
   label: string;
@@ -26,25 +28,5 @@ const TopicItem = ({ label, isActive, onPress }: TopicItemProps) => (
     {isActive && <View style={styles.underline} />}
   </TouchableOpacity>
 );
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    paddingBottom: 2,
-  },
-  text: {
-    color: colors.grayMedium,
-  },
-  textActive: {
-    color: colors.black,
-  },
-  underline: {
-    marginTop: 2,
-    width: 8,
-    height: 2,
-    borderRadius: 2,
-    backgroundColor: colors.primary,
-  },
-});
 
 export default memo(TopicItem);

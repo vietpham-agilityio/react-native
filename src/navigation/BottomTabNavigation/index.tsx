@@ -15,6 +15,9 @@ import Icon from 'react-native-vector-icons/Foundation';
 // Theme
 import { colors } from '@/theme';
 
+// Routes
+import { ROUTES } from '@/constants/route';
+
 const Tab = createBottomTabNavigator();
 
 const TAB_ICONS: Record<string, string> = {
@@ -44,10 +47,10 @@ const BottomTabNavigation = () => (
         return <Icon name={TAB_ICONS[route.name]} size={24} color={color} />;
       },
     })}>
-    <Tab.Screen name="Home" component={HomeScreen} />
-    <Tab.Screen name="Category" component={CategoryScreen} />
-    <Tab.Screen name="Cart" component={CartScreen} />
-    <Tab.Screen name="Profile" component={ProfileScreen} />
+    <Tab.Screen name={ROUTES.HOME} component={HomeScreen} />
+    <Tab.Screen name={ROUTES.CATEGORY} component={CategoryScreen} />
+    <Tab.Screen name={ROUTES.CART} component={CartScreen} />
+    <Tab.Screen name={ROUTES.PROFILE} component={ProfileScreen} />
   </Tab.Navigator>
 );
 

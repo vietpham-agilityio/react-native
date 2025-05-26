@@ -1,11 +1,11 @@
 import React, { memo } from 'react';
-import { View, Image, StyleSheet } from 'react-native';
+import { View, Image } from 'react-native';
 
 // Components
 import { Heading, Typography, Button } from '@/components/common';
 
-// Theme
-import { colors, radius } from '@/theme';
+// Styles
+import styles from './OfferDiscountCard.style';
 
 interface OfferDiscountCardProps {
   title: string;
@@ -41,34 +41,5 @@ const OfferDiscountCard = ({
     <Image source={image} style={styles.image} resizeMode="cover" />
   </View>
 );
-
-const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    flexDirection: 'row',
-    backgroundColor: colors.secondary,
-    borderRadius: radius.extraSmall,
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  offerInfo: {
-    padding: 24,
-  },
-  title: {
-    color: colors.textDark,
-  },
-  subtitle: {
-    color: colors.textDark,
-    marginBottom: 14,
-  },
-  image: {
-    width: 100,
-    height: 144,
-    borderRadius: 4,
-  },
-  buttonText: {
-    fontSize: 14,
-  },
-});
 
 export default memo(OfferDiscountCard);

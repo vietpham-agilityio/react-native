@@ -1,11 +1,11 @@
 import React from 'react';
-import { View, StyleSheet, ScrollView } from 'react-native';
+import { View, ScrollView } from 'react-native';
 
 // Components
 import { Button, CartItem, Header } from '@/components';
 
-// Theme
-import { colors, radius } from '@/theme';
+// Styles
+import styles from './Cart.style';
 
 // Mock
 import { BOOKS_DATA_MOCK } from '@/mock/data';
@@ -55,26 +55,5 @@ const CartScreen = ({ navigation }: { navigation: any }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.white,
-  },
-  scrollContent: {
-    paddingHorizontal: 24,
-    paddingBottom: 0,
-    gap: 16,
-  },
-  buttonContainer: {
-    paddingHorizontal: 24,
-    gap: 16,
-    paddingTop: 8,
-    paddingBottom: 34,
-  },
-  button: {
-    borderRadius: radius.extraLarge,
-  },
-});
 
 export default CartScreen;

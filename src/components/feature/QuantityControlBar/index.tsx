@@ -1,14 +1,17 @@
 import React, { useCallback, memo, useState } from 'react';
 
 // Components
-import { View, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import { Typography } from '@/components/common';
 
 // Icons
 import Icon from 'react-native-vector-icons/Feather';
 
 // Theme
-import { colors, radius } from '@/theme';
+import { colors } from '@/theme';
+
+// Styles
+import styles from './QuantityControlBar.style';
 
 interface QuantityControlBarProps {
   value: number;
@@ -72,39 +75,5 @@ const QuantityControlBar = ({
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.cardBackground,
-    borderRadius: radius.small,
-    padding: 8,
-    gap: 16,
-  },
-  circle: {
-    width: 24,
-    height: 24,
-    borderRadius: radius.large,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  circleDisabled: {
-    backgroundColor: colors.grayLight,
-  },
-  circlePrimary: {
-    backgroundColor: colors.primary,
-  },
-  textDisabled: {
-    color: colors.grayMedium,
-  },
-  textPrimary: {
-    color: colors.textDark,
-  },
-  value: {
-    minWidth: 24,
-    textAlign: 'center',
-  },
-});
 
 export default memo(QuantityControlBar);

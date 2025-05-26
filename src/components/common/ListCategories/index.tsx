@@ -1,8 +1,11 @@
 import React, { memo, useCallback, useState } from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 
 // Components
 import { TopicItem } from '@/components/common';
+
+// Styles
+import styles from './ListCategories.style';
 
 // Constants
 import { LIST_TOPICS } from '@/constants/listData';
@@ -32,15 +35,5 @@ const ListCategories = () => {
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  scroll: {
-    paddingVertical: 2,
-  },
-  container: {
-    flexDirection: 'row',
-    gap: 24,
-  },
-});
 
 export default memo(ListCategories);

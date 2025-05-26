@@ -1,10 +1,5 @@
 import React, { useCallback, useState, memo } from 'react';
-import {
-  View,
-  Image,
-  StyleSheet,
-  TouchableWithoutFeedback,
-} from 'react-native';
+import { View, Image, TouchableWithoutFeedback } from 'react-native';
 
 // Components
 import { Typography, Heading } from '@/components';
@@ -13,7 +8,10 @@ import { Typography, Heading } from '@/components';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 // Theme
-import { colors, radius } from '@/theme';
+import { colors } from '@/theme';
+
+// Styles
+import styles from './BookDetailCard.style';
 
 interface BookDetailCardProps {
   image: any;
@@ -71,37 +69,5 @@ const BookDetailCard = ({
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: colors.white,
-  },
-  imageWrapper: {
-    alignSelf: 'center',
-  },
-  contentWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  image: {
-    width: 240,
-    height: 330,
-    borderRadius: radius.extraMedium,
-    marginBottom: 16,
-  },
-  title: {
-    marginBottom: 12,
-    color: colors.textDark,
-  },
-  brandLogo: {
-    height: 32,
-    marginBottom: 12,
-  },
-  description: {
-    color: colors.grayMedium,
-    marginBottom: 24,
-  },
-});
 
 export default memo(BookDetailCard);

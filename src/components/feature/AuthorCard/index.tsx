@@ -1,16 +1,11 @@
 import React from 'react';
-import {
-  Image,
-  StyleSheet,
-  ImageSourcePropType,
-  TouchableOpacity,
-} from 'react-native';
+import { Image, ImageSourcePropType, TouchableOpacity } from 'react-native';
 
 // Components
 import { Typography } from '@/components/common';
 
-// Theme
-import { colors, radius } from '@/theme';
+// Styles
+import styles from './AuthorCard.style';
 
 interface AuthorCardProps {
   image: ImageSourcePropType;
@@ -40,25 +35,5 @@ const AuthorCard = ({ image, name, role, onPress }: AuthorCardProps) => (
     </Typography>
   </TouchableOpacity>
 );
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 18,
-  },
-  avatar: {
-    width: 102,
-    height: 102,
-    borderRadius: radius.large,
-    marginBottom: 14,
-    backgroundColor: colors.grayBackground,
-  },
-  name: {
-    color: colors.textDark,
-    marginBottom: 4,
-  },
-  role: {
-    color: colors.grayMedium,
-  },
-});
 
 export default AuthorCard;

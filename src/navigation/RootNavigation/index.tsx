@@ -16,6 +16,9 @@ import { CheckoutScreen, LoginScreen, OnboardingScreen } from '@/screens';
 // Store
 import authReducer, { initialState } from '@/store/AuthReducer';
 
+// Routes
+import { ROUTES } from '@/constants/route';
+
 const Stack = createNativeStackNavigator();
 
 const RootNavigation = () => {
@@ -42,7 +45,7 @@ const RootNavigation = () => {
                     options={{
                       headerShown: false,
                     }}
-                    name="Onboarding"
+                    name={ROUTES.ONBOARDING}
                     component={OnboardingScreen}
                   />
                 </>
@@ -53,7 +56,7 @@ const RootNavigation = () => {
                   headerBackVisible: isIOS ? false : true,
                   headerShadowVisible: false,
                 }}
-                name="Login"
+                name={ROUTES.LOGIN}
                 component={LoginScreen}
               />
             </>
@@ -61,7 +64,7 @@ const RootNavigation = () => {
             <>
               <Stack.Screen
                 options={{ headerShown: false }}
-                name="Main"
+                name={ROUTES.MAIN}
                 component={BottomTabNavigation}
               />
               <Stack.Screen
@@ -73,7 +76,7 @@ const RootNavigation = () => {
                     fontWeight: 'bold',
                   },
                 }}
-                name="Checkout"
+                name={ROUTES.CHECKOUT}
                 component={CheckoutScreen}
               />
             </>

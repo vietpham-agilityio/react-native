@@ -1,16 +1,11 @@
 import React from 'react';
-import {
-  Image,
-  StyleSheet,
-  ImageSourcePropType,
-  TouchableOpacity,
-} from 'react-native';
+import { Image, ImageSourcePropType, TouchableOpacity } from 'react-native';
 
 // Components
 import { Typography } from '@/components/common';
 
-// Theme
-import { colors, radius } from '@/theme';
+// Styles
+import styles from './BookCard.style';
 
 interface BookCardProps {
   image: ImageSourcePropType;
@@ -56,32 +51,5 @@ const BookCard = ({
     </Typography>
   </TouchableOpacity>
 );
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'flex-start',
-  },
-  cover: {
-    borderRadius: radius.small,
-    marginBottom: 8,
-    backgroundColor: colors.grayBackground,
-    resizeMode: 'cover',
-  },
-  coverBook: {
-    width: 130,
-    height: 150,
-  },
-  coverCategory: {
-    width: 160,
-    height: 160,
-  },
-  title: {
-    color: colors.textDark,
-    marginBottom: 4,
-  },
-  price: {
-    color: colors.primary,
-  },
-});
 
 export default BookCard;

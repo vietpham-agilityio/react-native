@@ -1,8 +1,11 @@
 import React from 'react';
-import { View, ViewStyle, StyleSheet } from 'react-native';
+import { View, ViewStyle } from 'react-native';
 
 // Theme
 import { colors } from '@/theme';
+
+// Styles
+import styles from './ListDot.style';
 
 interface ListDotProps {
   count: number;
@@ -34,18 +37,5 @@ const ListDot = ({ count, activeIndex, testID, style }: ListDotProps) => (
     })}
   </View>
 );
-
-const styles = StyleSheet.create({
-  dotsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 8,
-  },
-  dot: {
-    borderRadius: 6,
-    marginHorizontal: 4,
-  },
-});
 
 export default ListDot;

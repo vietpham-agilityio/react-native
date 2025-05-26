@@ -1,11 +1,11 @@
 import React from 'react';
-import { View, StyleSheet, ScrollView } from 'react-native';
+import { View, ScrollView } from 'react-native';
 
 // Components
 import { AddressCard, SummaryCard, SelectionCard, Button } from '@/components';
 
-// Theme
-import { colors, radius } from '@/theme';
+// Styles
+import styles from './Checkout.style';
 
 const CheckoutScreen = () => {
   const handleChangeAddress = () => {};
@@ -58,22 +58,5 @@ const CheckoutScreen = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.white,
-  },
-  scrollContent: {
-    padding: 24,
-    paddingBottom: 0,
-    gap: 16,
-  },
-  orderButton: {
-    marginTop: 22,
-    marginBottom: 34,
-    borderRadius: radius.extraLarge,
-  },
-});
 
 export default CheckoutScreen;

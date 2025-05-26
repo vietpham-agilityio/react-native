@@ -26,6 +26,7 @@ module.exports = {
   collectCoverageFrom: [
     'src/components/**/*.{js,jsx,ts,tsx}',
     '!src/components/**/*.stories.{js,jsx,ts,tsx}',
+    '!src/components/**/*.style.{js,jsx,ts,tsx}',
     '!src/components/**/index.ts',
   ],
   testPathIgnorePatterns: ['/node_modules/', '/android/', '/ios/'],

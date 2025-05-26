@@ -1,12 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import {
-  FlatList,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { Platform, ScrollView, TouchableOpacity, View } from 'react-native';
 
 // Components
 import {
@@ -16,13 +9,14 @@ import {
   Carousel,
   Header,
   Heading,
+  HorizontalList,
   OfferDiscountCard,
   Typography,
   VendorCard,
 } from '@/components';
 
-// Theme
-import { colors } from '@/theme';
+// Styles
+import styles from './Home.style';
 
 // Mock
 import {
@@ -32,7 +26,7 @@ import {
 } from '@/mock/data';
 
 // Types
-import { Book } from '@/types/models';
+import { Author, Book, Vendor } from '@/types/models';
 
 const HomeScreen = ({ navigation }: { navigation: any }) => {
   const isIOS = Platform.OS === 'ios';
@@ -103,13 +97,11 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
                 </Typography>
               </TouchableOpacity>
             </View>
-            <FlatList
+            <HorizontalList
               data={BOOKS_DATA_MOCK.slice(0, 5)}
-              horizontal
               keyExtractor={item => item.id}
               contentContainerStyle={styles.horizontalList}
-              showsHorizontalScrollIndicator={false}
-              renderItem={({ item }) => (
+              renderItem={({ item }: { item: Book }) => (
                 <BookCard
                   key={item.id}
                   image={item.image}
@@ -132,19 +124,12 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
                 See all
               </Typography>
             </View>
-            <FlatList
+            <HorizontalList
               data={VENDOR_DATA_MOCK}
-              horizontal
               keyExtractor={item => item.id}
               contentContainerStyle={styles.horizontalList}
-              showsHorizontalScrollIndicator={false}
-              renderItem={({ item }) => (
-                <VendorCard
-                  key={item.id}
-                  image={item.image}
-                  name={item.name}
-                  onPress={() => {}}
-                />
+              renderItem={({ item }: { item: Vendor }) => (
+                <VendorCard key={item.id} image={item.image} name={item.name} />
               )}
             />
           </View>
@@ -160,19 +145,16 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
                 See all
               </Typography>
             </View>
-            <FlatList
+            <HorizontalList
               data={AUTHORS_DATA_MOCK.slice(0, 5)}
-              horizontal
               keyExtractor={item => item.id}
               contentContainerStyle={styles.horizontalList}
-              showsHorizontalScrollIndicator={false}
-              renderItem={({ item }) => (
+              renderItem={({ item }: { item: Author }) => (
                 <AuthorCard
                   key={item.id}
                   image={item.image}
                   name={item.name}
                   role={item.role}
-                  onPress={() => {}}
                 />
               )}
             />
@@ -199,33 +181,5 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  screenContainer: {
-    paddingTop: 16,
-    paddingHorizontal: 24,
-    backgroundColor: colors.white,
-  },
-  carouselSection: {
-    paddingTop: 16,
-  },
-  sectionsWrapper: {
-    marginTop: 26,
-    gap: 32,
-  },
-  sectionContainer: {
-    gap: 16,
-  },
-  sectionHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  seeAllText: {
-    color: colors.primary,
-  },
-  horizontalList: {
-    gap: 16,
-  },
-});
 
 export default HomeScreen;

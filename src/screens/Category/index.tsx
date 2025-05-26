@@ -1,11 +1,17 @@
 import React, { useCallback, useState } from 'react';
-import { View, StyleSheet, FlatList, Platform } from 'react-native';
+import { View, Platform } from 'react-native';
 
 // Components
-import { Header, ListCategories, BookCard, BookModal } from '@/components';
+import {
+  Header,
+  ListCategories,
+  BookCard,
+  BookModal,
+  HorizontalList,
+} from '@/components';
 
-// Theme
-import { colors } from '@/theme';
+// Styles
+import styles from './Category.style';
 
 // Mock
 import { BOOKS_DATA_MOCK } from '@/mock/data';
@@ -38,16 +44,15 @@ const CategoryScreen = ({ navigation }: { navigation: any }) => {
       <Header title="Category" showSearchIcon showNotificationDot />
       <View style={styles.container}>
         <ListCategories />
-        <FlatList
+        <HorizontalList
           data={BOOKS_DATA_MOCK}
           numColumns={2}
+          keyExtractor={item => item.id}
           contentContainerStyle={[
             styles.listContent,
             { paddingBottom: isIOS ? 250 : 170 },
           ]}
           columnWrapperStyle={styles.row}
-          keyExtractor={item => item.id}
-          showsVerticalScrollIndicator={false}
           renderItem={({ item }) => (
             <BookCard
               key={item.id}
@@ -80,20 +85,5 @@ const CategoryScreen = ({ navigation }: { navigation: any }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: 16,
-    paddingHorizontal: 24,
-    backgroundColor: colors.white,
-  },
-  listContent: {
-    paddingTop: 38,
-  },
-  row: {
-    justifyContent: 'space-between',
-    marginBottom: 20,
-  },
-});
 
 export default CategoryScreen;

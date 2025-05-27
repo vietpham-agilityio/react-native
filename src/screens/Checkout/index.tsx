@@ -4,8 +4,14 @@ import { View, ScrollView } from 'react-native';
 // Components
 import { AddressCard, SummaryCard, SelectionCard, Button } from '@/components';
 
+// Icons
+import { CalendarIcon, CreditCardIcon } from '@/icons';
+
 // Styles
 import styles from './Checkout.style';
+
+// Theme
+import { colors } from '@/theme';
 
 const CheckoutScreen = () => {
   const handleChangeAddress = () => {};
@@ -34,14 +40,14 @@ const CheckoutScreen = () => {
         />
         <SelectionCard
           title="Date and time"
-          iconName="calendar"
+          rightIcon={<CalendarIcon color={colors.primary} />}
           label="Date & time"
           description="Choose date and time"
           onPress={handleChangeDateAndTime}
         />
         <SelectionCard
           title="Payment"
-          iconName="credit-card"
+          rightIcon={<CreditCardIcon color={colors.primary} />}
           label="Payment"
           description="Choose your payment"
           onPress={handleChangePayment}

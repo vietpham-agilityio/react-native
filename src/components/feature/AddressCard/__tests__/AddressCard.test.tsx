@@ -4,8 +4,6 @@ import { render, fireEvent } from '@testing-library/react-native';
 // Components
 import AddressCard from '@/components/feature/AddressCard';
 
-jest.mock('react-native-vector-icons/Feather', () => 'Icon');
-
 describe('AddressCard', () => {
   const address = 'Utama Street No.20';
   const addressDetail =

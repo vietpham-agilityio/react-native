@@ -1,14 +1,14 @@
 import React, { useCallback, memo, useState } from 'react';
+import { View, TouchableOpacity } from 'react-native';
 
 // Components
-import { View, TouchableOpacity } from 'react-native';
 import { Typography } from '@/components/common';
-
-// Icons
-import Icon from 'react-native-vector-icons/Feather';
 
 // Theme
 import { colors } from '@/theme';
+
+// Icons
+import { MinusIcon, PlusIcon } from '@/icons';
 
 // Styles
 import styles from './QuantityControlBar.style';
@@ -56,7 +56,7 @@ const QuantityControlBar = ({
         disabled={isDisabledDecrease}
         activeOpacity={0.7}
         testID="decrease-btn">
-        <Icon name="minus" size={16} color={colors.white} />
+        <MinusIcon color={colors.white} />
       </TouchableOpacity>
       <Typography variant="typoLarge" weight="medium" style={styles.value}>
         {quantity}
@@ -70,7 +70,7 @@ const QuantityControlBar = ({
         disabled={isDisabledIncrease}
         activeOpacity={0.7}
         testID="increase-btn">
-        <Icon name="plus" size={16} color={colors.white} />
+        <PlusIcon color={colors.white} />
       </TouchableOpacity>
     </View>
   );

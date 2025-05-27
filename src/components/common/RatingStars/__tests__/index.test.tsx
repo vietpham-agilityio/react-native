@@ -4,8 +4,6 @@ import { render } from '@testing-library/react-native';
 // Components
 import RatingStars from '../index';
 
-jest.mock('react-native-vector-icons/AntDesign', () => 'Icon');
-
 describe('RatingStars', () => {
   it('renders the correct number of stars', () => {
     const { getAllByTestId } = render(<RatingStars rating={3} maxStars={5} />);

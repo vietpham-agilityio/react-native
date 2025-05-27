@@ -10,9 +10,6 @@ import {
 // Components
 import { Input, Button, Typography, Heading } from '@/components';
 
-// Icons
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-
 // Theme
 import { colors } from '@/theme';
 
@@ -21,6 +18,9 @@ import styles from './Login.style';
 
 // Store
 import { useAuth } from '@/store/AuthContext';
+
+// Icons
+import { AppleIcon, EyeFilledIcon, EyeSlashFilledIcon } from '@/icons';
 
 const SignInScreen = () => {
   const { signIn } = useAuth();
@@ -119,8 +119,14 @@ const SignInScreen = () => {
           error={passwordError}
           value={password}
           onChangeText={setPassword}
-          secureTextEntry={!showPassword}
-          rightIcon={showPassword ? 'eye-off' : 'eye'}
+          isSecureText={!showPassword}
+          rightIcon={
+            !showPassword ? (
+              <EyeSlashFilledIcon color={colors.grayNeutral} />
+            ) : (
+              <EyeFilledIcon color={colors.grayNeutral} />
+            )
+          }
           onRightIconPress={() => setShowPassword(!showPassword)}
           style={styles.input}
         />
@@ -182,7 +188,7 @@ const SignInScreen = () => {
           icon={
             <Image
               source={require('@assets/images/vendors/google-icon.webp')}
-              style={{ width: 20, height: 20 }}
+              style={{ width: 16, height: 16 }}
             />
           }
           style={styles.socialButton}
@@ -194,11 +200,10 @@ const SignInScreen = () => {
           variant="thirdParty"
           size="medium"
           icon={
-            <Icon
-              name="apple"
-              size={24}
-              color={colors.textDark}
-              style={{ paddingBottom: 1 }}
+            <AppleIcon
+              style={{
+                marginBottom: 4,
+              }}
             />
           }
           style={styles.socialButton}

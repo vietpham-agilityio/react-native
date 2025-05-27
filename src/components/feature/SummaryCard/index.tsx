@@ -4,7 +4,7 @@ import { View, TouchableOpacity } from 'react-native';
 import { Heading, Typography } from '@/components/common';
 
 // Icons
-import Icon from 'react-native-vector-icons/Feather';
+import { ArrowRightSmallIcon } from '@/icons';
 
 // Theme
 import { colors } from '@/theme';
@@ -67,7 +67,7 @@ const SummaryCard = ({
         style={styles.seeDetailsText}>
         See details
       </Typography>
-      <Icon name="chevron-right" size={20} color={colors.primary} />
+      <ArrowRightSmallIcon color={colors.primary} />
     </TouchableOpacity>
   </View>
 );

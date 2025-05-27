@@ -18,6 +18,7 @@ module.exports = {
           '@types': './src/types',
           '@mock': './src/mock',
           '@theme': './src/theme',
+          '@icons': './src/icons',
         },
       },
     ],

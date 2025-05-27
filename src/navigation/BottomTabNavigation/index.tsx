@@ -9,23 +9,16 @@ import {
   ProfileScreen,
 } from '@/screens';
 
-// Icon
-import Icon from 'react-native-vector-icons/Foundation';
-
 // Theme
 import { colors } from '@/theme';
 
 // Routes
 import { ROUTES } from '@/constants/route';
 
-const Tab = createBottomTabNavigator();
+// Icons
+import { HomeIcon, CategoryIcon, CartIcon, ProfileIcon } from '@/icons';
 
-const TAB_ICONS: Record<string, string> = {
-  Home: 'home',
-  Category: 'list-thumbnails',
-  Cart: 'shopping-cart',
-  Profile: 'torso',
-};
+const Tab = createBottomTabNavigator();
 
 const BottomTabNavigation = () => (
   <Tab.Navigator
@@ -38,13 +31,22 @@ const BottomTabNavigation = () => (
         fontSize: 12,
       },
       tabBarStyle: {
-        height: 70,
+        height: 80,
         paddingBottom: 8,
         paddingTop: 4,
         paddingHorizontal: 24,
       },
       tabBarIcon: ({ color }) => {
-        return <Icon name={TAB_ICONS[route.name]} size={24} color={color} />;
+        switch (route.name) {
+          case ROUTES.HOME:
+            return <HomeIcon color={color} />;
+          case ROUTES.CATEGORY:
+            return <CategoryIcon color={color} />;
+          case ROUTES.CART:
+            return <CartIcon color={color} />;
+          case ROUTES.PROFILE:
+            return <ProfileIcon color={color} />;
+        }
       },
     })}>
     <Tab.Screen name={ROUTES.HOME} component={HomeScreen} />

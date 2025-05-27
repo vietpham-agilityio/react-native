@@ -4,8 +4,6 @@ import { render, fireEvent } from '@testing-library/react-native';
 // Components
 import SummaryCard from '@/components/feature/SummaryCard';
 
-jest.mock('react-native-vector-icons/Feather', () => 'Icon');
-
 describe('SummaryCard', () => {
   const price = 87.1;
   const shipping = 2;

@@ -245,11 +245,63 @@ exports[`SummaryCard matches snapshot 1`] = `
     >
       See details
     </Text>
-    <Icon
+    <RNSVGSvgView
+      bbHeight={16}
+      bbWidth={16}
       color="#54408C"
-      name="chevron-right"
-      size={20}
-    />
+      fill="none"
+      focusable={false}
+      height={16}
+      style={
+        [
+          {
+            "backgroundColor": "transparent",
+            "borderWidth": 0,
+          },
+          {
+            "flex": 0,
+            "height": 16,
+            "width": 16,
+          },
+        ]
+      }
+      width={16}
+    >
+      <RNSVGGroup
+        fill={null}
+        propList={
+          [
+            "fill",
+          ]
+        }
+      >
+        <RNSVGPath
+          d="M5.667 3.333 10.332 8l-4.667 4.666"
+          fill={
+            {
+              "payload": 4278190080,
+              "type": 0,
+            }
+          }
+          propList={
+            [
+              "stroke",
+              "strokeWidth",
+              "strokeLinecap",
+              "strokeLinejoin",
+            ]
+          }
+          stroke={
+            {
+              "type": 2,
+            }
+          }
+          strokeLinecap={1}
+          strokeLinejoin={1}
+          strokeWidth={2}
+        />
+      </RNSVGGroup>
+    </RNSVGSvgView>
   </View>
 </View>
 `;

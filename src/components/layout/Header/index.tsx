@@ -3,11 +3,9 @@ import { View, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native';
 
 import { Heading } from '@/components';
 
-// Icon
-import Icon from 'react-native-vector-icons/Ionicons';
-
 // Theme
 import { colors } from '@/theme';
+import { NotificationIcon, SearchIcon } from '@/icons';
 
 type HeaderProps = {
   title: string;
@@ -31,7 +29,7 @@ const Header: React.FC<HeaderProps> = ({
           accessibilityRole="button"
           onPress={onPressSearch}
           style={styles.iconButton}>
-          <Icon name="search-outline" size={24} color={colors.black} />
+          <SearchIcon color={colors.black} />
         </TouchableOpacity>
       )}
       <Heading level={4} style={styles.title}>
@@ -42,7 +40,7 @@ const Header: React.FC<HeaderProps> = ({
           accessibilityRole="button"
           onPress={onPressNotification}
           style={styles.iconButton}>
-          <Icon name="notifications-outline" size={24} color={colors.black} />
+          <NotificationIcon color={colors.black} />
           <View style={styles.dot} testID="notification-dot" />
         </TouchableOpacity>
       )}
@@ -59,7 +57,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 16,
   },
   iconButton: {
     width: 40,

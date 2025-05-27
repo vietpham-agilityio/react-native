@@ -4,11 +4,11 @@ import { View, Image, TouchableWithoutFeedback } from 'react-native';
 // Components
 import { Typography, Heading } from '@/components';
 
-// Icons
-import Icon from 'react-native-vector-icons/FontAwesome';
-
 // Theme
 import { colors } from '@/theme';
+
+// Icons
+import { HeartIcon } from '@/icons';
 
 // Styles
 import styles from './BookDetailCard.style';
@@ -50,9 +50,7 @@ const BookDetailCard = ({
           testID="favorite-btn"
           onPress={handleToggleFavorite}
           accessibilityRole="button">
-          <Icon
-            name="heart"
-            size={24}
+          <HeartIcon
             color={isFavoritedBook ? colors.primary : colors.grayMedium}
           />
         </TouchableWithoutFeedback>

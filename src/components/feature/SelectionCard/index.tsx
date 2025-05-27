@@ -5,7 +5,7 @@ import { View, TouchableOpacity } from 'react-native';
 import { Typography, Heading } from '@/components/common';
 
 // Icons
-import Icon from 'react-native-vector-icons/Feather';
+import { ArrowRightIcon } from '@/icons';
 
 // Theme
 import { colors } from '@/theme';
@@ -15,7 +15,7 @@ import styles from './SelectionCard.style';
 
 interface SelectionCardProps {
   title: string;
-  iconName: string;
+  rightIcon: React.ReactNode;
   label: string;
   description: string;
   onPress: () => void;
@@ -23,7 +23,7 @@ interface SelectionCardProps {
 
 const SelectionCard = ({
   title,
-  iconName,
+  rightIcon,
   label,
   description,
   onPress,
@@ -33,9 +33,7 @@ const SelectionCard = ({
       {title}
     </Heading>
     <TouchableOpacity style={styles.row} onPress={onPress} activeOpacity={0.7}>
-      <View style={styles.iconCircle}>
-        <Icon name={iconName} size={24} color={colors.primary} />
-      </View>
+      <View style={styles.iconCircle}>{rightIcon}</View>
       <View style={styles.info}>
         <Typography variant="typoLarge" weight="bold" style={styles.label}>
           {label}
@@ -44,7 +42,7 @@ const SelectionCard = ({
           {description}
         </Typography>
       </View>
-      <Icon name="chevron-right" size={24} color={colors.textDark} />
+      <ArrowRightIcon color={colors.textDark} />
     </TouchableOpacity>
   </View>
 );

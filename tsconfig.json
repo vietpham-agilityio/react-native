@@ -12,7 +12,8 @@
       "@hooks/*": ["./src/hooks/*"],
       "@types/*": ["./src/types/*"],
       "@mock/*": ["./src/mock/*"],
-      "@theme/*": ["./src/theme/*"]
+      "@theme/*": ["./src/theme/*"],
+      "@icons/*": ["./src/icons/*"]
     }
   }
 }

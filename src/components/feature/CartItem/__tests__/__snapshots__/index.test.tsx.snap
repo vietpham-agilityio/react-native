@@ -117,27 +117,98 @@ exports[`CartItem matches snapshot 1`] = `
           }
           testID="decrease-btn"
         >
-          <Text
-            allowFontScaling={false}
-            selectable={false}
+          <RNSVGSvgView
+            bbHeight={16}
+            bbWidth={16}
+            color="#fff"
+            fill="none"
+            focusable={false}
+            height={16}
             style={
               [
                 {
-                  "color": "#fff",
-                  "fontSize": 16,
+                  "backgroundColor": "transparent",
+                  "borderWidth": 0,
                 },
-                undefined,
                 {
-                  "fontFamily": "Feather",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
+                  "flex": 0,
+                  "height": 16,
+                  "width": 16,
                 },
-                {},
               ]
             }
+            width={16}
           >
-            
-          </Text>
+            <RNSVGGroup
+              fill={null}
+              propList={
+                [
+                  "fill",
+                ]
+              }
+            >
+              <RNSVGGroup
+                clipPath="a"
+                fill={
+                  {
+                    "payload": 4278190080,
+                    "type": 0,
+                  }
+                }
+              >
+                <RNSVGPath
+                  d="M3.333 8h9.333"
+                  fill={
+                    {
+                      "payload": 4278190080,
+                      "type": 0,
+                    }
+                  }
+                  propList={
+                    [
+                      "stroke",
+                      "strokeWidth",
+                      "strokeLinecap",
+                      "strokeLinejoin",
+                    ]
+                  }
+                  stroke={
+                    {
+                      "type": 2,
+                    }
+                  }
+                  strokeLinecap={1}
+                  strokeLinejoin={1}
+                  strokeWidth={2}
+                />
+              </RNSVGGroup>
+              <RNSVGDefs>
+                <RNSVGClipPath
+                  fill={
+                    {
+                      "payload": 4278190080,
+                      "type": 0,
+                    }
+                  }
+                  name="a"
+                >
+                  <RNSVGPath
+                    d="M0 0h16v16H0z"
+                    fill={
+                      {
+                        "type": 2,
+                      }
+                    }
+                    propList={
+                      [
+                        "fill",
+                      ]
+                    }
+                  />
+                </RNSVGClipPath>
+              </RNSVGDefs>
+            </RNSVGGroup>
+          </RNSVGSvgView>
         </View>
         <Text
           style={
@@ -197,27 +268,63 @@ exports[`CartItem matches snapshot 1`] = `
           }
           testID="increase-btn"
         >
-          <Text
-            allowFontScaling={false}
-            selectable={false}
+          <RNSVGSvgView
+            bbHeight={16}
+            bbWidth={16}
+            color="#fff"
+            fill="none"
+            focusable={false}
+            height={16}
             style={
               [
                 {
-                  "color": "#fff",
-                  "fontSize": 16,
+                  "backgroundColor": "transparent",
+                  "borderWidth": 0,
                 },
-                undefined,
                 {
-                  "fontFamily": "Feather",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
+                  "flex": 0,
+                  "height": 16,
+                  "width": 16,
                 },
-                {},
               ]
             }
+            width={16}
           >
-            
-          </Text>
+            <RNSVGGroup
+              fill={null}
+              propList={
+                [
+                  "fill",
+                ]
+              }
+            >
+              <RNSVGPath
+                d="M8 3.333v9.334M3.333 8h9.333"
+                fill={
+                  {
+                    "payload": 4278190080,
+                    "type": 0,
+                  }
+                }
+                propList={
+                  [
+                    "stroke",
+                    "strokeWidth",
+                    "strokeLinecap",
+                    "strokeLinejoin",
+                  ]
+                }
+                stroke={
+                  {
+                    "type": 2,
+                  }
+                }
+                strokeLinecap={1}
+                strokeLinejoin={1}
+                strokeWidth={2}
+              />
+            </RNSVGGroup>
+          </RNSVGSvgView>
         </View>
       </View>
       <Text

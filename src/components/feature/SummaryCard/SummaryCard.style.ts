@@ -41,6 +41,10 @@ const styles = StyleSheet.create({
   seeDetailsText: {
     color: colors.primary,
   },
+  arrowRightIcon: {
+    width: 16,
+    height: 16,
+  },
 });
 
 export default styles;

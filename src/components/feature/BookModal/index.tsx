@@ -2,8 +2,14 @@ import React, { memo, useCallback } from 'react';
 import { Modal, View, TouchableWithoutFeedback, Platform } from 'react-native';
 
 // Components
-import { BookDetailCard, QuantityControlBar } from '@/components/feature';
-import { Button, Heading, RatingStars, Typography } from '@/components/common';
+import {
+  BookDetailCard,
+  QuantityControlBar,
+  Button,
+  Heading,
+  RatingStars,
+  Typography,
+} from '@/components';
 
 // Styles
 import styles from './BookModal.style';

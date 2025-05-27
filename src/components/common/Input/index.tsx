@@ -15,14 +15,12 @@ import { colors } from '@/theme';
 // Styles
 import styles from './Input.style';
 
-// Icons
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-
 interface InputProps extends TextInputProps {
   label: string;
   error?: string;
-  leftIcon?: string;
-  rightIcon?: string;
+  leftIcon?: React.ReactNode;
+  rightIcon?: React.ReactNode;
+  isSecureText?: boolean;
   onRightIconPress?: () => void;
 }
 
@@ -32,7 +30,7 @@ const Input = ({
   leftIcon,
   rightIcon,
   onRightIconPress,
-  secureTextEntry,
+  isSecureText,
   style,
   ...props
 }: InputProps) => {
@@ -45,13 +43,9 @@ const Input = ({
   const renderLeftIcon = () => {
     if (leftIcon) {
       return (
-        <Icon
-          testID="left-icon"
-          name={leftIcon}
-          size={22}
-          color={colors.grayNeutral}
-          style={styles.leftIcon}
-        />
+        <View testID="left-icon" style={styles.leftIcon}>
+          {leftIcon}
+        </View>
       );
     }
     return null;
@@ -62,20 +56,13 @@ const Input = ({
       return (
         <TouchableOpacity
           testID="right-icon"
+          activeOpacity={0.8}
           onPress={() => {
-            if (onRightIconPress) {
-              onRightIconPress();
-            }
-            if (rightIcon === 'eye' || rightIcon === 'eye-off') {
-              setShowPassword(!showPassword);
-            }
+            onRightIconPress && onRightIconPress();
+            isSecureText && setShowPassword(!showPassword);
           }}
           style={styles.rightIcon}>
-          <Icon
-            name={rightIcon === 'eye' && !showPassword ? 'eye' : 'eye-off'}
-            size={22}
-            color={colors.grayNeutral}
-          />
+          {rightIcon}
         </TouchableOpacity>
       );
     }
@@ -95,7 +82,7 @@ const Input = ({
         <TextInput
           style={[styles.input, style]}
           placeholderTextColor={colors.grayNeutral}
-          secureTextEntry={secureTextEntry && !showPassword}
+          secureTextEntry={isSecureText && !showPassword}
           onFocus={handleFocus}
           onBlur={handleBlur}
           {...props}

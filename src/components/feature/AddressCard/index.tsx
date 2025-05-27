@@ -4,11 +4,11 @@ import { View } from 'react-native';
 // Components
 import { Typography, Heading, Button } from '@/components/common';
 
-//  Icons
-import Icon from 'react-native-vector-icons/Feather';
-
 // Theme
 import { colors } from '@/theme';
+
+// Icons
+import { MapIcon, ArrowRightIcon } from '@/icons';
 
 // Styles
 import styles from './AddressCard.style';
@@ -30,7 +30,7 @@ const AddressCard = ({
     </Heading>
     <View style={styles.row}>
       <View style={styles.iconCircle}>
-        <Icon name="map-pin" size={24} color={colors.primary} />
+        <MapIcon color={colors.primary} />
       </View>
       <View style={styles.info}>
         <Typography variant="typoLarge" weight="bold" style={styles.label}>
@@ -50,12 +50,7 @@ const AddressCard = ({
           onPress={onChange}
         />
       </View>
-      <Icon
-        name="chevron-right"
-        style={styles.chevron}
-        size={24}
-        color={colors.textDark}
-      />
+      <ArrowRightIcon style={styles.chevron} color={colors.textDark} />
     </View>
   </View>
 );

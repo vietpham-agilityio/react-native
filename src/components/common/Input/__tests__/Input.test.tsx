@@ -4,9 +4,6 @@ import { render, fireEvent } from '@testing-library/react-native';
 // Components
 import Input from '../index';
 
-// Mock vector icons
-jest.mock('react-native-vector-icons/MaterialCommunityIcons', () => 'Icon');
-
 describe('Input Component', () => {
   it('renders label and placeholder', () => {
     const { getByText, getByPlaceholderText } = render(

@@ -4,14 +4,18 @@ import { render, fireEvent } from '@testing-library/react-native';
 // Components
 import SelectionCard from '@/components/feature/SelectionCard';
 
-jest.mock('react-native-vector-icons/Feather', () => 'Icon');
+// Icons
+import { CalendarIcon, CreditCardIcon } from '@/icons';
+
+// Theme
+import { colors } from '@/theme';
 
 describe('SelectionCard', () => {
   it('renders title, label, and description', () => {
     const { getByText } = render(
       <SelectionCard
         title="Date and time"
-        iconName="calendar"
+        rightIcon={<CalendarIcon color={colors.primary} />}
         label="Date & time"
         description="Choose date and time"
         onPress={() => {}}
@@ -28,7 +32,7 @@ describe('SelectionCard', () => {
     const { getByText } = render(
       <SelectionCard
         title="Payment"
-        iconName="credit-card"
+        rightIcon={<CreditCardIcon color={colors.primary} />}
         label="Payment method"
         description="Choose your payment"
         onPress={onPress}
@@ -43,7 +47,7 @@ describe('SelectionCard', () => {
     const tree = render(
       <SelectionCard
         title="Date and time"
-        iconName="calendar"
+        rightIcon={<CalendarIcon color={colors.primary} />}
         label="Date & time"
         description="Choose date and time"
         onPress={() => {}}

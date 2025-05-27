@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, View } from 'react-native';
 
 // Components
-import { Header, Button } from '@/components';
+import { Button } from '@/components';
 
 // Styles
 import styles from './Profile.style';
@@ -15,7 +15,6 @@ const ProfileScreen = () => {
 
   return (
     <View>
-      <Header title="Profile" showSearchIcon showNotificationDot />
       <View style={styles.screenContainer}>
         <Image
           source={require('@assets/images/profile-not-implement.png')}

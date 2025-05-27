@@ -5,7 +5,6 @@ import { colors } from '@/theme';
 
 const styles = StyleSheet.create({
   screenContainer: {
-    paddingTop: 16,
     paddingHorizontal: 24,
     backgroundColor: colors.white,
   },

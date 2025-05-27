@@ -3,7 +3,6 @@ import { View, Platform } from 'react-native';
 
 // Components
 import {
-  Header,
   ListCategories,
   BookCard,
   BookModal,
@@ -41,7 +40,6 @@ const CategoryScreen = ({ navigation }: { navigation: any }) => {
 
   return (
     <View>
-      <Header title="Category" showSearchIcon showNotificationDot />
       <View style={styles.container}>
         <ListCategories />
         <HorizontalList

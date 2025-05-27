@@ -2,7 +2,7 @@ import React from 'react';
 import { View, ScrollView } from 'react-native';
 
 // Components
-import { Button, CartItem, Header } from '@/components';
+import { Button, CartItem } from '@/components';
 
 // Styles
 import styles from './Cart.style';
@@ -21,7 +21,6 @@ const CartScreen = ({ navigation }: { navigation: any }) => {
 
   return (
     <View style={styles.container}>
-      <Header title="My Cart" />
       <ScrollView
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}>

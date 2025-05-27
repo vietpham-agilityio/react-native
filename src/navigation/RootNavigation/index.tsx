@@ -1,8 +1,8 @@
-import React, { useReducer } from 'react';
-import { Platform } from 'react-native';
+import React, { useReducer, useEffect } from 'react';
+import { BackHandler } from 'react-native';
 
 // Native Stack
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import { AuthContext } from '@/store/AuthContext';
 
@@ -19,11 +19,35 @@ import authReducer, { initialState } from '@/store/AuthReducer';
 // Routes
 import { ROUTES } from '@/constants/route';
 
-const Stack = createNativeStackNavigator();
+// Components
+import { NotificationHeaderButton } from '@/components';
+
+const Stack = createStackNavigator({
+  screens: {
+    [ROUTES.LOGIN]: LoginScreen,
+    [ROUTES.ONBOARDING]: OnboardingScreen,
+    [ROUTES.MAIN]: BottomTabNavigation,
+    [ROUTES.CHECKOUT]: CheckoutScreen,
+  },
+});
 
 const RootNavigation = () => {
   const [state, dispatch] = useReducer(authReducer, initialState);
-  const isIOS = Platform.OS === 'ios';
+
+  // Handle Android back button
+  useEffect(() => {
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      () => {
+        if (!state.userToken || state.isSignout) {
+          return true; // Prevent default behavior
+        }
+        return false; // Allow default behavior for other screens
+      },
+    );
+
+    return () => backHandler.remove();
+  }, [state.userToken, state.isSignout]);
 
   const authContext = {
     signIn: async (data: { email: string; password: string }) => {
@@ -36,7 +60,11 @@ const RootNavigation = () => {
   return (
     <AuthContext.Provider value={authContext}>
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator
+          screenOptions={{
+            gestureEnabled: true,
+            headerShadowVisible: false,
+          }}>
           {!state.userToken ? (
             <>
               {!state.isSignout && (
@@ -44,6 +72,8 @@ const RootNavigation = () => {
                   <Stack.Screen
                     options={{
                       headerShown: false,
+                      gestureEnabled: false,
+                      headerLeft: () => null,
                     }}
                     name={ROUTES.ONBOARDING}
                     component={OnboardingScreen}
@@ -52,9 +82,7 @@ const RootNavigation = () => {
               )}
               <Stack.Screen
                 options={{
-                  headerTitle: '',
-                  headerBackVisible: isIOS ? false : true,
-                  headerShadowVisible: false,
+                  title: '',
                 }}
                 name={ROUTES.LOGIN}
                 component={LoginScreen}
@@ -63,7 +91,9 @@ const RootNavigation = () => {
           ) : (
             <>
               <Stack.Screen
-                options={{ headerShown: false }}
+                options={{
+                  headerShown: false,
+                }}
                 name={ROUTES.MAIN}
                 component={BottomTabNavigation}
               />
@@ -75,6 +105,7 @@ const RootNavigation = () => {
                   headerTitleStyle: {
                     fontWeight: 'bold',
                   },
+                  headerRight: () => <NotificationHeaderButton />,
                 }}
                 name={ROUTES.CHECKOUT}
                 component={CheckoutScreen}

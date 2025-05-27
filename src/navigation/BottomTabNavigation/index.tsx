@@ -9,6 +9,9 @@ import {
   ProfileScreen,
 } from '@/screens';
 
+// Components
+import { NotificationHeaderButton, SearchHeaderButton } from '@/components';
+
 // Theme
 import { colors } from '@/theme';
 
@@ -23,7 +26,15 @@ const Tab = createBottomTabNavigator();
 const BottomTabNavigation = () => (
   <Tab.Navigator
     screenOptions={({ route }) => ({
-      headerShown: false,
+      headerShadowVisible: false,
+      headerBackTitle: '',
+      headerTitleAlign: 'center',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+        fontSize: 20,
+      },
+      headerLeft: () => <SearchHeaderButton />,
+      headerRight: () => <NotificationHeaderButton />,
       animation: 'shift',
       tabBarActiveTintColor: colors.primary,
       tabBarInactiveTintColor: colors.gray,
@@ -51,7 +62,15 @@ const BottomTabNavigation = () => (
     })}>
     <Tab.Screen name={ROUTES.HOME} component={HomeScreen} />
     <Tab.Screen name={ROUTES.CATEGORY} component={CategoryScreen} />
-    <Tab.Screen name={ROUTES.CART} component={CartScreen} />
+    <Tab.Screen
+      name={ROUTES.CART}
+      options={{
+        headerTitle: 'My Cart',
+        headerLeft: () => null,
+        headerRight: () => null,
+      }}
+      component={CartScreen}
+    />
     <Tab.Screen name={ROUTES.PROFILE} component={ProfileScreen} />
   </Tab.Navigator>
 );

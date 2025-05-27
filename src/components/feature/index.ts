@@ -10,3 +10,5 @@ export { default as AddressCard } from './AddressCard';
 export { default as SummaryCard } from './SummaryCard';
 export { default as SelectionCard } from './SelectionCard';
 export { default as BookModal } from './BookModal';
+export { default as NotificationHeaderButton } from './NotificationHeaderButton';
+export { default as SearchHeaderButton } from './SearchHeaderButton';

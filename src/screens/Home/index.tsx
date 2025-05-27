@@ -7,7 +7,6 @@ import {
   BookCard,
   BookModal,
   Carousel,
-  Header,
   Heading,
   HorizontalList,
   OfferDiscountCard,
@@ -56,7 +55,6 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
 
   return (
     <View style={styles.screenContainer}>
-      <Header title="Home" showSearchIcon showNotificationDot />
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={

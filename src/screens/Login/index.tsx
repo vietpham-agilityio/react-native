@@ -5,6 +5,9 @@ import {
   Image,
   TouchableWithoutFeedback,
   Keyboard,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
 } from 'react-native';
 
 // Components
@@ -22,6 +25,9 @@ import { useAuth } from '@/store/AuthContext';
 // Icons
 import { AppleIcon, EyeFilledIcon, EyeSlashFilledIcon } from '@/icons';
 
+// Utils
+import { validateEmail, validatePassword } from '@/utils';
+
 const SignInScreen = () => {
   const { signIn } = useAuth();
 
@@ -35,33 +41,21 @@ const SignInScreen = () => {
     Keyboard.dismiss();
   };
 
-  const validateEmail = (email: string) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
-
-  const validatePassword = (password: string) => {
-    return password.length >= 8;
-  };
-
   const handleLogin = () => {
     handleDismissKeyboard();
-
-    const trimmedEmail = email.trim();
-    const trimmedPassword = password.trim();
 
     let emailErr = '';
     let passwordErr = '';
 
-    if (!trimmedEmail) {
+    if (!email.trim()) {
       emailErr = 'Email is required';
-    } else if (!validateEmail(trimmedEmail)) {
+    } else if (!validateEmail(email)) {
       emailErr = 'Invalid email';
     }
 
-    if (!trimmedPassword) {
+    if (!password.trim()) {
       passwordErr = 'Password is required';
-    } else if (!validatePassword(trimmedPassword)) {
+    } else if (!validatePassword(password)) {
       passwordErr = 'Password must be at least 8 characters';
     }
 
@@ -73,7 +67,7 @@ const SignInScreen = () => {
     }
 
     // Simulate sign in
-    signIn({ email: trimmedEmail, password: trimmedPassword });
+    signIn({ email, password });
   };
 
   const handleSignUp = () => {
@@ -85,133 +79,142 @@ const SignInScreen = () => {
   };
 
   return (
-    <TouchableWithoutFeedback
-      onPress={handleDismissKeyboard}
-      accessible={false}>
-      <View style={styles.container}>
-        {/* Title */}
-        <Heading level={3} style={styles.title}>
-          Welcome 👋
-        </Heading>
-        <Typography
-          variant="typoLarge"
-          weight="regular"
-          style={styles.subtitle}>
-          Sign to your account
-        </Typography>
-
-        {/* Email Input */}
-        <Input
-          label="Email"
-          placeholder="Your email"
-          error={emailError}
-          value={email}
-          onChangeText={setEmail}
-          keyboardType="email-address"
-          autoCapitalize="none"
-          style={styles.input}
-        />
-
-        {/* Password Input */}
-        <Input
-          label="Password"
-          placeholder="Your password"
-          error={passwordError}
-          value={password}
-          onChangeText={setPassword}
-          isSecureText={!showPassword}
-          rightIcon={
-            !showPassword ? (
-              <EyeSlashFilledIcon color={colors.grayNeutral} />
-            ) : (
-              <EyeFilledIcon color={colors.grayNeutral} />
-            )
-          }
-          onRightIconPress={() => setShowPassword(!showPassword)}
-          style={styles.input}
-        />
-
-        {/* Forgot Password */}
-        <TouchableOpacity onPress={handleForgotPassword}>
-          <Typography
-            variant="typoMedium"
-            style={styles.forgotPassword}
-            weight="semibold">
-            Forgot Password?
-          </Typography>
-        </TouchableOpacity>
-
-        {/* Login Button */}
-        <Button
-          title="Login"
-          size="medium"
-          variant="primary"
-          onPress={handleLogin}
-          style={styles.loginButton}
-        />
-
-        {/* Sign Up Link */}
-        <View style={styles.signupContainer}>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={styles.container}>
+      <TouchableWithoutFeedback
+        onPress={handleDismissKeyboard}
+        accessible={false}>
+        <ScrollView
+          contentContainerStyle={styles.scrollContent}
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}>
+          {/* Title */}
+          <Heading level={3} style={styles.title}>
+            Welcome 👋
+          </Heading>
           <Typography
             variant="typoLarge"
-            weight="medium"
-            style={styles.signupText}>
-            Don't have an account?
+            weight="regular"
+            style={styles.subtitle}>
+            Sign to your account
           </Typography>
-          <TouchableOpacity onPress={handleSignUp}>
+
+          {/* Email Input */}
+          <Input
+            label="Email"
+            placeholder="Your email"
+            error={emailError}
+            value={email}
+            onChangeText={setEmail}
+            keyboardType="email-address"
+            autoCapitalize="none"
+            style={styles.input}
+          />
+
+          {/* Password Input */}
+          <Input
+            label="Password"
+            placeholder="Your password"
+            error={passwordError}
+            value={password}
+            onChangeText={setPassword}
+            isSecureText={!showPassword}
+            rightIcon={
+              !showPassword ? (
+                <EyeSlashFilledIcon color={colors.grayNeutral} />
+              ) : (
+                <EyeFilledIcon color={colors.grayNeutral} />
+              )
+            }
+            onRightIconPress={() => setShowPassword(!showPassword)}
+            style={styles.input}
+          />
+
+          {/* Forgot Password */}
+          <TouchableOpacity
+            onPress={handleForgotPassword}
+            style={styles.forgotPasswordContainer}>
             <Typography
-              variant="typoLarge"
-              weight="semibold"
-              style={styles.signupLink}>
-              Sign Up
+              variant="typoMedium"
+              style={styles.forgotPassword}
+              weight="semibold">
+              Forgot Password?
             </Typography>
           </TouchableOpacity>
-        </View>
 
-        {/* Divider */}
-        <View style={styles.dividerContainer}>
-          <View style={styles.divider} />
-          <Typography
-            variant="typoMedium"
-            weight="regular"
-            style={styles.orWith}>
-            Or with
-          </Typography>
-          <View style={styles.divider} />
-        </View>
+          {/* Login Button */}
+          <Button
+            title="Login"
+            size="medium"
+            variant="primary"
+            onPress={handleLogin}
+            style={styles.loginButton}
+          />
 
-        {/* Social Buttons */}
-        <Button
-          title="Sign in with Google"
-          variant="thirdParty"
-          size="medium"
-          icon={
-            <Image
-              source={require('@assets/images/vendors/google-icon.webp')}
-              style={{ width: 16, height: 16 }}
-            />
-          }
-          style={styles.socialButton}
-          textStyle={styles.socialButtonText}
-          onPress={handleDismissKeyboard}
-        />
-        <Button
-          title="Sign in with Apple"
-          variant="thirdParty"
-          size="medium"
-          icon={
-            <AppleIcon
-              style={{
-                marginBottom: 4,
-              }}
-            />
-          }
-          style={styles.socialButton}
-          textStyle={styles.socialButtonText}
-          onPress={handleDismissKeyboard}
-        />
-      </View>
-    </TouchableWithoutFeedback>
+          {/* Sign Up Link */}
+          <View style={styles.signupContainer}>
+            <Typography
+              variant="typoLarge"
+              weight="medium"
+              style={styles.signupText}>
+              Don't have an account?
+            </Typography>
+            <TouchableOpacity onPress={handleSignUp}>
+              <Typography
+                variant="typoLarge"
+                weight="semibold"
+                style={styles.signupLink}>
+                Sign Up
+              </Typography>
+            </TouchableOpacity>
+          </View>
+
+          {/* Divider */}
+          <View style={styles.dividerContainer}>
+            <View style={styles.divider} />
+            <Typography
+              variant="typoMedium"
+              weight="regular"
+              style={styles.orWith}>
+              Or with
+            </Typography>
+            <View style={styles.divider} />
+          </View>
+
+          {/* Social Buttons */}
+          <Button
+            title="Sign in with Google"
+            variant="thirdParty"
+            size="medium"
+            icon={
+              <Image
+                source={require('@assets/images/vendors/google-icon.webp')}
+                style={{ width: 16, height: 16 }}
+              />
+            }
+            style={styles.socialButton}
+            textStyle={styles.socialButtonText}
+            onPress={handleDismissKeyboard}
+          />
+          <Button
+            title="Sign in with Apple"
+            variant="thirdParty"
+            size="medium"
+            icon={
+              <AppleIcon
+                style={{
+                  marginBottom: 4,
+                }}
+              />
+            }
+            style={styles.socialButton}
+            textStyle={styles.socialButtonText}
+            onPress={handleDismissKeyboard}
+          />
+        </ScrollView>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   );
 };
 

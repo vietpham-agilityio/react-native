@@ -9,6 +9,10 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     padding: 24,
   },
+  scrollContent: {
+    justifyContent: 'center',
+    paddingBottom: 100,
+  },
   title: {
     lineHeight: 32,
     marginBottom: 8,
@@ -19,6 +23,9 @@ const styles = StyleSheet.create({
   },
   input: {
     marginBottom: 16,
+  },
+  forgotPasswordContainer: {
+    width: '40%',
   },
   forgotPassword: {
     color: colors.primary,

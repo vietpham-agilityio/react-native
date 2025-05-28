@@ -39,7 +39,7 @@ exports[`BookModal matches snapshot 1`] = `
     style={
       {
         "alignItems": "stretch",
-        "backgroundColor": "#fff",
+        "backgroundColor": "#FFF",
         "borderTopLeftRadius": 24,
         "borderTopRightRadius": 24,
         "bottom": 0,
@@ -54,7 +54,7 @@ exports[`BookModal matches snapshot 1`] = `
     <View
       style={
         {
-          "backgroundColor": "#fff",
+          "backgroundColor": "#FFF",
         }
       }
     >
@@ -562,7 +562,7 @@ exports[`BookModal matches snapshot 1`] = `
           <RNSVGSvgView
             bbHeight={16}
             bbWidth={16}
-            color="#fff"
+            color="#FFF"
             fill="none"
             focusable={false}
             height={16}
@@ -713,7 +713,7 @@ exports[`BookModal matches snapshot 1`] = `
           <RNSVGSvgView
             bbHeight={16}
             bbWidth={16}
-            color="#fff"
+            color="#FFF"
             fill="none"
             focusable={false}
             height={16}
@@ -850,7 +850,7 @@ exports[`BookModal matches snapshot 1`] = `
                 "textAlign": "center",
               },
               {
-                "color": "#fff",
+                "color": "#FFF",
               },
               {
                 "fontSize": 18,

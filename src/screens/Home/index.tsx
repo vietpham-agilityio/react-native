@@ -27,6 +27,9 @@ import {
 // Types
 import { Author, Book, Vendor } from '@/types/models';
 
+// Route
+import { ROUTES } from '@/constants/route';
+
 const HomeScreen = ({ navigation }: { navigation: any }) => {
   const isIOS = Platform.OS === 'ios';
 
@@ -36,7 +39,7 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
 
   const handleClickTopWeekSeeAll = useCallback(() => {
-    navigation.navigate('Category');
+    navigation.navigate(ROUTES.CATEGORY);
   }, [navigation]);
 
   const handleBookPress = useCallback((book: any) => {
@@ -46,7 +49,7 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
 
   const handleAddToCart = useCallback(() => {
     setIsBookDetailModalVisible(false);
-    navigation.navigate('Cart');
+    navigation.navigate(ROUTES.CART);
   }, [navigation]);
 
   const handleCloseModal = useCallback(() => {

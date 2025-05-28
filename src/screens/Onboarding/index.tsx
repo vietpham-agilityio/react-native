@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import {
   View,
   SafeAreaView,
@@ -19,6 +19,9 @@ import { colors } from '@/theme';
 // Styles
 import styles from './OnBoarding.style';
 
+// Route
+import { ROUTES } from '@/constants/route';
+
 interface OnboardingScreenProps {
   navigation: any;
 }
@@ -26,9 +29,15 @@ interface OnboardingScreenProps {
 const OnboardingScreen = ({ navigation }: OnboardingScreenProps) => {
   const isIOS = Platform.OS === 'ios';
 
-  const handleSkipOnboarding = () => navigation.navigate('Login');
+  const handleSkipOnboarding = useCallback(
+    () => navigation.navigate(ROUTES.LOGIN),
+    [navigation],
+  );
 
-  const handleSignIn = () => navigation.navigate('Login');
+  const handleSignIn = useCallback(
+    () => navigation.navigate(ROUTES.LOGIN),
+    [navigation],
+  );
 
   const carouselItems = Object.entries(LIST_ONBOARDING_STEPS).map(
     ([key, step]) => ({

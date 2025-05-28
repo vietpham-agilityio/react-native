@@ -5,7 +5,7 @@ exports[`CartItem matches snapshot 1`] = `
   style={
     {
       "alignItems": "center",
-      "backgroundColor": "#fff",
+      "backgroundColor": "#FFF",
       "borderColor": "#E8E8E8",
       "borderRadius": 10,
       "borderWidth": 1,
@@ -22,7 +22,7 @@ exports[`CartItem matches snapshot 1`] = `
     }
     style={
       {
-        "backgroundColor": "#eee",
+        "backgroundColor": "#EEE",
         "borderRadius": 10,
         "height": 80,
         "marginRight": 8,
@@ -120,7 +120,7 @@ exports[`CartItem matches snapshot 1`] = `
           <RNSVGSvgView
             bbHeight={16}
             bbWidth={16}
-            color="#fff"
+            color="#FFF"
             fill="none"
             focusable={false}
             height={16}
@@ -271,7 +271,7 @@ exports[`CartItem matches snapshot 1`] = `
           <RNSVGSvgView
             bbHeight={16}
             bbWidth={16}
-            color="#fff"
+            color="#FFF"
             fill="none"
             focusable={false}
             height={16}

@@ -15,6 +15,9 @@ import styles from './Category.style';
 // Mock
 import { BOOKS_DATA_MOCK } from '@/mock/data';
 
+// Constant
+import { ROUTES } from '@/constants/route';
+
 const CategoryScreen = ({ navigation }: { navigation: any }) => {
   const isIOS = Platform.OS === 'ios';
   const [isBookDetailModalVisible, setIsBookDetailModalVisible] =
@@ -31,7 +34,7 @@ const CategoryScreen = ({ navigation }: { navigation: any }) => {
 
   const handleAddToCart = useCallback(() => {
     setIsBookDetailModalVisible(false);
-    navigation.navigate('Cart');
+    navigation.navigate(ROUTES.CART);
   }, [navigation]);
 
   const handleCloseModal = useCallback(() => {

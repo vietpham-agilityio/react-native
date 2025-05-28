@@ -4,7 +4,7 @@ exports[`BookDetailCard matches snapshot 1`] = `
 <View
   style={
     {
-      "backgroundColor": "#fff",
+      "backgroundColor": "#FFF",
     }
   }
 >

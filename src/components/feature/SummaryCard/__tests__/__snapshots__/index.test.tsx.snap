@@ -4,7 +4,7 @@ exports[`SummaryCard matches snapshot 1`] = `
 <View
   style={
     {
-      "backgroundColor": "#fff",
+      "backgroundColor": "#FFF",
       "borderColor": "#E8E8E8",
       "borderRadius": 8,
       "borderWidth": 1,

@@ -31,6 +31,8 @@ import { validateEmail, validatePassword } from '@/utils';
 const SignInScreen = () => {
   const { signIn } = useAuth();
 
+  const isIOS = Platform.OS === 'ios';
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -80,7 +82,7 @@ const SignInScreen = () => {
 
   return (
     <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      behavior={isIOS ? 'padding' : 'height'}
       style={styles.container}>
       <TouchableWithoutFeedback
         onPress={handleDismissKeyboard}
@@ -121,10 +123,10 @@ const SignInScreen = () => {
             onChangeText={setPassword}
             isSecureText={!showPassword}
             rightIcon={
-              !showPassword ? (
-                <EyeSlashFilledIcon color={colors.grayNeutral} />
-              ) : (
+              showPassword ? (
                 <EyeFilledIcon color={colors.grayNeutral} />
+              ) : (
+                <EyeSlashFilledIcon color={colors.grayNeutral} />
               )
             }
             onRightIconPress={() => setShowPassword(!showPassword)}

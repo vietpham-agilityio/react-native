@@ -1,5 +1,10 @@
 import React, { useCallback, useState, memo } from 'react';
-import { View, Image, TouchableWithoutFeedback } from 'react-native';
+import {
+  View,
+  Image,
+  TouchableWithoutFeedback,
+  ImageSourcePropType,
+} from 'react-native';
 
 // Components
 import { Typography, Heading } from '@/components';
@@ -14,9 +19,9 @@ import { HeartIcon } from '@/icons';
 import styles from './BookDetailCard.style';
 
 interface BookDetailCardProps {
-  image: any;
+  image: ImageSourcePropType;
   title: string;
-  brandLogo: any;
+  brandLogo: ImageSourcePropType;
   description: string;
   isFavorite: boolean;
   onToggleFavorite: () => void;

@@ -26,7 +26,7 @@ const baseColors = {
     primary: '#FFD700',
   },
 
-  white: '#fff',
+  white: '#FFF',
 };
 
 const colors = {
@@ -47,7 +47,7 @@ const colors = {
   grayLight: baseColors.gray[400],
   grayNeutral: baseColors.gray[500],
   grayMedium: baseColors.gray[600],
-  grayBackground: '#eee',
+  grayBackground: '#EEE',
 
   // Black variations
   black: baseColors.black.primary,

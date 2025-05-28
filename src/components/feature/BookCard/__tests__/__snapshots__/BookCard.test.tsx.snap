@@ -48,7 +48,7 @@ exports[`BookCard matches snapshot with isCategory 1`] = `
     style={
       [
         {
-          "backgroundColor": "#eee",
+          "backgroundColor": "#EEE",
           "borderRadius": 10,
           "marginBottom": 8,
           "resizeMode": "cover",
@@ -146,7 +146,7 @@ exports[`BookCard matches snapshot without isCategory 1`] = `
     style={
       [
         {
-          "backgroundColor": "#eee",
+          "backgroundColor": "#EEE",
           "borderRadius": 10,
           "marginBottom": 8,
           "resizeMode": "cover",

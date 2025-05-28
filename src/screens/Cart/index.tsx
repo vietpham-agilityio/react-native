@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { View, ScrollView } from 'react-native';
 
 // Components
@@ -10,14 +10,17 @@ import styles from './Cart.style';
 // Mock
 import { BOOKS_DATA_MOCK } from '@/mock/data';
 
-const CartScreen = ({ navigation }: { navigation: any }) => {
-  const handleCheckout = () => {
-    navigation.navigate('Checkout');
-  };
+// Route
+import { ROUTES } from '@/constants/route';
 
-  const handleContinueShopping = () => {
-    navigation.navigate('Home');
-  };
+const CartScreen = ({ navigation }: { navigation: any }) => {
+  const handleCheckout = useCallback(() => {
+    navigation.navigate(ROUTES.CHECKOUT);
+  }, [navigation]);
+
+  const handleContinueShopping = useCallback(() => {
+    navigation.navigate(ROUTES.HOME);
+  }, [navigation]);
 
   return (
     <View style={styles.container}>

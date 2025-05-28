@@ -10,6 +10,7 @@ const ROOT_ROUTES = {
   ONBOARDING: 'Onboarding',
   MAIN: 'Main',
   CHECKOUT: 'Checkout',
+  BOOK_DETAIL: 'BookDetail',
 };
 
 export const ROUTES = {

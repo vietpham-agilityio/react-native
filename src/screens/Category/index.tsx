@@ -1,13 +1,8 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 import { View, Platform } from 'react-native';
 
 // Components
-import {
-  ListCategories,
-  BookCard,
-  BookModal,
-  HorizontalList,
-} from '@/components';
+import { ListCategories, BookCard, HorizontalList } from '@/components';
 
 // Styles
 import styles from './Category.style';
@@ -18,28 +13,18 @@ import { BOOKS_DATA_MOCK } from '@/mock/data';
 // Constant
 import { ROUTES } from '@/constants/route';
 
+// Types
+import { Book } from '@/types/models';
+
 const CategoryScreen = ({ navigation }: { navigation: any }) => {
   const isIOS = Platform.OS === 'ios';
-  const [isBookDetailModalVisible, setIsBookDetailModalVisible] =
-    useState(false);
 
-  const [selectedBook, setSelectedBook] = useState<any | null>(
-    BOOKS_DATA_MOCK[0],
+  const handleBookPress = useCallback(
+    (book: Book) => {
+      navigation.navigate(ROUTES.BOOK_DETAIL, { book });
+    },
+    [navigation],
   );
-
-  const handleBookPress = useCallback((book: any) => {
-    setSelectedBook(book);
-    setIsBookDetailModalVisible(true);
-  }, []);
-
-  const handleAddToCart = useCallback(() => {
-    setIsBookDetailModalVisible(false);
-    navigation.navigate(ROUTES.CART);
-  }, [navigation]);
-
-  const handleCloseModal = useCallback(() => {
-    setIsBookDetailModalVisible(false);
-  }, []);
 
   return (
     <View>
@@ -66,23 +51,6 @@ const CategoryScreen = ({ navigation }: { navigation: any }) => {
           )}
         />
       </View>
-      <BookModal
-        visible={isBookDetailModalVisible}
-        onCloseModal={handleCloseModal}
-        book={{
-          image: selectedBook.image,
-          title: selectedBook.title,
-          brandLogo: selectedBook.vendor.image,
-          description: selectedBook.description,
-          isFavorite: false,
-          price: selectedBook.price,
-          rating: selectedBook.rating,
-        }}
-        onAddToCart={handleAddToCart}
-        onToggleFavorite={() => {}}
-        quantity={1}
-        setQuantity={() => {}}
-      />
     </View>
   );
 };

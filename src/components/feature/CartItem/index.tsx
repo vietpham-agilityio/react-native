@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, ImageSourcePropType } from 'react-native';
 
 // Components
 import { Typography, QuantityControlBar } from '@/components';
@@ -8,7 +8,7 @@ import { Typography, QuantityControlBar } from '@/components';
 import styles from './CartItem.style';
 
 interface CartItemProps {
-  image: any;
+  image: ImageSourcePropType;
   title: string;
   price: number;
   quantity: number;

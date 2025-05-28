@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, ImageSourcePropType } from 'react-native';
 
 // Components
 import { Heading, Typography, Button } from '@/components/common';
@@ -10,7 +10,7 @@ import styles from './OfferDiscountCard.style';
 interface OfferDiscountCardProps {
   title: string;
   discountPercentage: number;
-  image: any;
+  image: ImageSourcePropType;
   onPress: () => void;
 }
 

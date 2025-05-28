@@ -32,6 +32,10 @@ const slides: CarouselItem[] = [
   },
 ];
 
+jest.mock('react-native-gesture-handler', () =>
+  require('react-native-gesture-handler/jestSetup'),
+);
+
 describe('Carousel', () => {
   it('renders all children', () => {
     const { getByText } = render(<Carousel listItems={slides} />);

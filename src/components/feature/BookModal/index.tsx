@@ -1,5 +1,22 @@
-import React, { memo, useCallback } from 'react';
-import { Modal, View, TouchableWithoutFeedback, Platform } from 'react-native';
+import React, { memo, useCallback, useEffect } from 'react';
+
+import {
+  View,
+  TouchableWithoutFeedback,
+  Platform,
+  Dimensions,
+  ImageSourcePropType,
+} from 'react-native';
+
+// Gestures
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withSpring,
+  withTiming,
+  runOnJS,
+} from 'react-native-reanimated';
+import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 
 // Components
 import {
@@ -16,17 +33,15 @@ import styles from './BookModal.style';
 
 interface BookModalProps {
   visible: boolean;
-  onCloseModal: () => void;
-  book: {
-    image: any;
-    title: string;
-    brandLogo: any;
-    description: string;
-    isFavorite: boolean;
-    price: number;
-    rating: number;
-  };
+  image: ImageSourcePropType;
+  title: string;
+  brandLogo: ImageSourcePropType;
+  description: string;
+  isFavorite: boolean;
+  price: number;
+  rating: number;
   quantity: number;
+  onCloseModal: () => void;
   setQuantity: (quantity: number) => void;
   onToggleFavorite: () => void;
   onAddToCart: () => void;
@@ -35,12 +50,25 @@ interface BookModalProps {
 const BookModal = ({
   visible,
   onCloseModal,
-  book,
+  image,
+  title,
+  brandLogo,
+  description,
+  isFavorite,
+  price,
+  rating,
   quantity,
   setQuantity,
   onToggleFavorite,
   onAddToCart,
 }: BookModalProps) => {
+  const translateY = useSharedValue(0);
+
+  const screenHeight = Dimensions.get('window').height;
+
+  const isIOS = Platform.OS === 'ios';
+
+  // Handlers
   const handleAddToCart = useCallback(() => {
     onAddToCart();
   }, [onAddToCart]);
@@ -53,65 +81,90 @@ const BookModal = ({
     onToggleFavorite();
   }, [onToggleFavorite]);
 
-  return (
-    <Modal
-      visible={visible}
-      animationType="slide"
-      transparent
-      onRequestClose={handleCloseModal}>
+  const panGesture = Gesture.Pan()
+    .onUpdate(event => {
+      // Only allow dragging down
+      translateY.value = Math.max(event.translationY, 0);
+    })
+    .onEnd(event => {
+      if (event.translationY > screenHeight * 0.2) {
+        // Close modal if dragged down more than 20% of screen height
+        translateY.value = withTiming(screenHeight, { duration: 300 }, () => {
+          runOnJS(handleCloseModal)();
+          translateY.value = 0;
+        });
+      } else {
+        // Snap back to original position
+        translateY.value = withSpring(0);
+      }
+    });
+
+  // Animated style for modal content
+  const animatedStyle = useAnimatedStyle(() => ({
+    transform: [{ translateY: translateY.value }],
+  }));
+
+  // Reset translateY when modal opens
+  useEffect(() => {
+    if (visible) {
+      translateY.value = 0;
+    }
+  }, [visible, translateY]);
+
+  return visible ? (
+    <View style={styles.absoluteOverlay}>
       <TouchableWithoutFeedback onPress={handleCloseModal}>
         <View style={styles.overlay} />
       </TouchableWithoutFeedback>
-      <View style={styles.modalContent}>
-        <BookDetailCard
-          image={book.image}
-          title={book.title}
-          brandLogo={book.brandLogo}
-          description={book.description}
-          isFavorite={book.isFavorite}
-          onToggleFavorite={handleToggleFavorite}
-        />
-        <View style={styles.reviewWrapper}>
-          <Heading level={5} style={styles.title}>
-            Review
-          </Heading>
-          <RatingStars rating={book.rating} />
-        </View>
-        <View style={styles.quantityControlBarWrapper}>
-          <QuantityControlBar
-            value={quantity}
-            onChange={setQuantity}
-            min={1}
-            max={10}
+      <GestureDetector gesture={panGesture}>
+        <Animated.View style={[styles.modalContent, animatedStyle]}>
+          <View style={styles.gestureBar} />
+          <BookDetailCard
+            image={image}
+            title={title}
+            brandLogo={brandLogo}
+            description={description}
+            isFavorite={isFavorite}
+            onToggleFavorite={handleToggleFavorite}
           />
-          <Typography
-            variant="typoLarge"
-            weight="semibold"
-            style={styles.priceText}>
-            ${quantity * book.price}
-          </Typography>
-        </View>
-        <View
-          style={[
-            styles.buttonWrapper,
-            Platform.OS === 'ios' && { marginBottom: 8 },
-          ]}>
-          <Button
-            title="Continue shopping"
-            onPress={handleCloseModal}
-            size="medium"
-            variant="primary"
-          />
-          <Button
-            title="View cart"
-            onPress={handleAddToCart}
-            size="medium"
-            variant="secondary"
-          />
-        </View>
-      </View>
-    </Modal>
-  );
+          <View style={styles.reviewWrapper}>
+            <Heading level={5} style={styles.title}>
+              Review
+            </Heading>
+            <RatingStars rating={rating} />
+          </View>
+          <View style={styles.quantityControlBarWrapper}>
+            <QuantityControlBar
+              value={quantity}
+              onChange={setQuantity}
+              min={1}
+              max={10}
+            />
+            <Typography
+              variant="typoLarge"
+              weight="semibold"
+              style={styles.priceText}>
+              ${quantity * price}
+            </Typography>
+          </View>
+          <View style={[styles.buttonWrapper, isIOS && { marginBottom: 8 }]}>
+            <Button
+              title="Continue shopping"
+              onPress={handleCloseModal}
+              size="medium"
+              variant="primary"
+            />
+            <Button
+              title="View cart"
+              onPress={handleAddToCart}
+              size="medium"
+              variant="secondary"
+            />
+          </View>
+        </Animated.View>
+      </GestureDetector>
+    </View>
+  ) : null;
 };
 
 export default memo(BookModal);

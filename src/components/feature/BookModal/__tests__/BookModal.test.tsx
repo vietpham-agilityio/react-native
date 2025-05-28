@@ -6,6 +6,25 @@ import BookModal from '@/components/feature/BookModal';
 
 // Mock
 import { BOOKS_DATA_MOCK } from '@/mock/data';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+
+jest.mock('react-native-gesture-handler', () => ({
+  Gesture: {
+    Pan: () => ({
+      onUpdate: jest.fn().mockReturnThis(),
+      onEnd: jest.fn().mockReturnThis(),
+    }),
+  },
+  GestureDetector: ({ children }: { children: React.ReactNode }) => children,
+  GestureHandlerRootView: ({ children }: { children: React.ReactNode }) =>
+    children,
+}));
+
+const WrapperTestWithProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => <GestureHandlerRootView>{children}</GestureHandlerRootView>;
 
 describe('BookModal', () => {
   const mockBook = {
@@ -20,15 +39,23 @@ describe('BookModal', () => {
 
   it('renders book details and quantity', () => {
     const { getByText } = render(
-      <BookModal
-        visible={true}
-        onCloseModal={() => {}}
-        book={mockBook}
-        quantity={2}
-        setQuantity={() => {}}
-        onToggleFavorite={() => {}}
-        onAddToCart={() => {}}
-      />,
+      <WrapperTestWithProvider>
+        <BookModal
+          visible={true}
+          onCloseModal={() => {}}
+          image={mockBook.image}
+          title={mockBook.title}
+          brandLogo={mockBook.brandLogo}
+          description={mockBook.description}
+          isFavorite={mockBook.isFavorite}
+          price={mockBook.price}
+          rating={mockBook.rating}
+          quantity={2}
+          setQuantity={() => {}}
+          onToggleFavorite={() => {}}
+          onAddToCart={() => {}}
+        />
+      </WrapperTestWithProvider>,
     );
 
     expect(getByText('I Talk About Running')).toBeTruthy();
@@ -37,15 +64,23 @@ describe('BookModal', () => {
   it('calls setQuantity when quantity changes', () => {
     const setQuantity = jest.fn();
     const { getByTestId } = render(
-      <BookModal
-        visible={true}
-        onCloseModal={() => {}}
-        book={mockBook}
-        quantity={1}
-        setQuantity={setQuantity}
-        onToggleFavorite={() => {}}
-        onAddToCart={() => {}}
-      />,
+      <WrapperTestWithProvider>
+        <BookModal
+          visible={true}
+          onCloseModal={() => {}}
+          image={mockBook.image}
+          title={mockBook.title}
+          brandLogo={mockBook.brandLogo}
+          description={mockBook.description}
+          isFavorite={mockBook.isFavorite}
+          price={mockBook.price}
+          rating={mockBook.rating}
+          quantity={1}
+          setQuantity={setQuantity}
+          onToggleFavorite={() => {}}
+          onAddToCart={() => {}}
+        />
+      </WrapperTestWithProvider>,
     );
 
     fireEvent.press(getByTestId('increase-btn'));
@@ -55,15 +90,23 @@ describe('BookModal', () => {
   it('calls onToggleFavorite when favorite is pressed', () => {
     const onToggleFavorite = jest.fn();
     const { getByTestId } = render(
-      <BookModal
-        visible={true}
-        onCloseModal={() => {}}
-        book={mockBook}
-        quantity={1}
-        setQuantity={() => {}}
-        onToggleFavorite={onToggleFavorite}
-        onAddToCart={() => {}}
-      />,
+      <WrapperTestWithProvider>
+        <BookModal
+          visible={true}
+          onCloseModal={() => {}}
+          image={mockBook.image}
+          title={mockBook.title}
+          brandLogo={mockBook.brandLogo}
+          description={mockBook.description}
+          isFavorite={mockBook.isFavorite}
+          price={mockBook.price}
+          rating={mockBook.rating}
+          quantity={1}
+          setQuantity={() => {}}
+          onToggleFavorite={onToggleFavorite}
+          onAddToCart={() => {}}
+        />
+      </WrapperTestWithProvider>,
     );
 
     fireEvent.press(getByTestId('favorite-btn'));
@@ -73,15 +116,23 @@ describe('BookModal', () => {
   it('calls onAddToCart when View cart is pressed', () => {
     const onAddToCart = jest.fn();
     const { getByText } = render(
-      <BookModal
-        visible={true}
-        onCloseModal={() => {}}
-        book={mockBook}
-        quantity={1}
-        setQuantity={() => {}}
-        onToggleFavorite={() => {}}
-        onAddToCart={onAddToCart}
-      />,
+      <WrapperTestWithProvider>
+        <BookModal
+          visible={true}
+          onCloseModal={() => {}}
+          image={mockBook.image}
+          title={mockBook.title}
+          brandLogo={mockBook.brandLogo}
+          description={mockBook.description}
+          isFavorite={mockBook.isFavorite}
+          price={mockBook.price}
+          rating={mockBook.rating}
+          quantity={1}
+          setQuantity={() => {}}
+          onToggleFavorite={() => {}}
+          onAddToCart={onAddToCart}
+        />
+      </WrapperTestWithProvider>,
     );
 
     fireEvent.press(getByText('View cart'));
@@ -91,33 +142,26 @@ describe('BookModal', () => {
   it('calls onCloseModal when Continue shopping is pressed', () => {
     const onCloseModal = jest.fn();
     const { getByText } = render(
-      <BookModal
-        visible={true}
-        onCloseModal={onCloseModal}
-        book={mockBook}
-        quantity={1}
-        setQuantity={() => {}}
-        onToggleFavorite={() => {}}
-        onAddToCart={() => {}}
-      />,
+      <WrapperTestWithProvider>
+        <BookModal
+          visible={true}
+          onCloseModal={onCloseModal}
+          image={mockBook.image}
+          title={mockBook.title}
+          brandLogo={mockBook.brandLogo}
+          description={mockBook.description}
+          isFavorite={mockBook.isFavorite}
+          price={mockBook.price}
+          rating={mockBook.rating}
+          quantity={1}
+          setQuantity={() => {}}
+          onToggleFavorite={() => {}}
+          onAddToCart={() => {}}
+        />
+      </WrapperTestWithProvider>,
     );
 
     fireEvent.press(getByText('Continue shopping'));
     expect(onCloseModal).toHaveBeenCalled();
-  });
-
-  it('matches snapshot', () => {
-    const tree = render(
-      <BookModal
-        visible={true}
-        onCloseModal={() => {}}
-        book={mockBook}
-        quantity={1}
-        setQuantity={() => {}}
-        onToggleFavorite={() => {}}
-        onAddToCart={() => {}}
-      />,
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
   });
 });

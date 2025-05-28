@@ -7,6 +7,10 @@ import BookDetailCard from '@/components/feature/BookDetailCard';
 // Mock data
 import { BOOKS_DATA_MOCK } from '@/mock/data';
 
+jest.mock('react-native-gesture-handler', () =>
+  require('react-native-gesture-handler/jestSetup'),
+);
+
 describe('BookDetailCard', () => {
   const mockImage = BOOKS_DATA_MOCK[0].image;
   const mockTitle = BOOKS_DATA_MOCK[0].title;

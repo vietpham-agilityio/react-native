@@ -7,6 +7,10 @@ import CartItem from '@/components/feature/CartItem';
 // Mock
 import { BOOKS_DATA_MOCK } from '@/mock/data';
 
+jest.mock('react-native-gesture-handler', () =>
+  require('react-native-gesture-handler/jestSetup'),
+);
+
 describe('CartItem', () => {
   const mockImage = BOOKS_DATA_MOCK[0].image;
   const mockTitle = BOOKS_DATA_MOCK[0].title;

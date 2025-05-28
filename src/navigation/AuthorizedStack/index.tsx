@@ -14,6 +14,9 @@ import { NotificationHeaderButton } from '@/components';
 import { ROUTES } from '@/constants/route';
 import { HEADER_TITLE } from '@/constants/header';
 
+// Screens
+import BookDetail from '@/screens/BookDetail';
+
 const Stack = createStackNavigator();
 
 const AuthorizedStack = () => (
@@ -26,6 +29,15 @@ const AuthorizedStack = () => (
       name={ROUTES.MAIN}
       component={BottomTabNavigation}
       options={{ headerShown: false }}
+    />
+    <Stack.Screen
+      name={ROUTES.BOOK_DETAIL}
+      component={BookDetail}
+      options={{
+        headerShown: false,
+        presentation: 'modal',
+        animation: 'slide_from_bottom',
+      }}
     />
     <Stack.Screen
       name={ROUTES.CHECKOUT}

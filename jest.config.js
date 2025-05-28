@@ -10,6 +10,7 @@ module.exports = {
       '|@react-native' +
       '|react-native-vector-icons' +
       '|@react-navigation' +
+      '|react-native-reanimated' +
       ')/)',
   ],
   moduleNameMapper: {

@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { View, Platform } from 'react-native';
+import { View } from 'react-native';
 
 // Components
 import { ListCategories, BookCard, HorizontalList } from '@/components';
@@ -17,14 +17,31 @@ import { ROUTES } from '@/constants/route';
 import { Book } from '@/types/models';
 
 const CategoryScreen = ({ navigation }: { navigation: any }) => {
-  const isIOS = Platform.OS === 'ios';
-
   const handleBookPress = useCallback(
     (book: Book) => {
       navigation.navigate(ROUTES.BOOK_DETAIL, { book });
     },
     [navigation],
   );
+
+  const renderItem = useCallback(
+    ({ item }: { item: Book }) => {
+      const { id, image, title, price } = item;
+      return (
+        <BookCard
+          key={id}
+          image={image}
+          title={title}
+          price={price}
+          isCategory
+          onPress={() => handleBookPress(item)}
+        />
+      );
+    },
+    [handleBookPress],
+  );
+
+  const keyExtractor = useCallback((item: Book) => item.id, []);
 
   return (
     <View>
@@ -33,22 +50,11 @@ const CategoryScreen = ({ navigation }: { navigation: any }) => {
         <HorizontalList
           data={BOOKS_DATA_MOCK}
           numColumns={2}
-          keyExtractor={item => item.id}
-          contentContainerStyle={[
-            styles.listContent,
-            { paddingBottom: isIOS ? 250 : 170 },
-          ]}
+          windowSize={8}
+          keyExtractor={keyExtractor}
+          contentContainerStyle={styles.listContent}
           columnWrapperStyle={styles.row}
-          renderItem={({ item }) => (
-            <BookCard
-              key={item.id}
-              image={item.image}
-              title={item.title}
-              price={item.price}
-              isCategory
-              onPress={() => handleBookPress(item)}
-            />
-          )}
+          renderItem={renderItem}
         />
       </View>
     </View>

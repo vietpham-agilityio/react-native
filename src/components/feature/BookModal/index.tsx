@@ -3,10 +3,12 @@ import React, { memo, useCallback, useEffect } from 'react';
 import {
   View,
   TouchableWithoutFeedback,
-  Platform,
   Dimensions,
   ImageSourcePropType,
 } from 'react-native';
+
+// Hooks
+import { usePlatform } from '@/hooks';
 
 // Gestures
 import Animated, {
@@ -66,7 +68,7 @@ const BookModal = ({
 
   const screenHeight = Dimensions.get('window').height;
 
-  const isIOS = Platform.OS === 'ios';
+  const { isIOS } = usePlatform();
 
   // Handlers
   const handleAddToCart = useCallback(() => {

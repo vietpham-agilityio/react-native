@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { Platform, ScrollView, TouchableOpacity, View } from 'react-native';
+import { ScrollView, TouchableOpacity, View } from 'react-native';
 
 // Components
 import {
@@ -29,8 +29,11 @@ import { Author, Book, Vendor } from '@/types/models';
 // Route
 import { ROUTES } from '@/constants/route';
 
+// Hooks
+import usePlatform from '@/hooks/usePlatform';
+
 const HomeScreen = ({ navigation }: { navigation: any }) => {
-  const isIOS = Platform.OS === 'ios';
+  const { isIOS } = usePlatform();
 
   const handleClickTopWeekSeeAll = useCallback(() => {
     navigation.navigate(ROUTES.CATEGORY);
@@ -42,6 +45,38 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
     },
     [navigation],
   );
+
+  const keyExtractor = useCallback(
+    (item: Book | Author | Vendor) => item.id,
+    [],
+  );
+
+  const renderItem = useCallback(
+    ({ item }: { item: Book }) => {
+      const { id, image, title, price } = item;
+
+      return (
+        <BookCard
+          key={id}
+          image={image}
+          title={title}
+          price={price}
+          onPress={() => handleBookPress(item)}
+        />
+      );
+    },
+    [handleBookPress],
+  );
+
+  const renderVendorItem = useCallback(({ item }: { item: Vendor }) => {
+    const { id, image, name } = item;
+    return <VendorCard key={id} image={image} name={name} />;
+  }, []);
+
+  const renderAuthorItem = useCallback(({ item }: { item: Author }) => {
+    const { id, image, name, role } = item;
+    return <AuthorCard key={id} image={image} name={name} role={role} />;
+  }, []);
 
   return (
     <View style={styles.screenContainer}>
@@ -87,17 +122,9 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
             </View>
             <HorizontalList
               data={BOOKS_DATA_MOCK.slice(0, 5)}
-              keyExtractor={item => item.id}
+              keyExtractor={keyExtractor}
               contentContainerStyle={styles.horizontalList}
-              renderItem={({ item }: { item: Book }) => (
-                <BookCard
-                  key={item.id}
-                  image={item.image}
-                  title={item.title}
-                  price={item.price}
-                  onPress={() => handleBookPress(item)}
-                />
-              )}
+              renderItem={renderItem}
             />
           </View>
 
@@ -114,11 +141,9 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
             </View>
             <HorizontalList
               data={VENDOR_DATA_MOCK}
-              keyExtractor={item => item.id}
+              keyExtractor={keyExtractor}
               contentContainerStyle={styles.horizontalList}
-              renderItem={({ item }: { item: Vendor }) => (
-                <VendorCard key={item.id} image={item.image} name={item.name} />
-              )}
+              renderItem={renderVendorItem}
             />
           </View>
 
@@ -135,16 +160,9 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
             </View>
             <HorizontalList
               data={AUTHORS_DATA_MOCK.slice(0, 5)}
-              keyExtractor={item => item.id}
+              keyExtractor={keyExtractor}
               contentContainerStyle={styles.horizontalList}
-              renderItem={({ item }: { item: Author }) => (
-                <AuthorCard
-                  key={item.id}
-                  image={item.image}
-                  name={item.name}
-                  role={item.role}
-                />
-              )}
+              renderItem={renderAuthorItem}
             />
           </View>
         </View>

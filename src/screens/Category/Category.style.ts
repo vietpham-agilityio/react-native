@@ -1,5 +1,9 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
+
+// Theme
 import { colors } from '@/theme';
+
+const isIOS = Platform.OS === 'ios';
 
 const styles = StyleSheet.create({
   container: {
@@ -9,6 +13,7 @@ const styles = StyleSheet.create({
   },
   listContent: {
     paddingTop: 38,
+    paddingBottom: isIOS ? 250 : 170,
   },
   row: {
     justifyContent: 'space-between',

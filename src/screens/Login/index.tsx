@@ -6,7 +6,6 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   KeyboardAvoidingView,
-  Platform,
   ScrollView,
 } from 'react-native';
 
@@ -28,10 +27,13 @@ import { AppleIcon, EyeFilledIcon, EyeSlashFilledIcon } from '@/icons';
 // Utils
 import { validateEmail, validatePassword } from '@/utils';
 
+// Hooks
+import { usePlatform } from '@/hooks';
+
 const SignInScreen = () => {
   const { signIn } = useAuth();
 
-  const isIOS = Platform.OS === 'ios';
+  const { isIOS } = usePlatform();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

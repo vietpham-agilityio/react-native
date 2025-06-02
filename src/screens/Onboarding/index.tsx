@@ -1,11 +1,5 @@
 import React, { useCallback } from 'react';
-import {
-  View,
-  SafeAreaView,
-  TouchableOpacity,
-  Image,
-  Platform,
-} from 'react-native';
+import { View, SafeAreaView, TouchableOpacity, Image } from 'react-native';
 
 // Components
 import { Button, Typography, Heading, Carousel } from '@/components';
@@ -22,12 +16,15 @@ import styles from './OnBoarding.style';
 // Route
 import { ROUTES } from '@/constants/route';
 
+// Hooks
+import { usePlatform } from '@/hooks';
+
 interface OnboardingScreenProps {
   navigation: any;
 }
 
 const OnboardingScreen = ({ navigation }: OnboardingScreenProps) => {
-  const isIOS = Platform.OS === 'ios';
+  const { isIOS } = usePlatform();
 
   const handleSkipOnboarding = useCallback(
     () => navigation.navigate(ROUTES.LOGIN),

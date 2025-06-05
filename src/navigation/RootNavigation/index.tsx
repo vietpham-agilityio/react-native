@@ -1,5 +1,5 @@
 import React, { useReducer, useEffect } from 'react';
-import { BackHandler } from 'react-native';
+import { BackHandler, Linking } from 'react-native';
 
 import { AuthContext } from '@/store/AuthContext';
 
@@ -12,8 +12,46 @@ import authReducer, { initialState } from '@/store/AuthReducer';
 // Navigation
 import { AuthorizedStack, UnauthorizedStack } from '@/navigation';
 
+// Constants
+import linking from '@/constants/deeplink';
+import { ROUTES } from '@/constants/route';
+
 const RootNavigation = () => {
   const [state, dispatch] = useReducer(authReducer, initialState);
+
+  // Handle deep links
+  useEffect(() => {
+    const handleDeepLink = async () => {
+      const url = await Linking.getInitialURL();
+      if (url) {
+        if (
+          url.includes(ROUTES.LOGIN.toLowerCase()) ||
+          url.includes(ROUTES.ONBOARDING.toLowerCase())
+        ) {
+          dispatch({ type: 'SIGN_OUT', token: null });
+        } else {
+          dispatch({ type: 'SIGN_IN', token: 'dummy-auth-token' });
+        }
+      }
+    };
+
+    handleDeepLink();
+
+    const subscription = Linking.addEventListener('url', ({ url }) => {
+      if (
+        url.includes(ROUTES.LOGIN.toLowerCase()) ||
+        url.includes(ROUTES.ONBOARDING.toLowerCase())
+      ) {
+        dispatch({ type: 'SIGN_OUT', token: null });
+      } else {
+        dispatch({ type: 'SIGN_IN', token: 'dummy-auth-token' });
+      }
+    });
+
+    return () => {
+      subscription.remove();
+    };
+  }, []);
 
   // Handle Android back button
   useEffect(() => {
@@ -40,7 +78,7 @@ const RootNavigation = () => {
 
   return (
     <AuthContext.Provider value={authContext}>
-      <NavigationContainer>
+      <NavigationContainer linking={linking}>
         {state.userToken ? (
           <AuthorizedStack />
         ) : (

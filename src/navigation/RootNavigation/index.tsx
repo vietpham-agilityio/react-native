@@ -16,6 +16,9 @@ import { AuthorizedStack, UnauthorizedStack } from '@/navigation';
 import linking from '@/constants/deeplink';
 import { ROUTES } from '@/constants/route';
 
+// Layouts
+import RootLayout from '@/layouts/RootLayout';
+
 const RootNavigation = () => {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
@@ -79,11 +82,13 @@ const RootNavigation = () => {
   return (
     <AuthContext.Provider value={authContext}>
       <NavigationContainer linking={linking}>
-        {state.userToken ? (
-          <AuthorizedStack />
-        ) : (
-          <UnauthorizedStack isSignout={state.isSignout} />
-        )}
+        <RootLayout>
+          {state.userToken ? (
+            <AuthorizedStack />
+          ) : (
+            <UnauthorizedStack isSignout={state.isSignout} />
+          )}
+        </RootLayout>
       </NavigationContainer>
     </AuthContext.Provider>
   );

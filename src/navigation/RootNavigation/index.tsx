@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer, useEffect, useState } from 'react';
 import { BackHandler, Linking } from 'react-native';
 
 import { AuthContext } from '@/store/AuthContext';
@@ -16,11 +16,21 @@ import { AuthorizedStack, UnauthorizedStack } from '@/navigation';
 import linking from '@/constants/deeplink';
 import { ROUTES } from '@/constants/route';
 
+// Screens
+import { SplashScreen } from '@/screens';
+
 // Layouts
 import RootLayout from '@/layouts/RootLayout';
 
 const RootNavigation = () => {
   const [state, dispatch] = useReducer(authReducer, initialState);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  }, []);
 
   // Handle deep links
   useEffect(() => {
@@ -82,13 +92,17 @@ const RootNavigation = () => {
   return (
     <AuthContext.Provider value={authContext}>
       <NavigationContainer linking={linking}>
-        <RootLayout>
-          {state.userToken ? (
-            <AuthorizedStack />
-          ) : (
-            <UnauthorizedStack isSignout={state.isSignout} />
-          )}
-        </RootLayout>
+        {isLoading ? (
+          <SplashScreen />
+        ) : (
+          <RootLayout>
+            {state.userToken ? (
+              <AuthorizedStack />
+            ) : (
+              <UnauthorizedStack isSignout={state.isSignout} />
+            )}
+          </RootLayout>
+        )}
       </NavigationContainer>
     </AuthContext.Provider>
   );

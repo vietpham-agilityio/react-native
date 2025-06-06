@@ -16,3 +16,4 @@ export { default as EyeFilledIcon } from './EyeFilledIcon';
 export { default as EyeSlashFilledIcon } from './EyeSlashFilledIcon';
 export { default as NotificationIcon } from './NotificationIcon';
 export { default as SearchIcon } from './SearchIcon';
+export { default as BazerIcon } from './BazerIcon';

@@ -27,6 +27,7 @@ const baseColors = {
   },
 
   white: '#FFF',
+  whiteDark: '#EEE',
 };
 
 const colors = {
@@ -47,7 +48,7 @@ const colors = {
   grayLight: baseColors.gray[400],
   grayNeutral: baseColors.gray[500],
   grayMedium: baseColors.gray[600],
-  grayBackground: '#EEE',
+  grayBackground: baseColors.whiteDark,
 
   // Black variations
   black: baseColors.black.primary,

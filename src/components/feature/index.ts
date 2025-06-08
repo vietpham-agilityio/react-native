@@ -12,3 +12,4 @@ export { default as SelectionCard } from './SelectionCard';
 export { default as BookModal } from './BookModal';
 export { default as NotificationHeaderButton } from './NotificationHeaderButton';
 export { default as SearchHeaderButton } from './SearchHeaderButton';
+export { default as VendorDetailCard } from './VendorDetailCard';

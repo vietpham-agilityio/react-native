@@ -68,6 +68,7 @@ exports[`BookCard matches snapshot with isCategory 1`] = `
           "color": "#333",
           "fontFamily": "Roboto-Medium",
           "fontSize": 16,
+          "lineHeight": 24,
         },
         {
           "color": "#121212",
@@ -85,6 +86,7 @@ exports[`BookCard matches snapshot with isCategory 1`] = `
           "color": "#333",
           "fontFamily": "Roboto-Bold",
           "fontSize": 14,
+          "lineHeight": 20,
         },
         {
           "color": "#54408C",
@@ -166,6 +168,7 @@ exports[`BookCard matches snapshot without isCategory 1`] = `
           "color": "#333",
           "fontFamily": "Roboto-Medium",
           "fontSize": 14,
+          "lineHeight": 20,
         },
         {
           "color": "#121212",
@@ -183,6 +186,7 @@ exports[`BookCard matches snapshot without isCategory 1`] = `
           "color": "#333",
           "fontFamily": "Roboto-Bold",
           "fontSize": 12,
+          "lineHeight": 16,
         },
         {
           "color": "#54408C",

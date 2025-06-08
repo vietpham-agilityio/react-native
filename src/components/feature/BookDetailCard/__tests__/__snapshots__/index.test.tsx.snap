@@ -152,6 +152,7 @@ exports[`BookDetailCard matches snapshot 1`] = `
           "color": "#333",
           "fontFamily": "Roboto-Regular",
           "fontSize": 12,
+          "lineHeight": 16,
         },
         {
           "color": "#A5A5A5",

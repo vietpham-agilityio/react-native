@@ -44,6 +44,7 @@ exports[`CartItem matches snapshot 1`] = `
             "color": "#333",
             "fontFamily": "Roboto-SemiBold",
             "fontSize": 16,
+            "lineHeight": 24,
           },
           {
             "color": "#121212",
@@ -217,6 +218,7 @@ exports[`CartItem matches snapshot 1`] = `
                 "color": "#333",
                 "fontFamily": "Roboto-Medium",
                 "fontSize": 16,
+                "lineHeight": 24,
               },
               {
                 "minWidth": 24,
@@ -334,6 +336,7 @@ exports[`CartItem matches snapshot 1`] = `
               "color": "#333",
               "fontFamily": "Roboto-Medium",
               "fontSize": 16,
+              "lineHeight": 24,
             },
             {
               "color": "#54408C",

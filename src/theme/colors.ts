@@ -58,6 +58,7 @@ const colors = {
 
   // Card colors
   cardBackground: baseColors.gray[100],
+  cardBackgroundLight: baseColors.gray[200],
 
   // Status colors
   error: baseColors.red.error,

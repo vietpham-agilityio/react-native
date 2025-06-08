@@ -59,6 +59,7 @@ exports[`SummaryCard matches snapshot 1`] = `
               "color": "#333",
               "fontFamily": "Roboto-Regular",
               "fontSize": 14,
+              "lineHeight": 20,
             },
             {
               "color": "#121212",
@@ -75,6 +76,7 @@ exports[`SummaryCard matches snapshot 1`] = `
               "color": "#333",
               "fontFamily": "Roboto-Regular",
               "fontSize": 14,
+              "lineHeight": 20,
             },
             {
               "color": "#121212",
@@ -101,6 +103,7 @@ exports[`SummaryCard matches snapshot 1`] = `
               "color": "#333",
               "fontFamily": "Roboto-Regular",
               "fontSize": 14,
+              "lineHeight": 20,
             },
             {
               "color": "#121212",
@@ -117,6 +120,7 @@ exports[`SummaryCard matches snapshot 1`] = `
               "color": "#333",
               "fontFamily": "Roboto-Regular",
               "fontSize": 14,
+              "lineHeight": 20,
             },
             {
               "color": "#121212",
@@ -152,6 +156,7 @@ exports[`SummaryCard matches snapshot 1`] = `
               "color": "#333",
               "fontFamily": "Roboto-Bold",
               "fontSize": 16,
+              "lineHeight": 24,
             },
             {
               "color": "#121212",
@@ -168,6 +173,7 @@ exports[`SummaryCard matches snapshot 1`] = `
               "color": "#333",
               "fontFamily": "Roboto-Bold",
               "fontSize": 16,
+              "lineHeight": 24,
             },
             {
               "color": "#121212",
@@ -236,6 +242,7 @@ exports[`SummaryCard matches snapshot 1`] = `
             "color": "#333",
             "fontFamily": "Roboto-Bold",
             "fontSize": 14,
+            "lineHeight": 20,
           },
           {
             "color": "#54408C",

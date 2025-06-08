@@ -27,6 +27,13 @@ const fontSizeMap: Record<Variant, number> = {
   typoSmall: 12,
 };
 
+const lineHeightMap: Record<Variant, number> = {
+  typoXLarge: 28,
+  typoLarge: 24,
+  typoMedium: 20,
+  typoSmall: 16,
+};
+
 const Typography = ({
   variant = 'typoMedium',
   weight = 'regular',
@@ -40,6 +47,7 @@ const Typography = ({
         {
           fontFamily: fontWeightMap[weight],
           fontSize: fontSizeMap[variant],
+          lineHeight: lineHeightMap[variant],
           color: colors.textLight,
         },
         style,

@@ -144,6 +144,7 @@ exports[`SelectionCard matches snapshot 1`] = `
               "color": "#333",
               "fontFamily": "Roboto-Bold",
               "fontSize": 16,
+              "lineHeight": 24,
             },
             {
               "color": "#121212",
@@ -161,6 +162,7 @@ exports[`SelectionCard matches snapshot 1`] = `
               "color": "#333",
               "fontFamily": "Roboto-Regular",
               "fontSize": 14,
+              "lineHeight": 20,
             },
             {
               "color": "#A5A5A5",

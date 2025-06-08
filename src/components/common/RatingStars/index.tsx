@@ -10,38 +10,34 @@ import styles from './RatingStars.style';
 // Theme
 import { colors } from '@/theme';
 
-// Icons
-import { StarIcon } from '@/icons';
+// Hooks
+import { useRenderStars } from '@/hooks';
 
 interface RatingStarsProps {
   rating: number;
   maxStars?: number;
   starColor?: string;
+  isSmall?: boolean;
+  isShowRating?: boolean;
 }
 
 const RatingStars = ({
   rating,
+  isSmall = false,
   maxStars = 5,
   starColor = colors.warning,
+  isShowRating = true,
 }: RatingStarsProps) => {
-  const stars = [];
-
-  for (let i = 1; i <= maxStars; i++) {
-    if (i <= Math.floor(rating)) {
-      // Full star
-      stars.push(<StarIcon key={i} color={starColor} testID="star-filled" />);
-    } else {
-      // Empty star
-      stars.push(<StarIcon key={i} color={colors.black} testID="star-empty" />);
-    }
-  }
+  const stars = useRenderStars({ rating, maxStars, starColor, isSmall });
 
   return (
     <View style={styles.container}>
       {stars}
-      <Typography variant="typoLarge" weight="semibold">
-        {`(${rating.toFixed(1)})`}
-      </Typography>
+      {isShowRating && (
+        <Typography variant="typoLarge" weight="semibold">
+          {`(${rating.toFixed(1)})`}
+        </Typography>
+      )}
     </View>
   );
 };

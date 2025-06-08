@@ -4,6 +4,7 @@ export { default as CartIcon } from './CartIcon';
 export { default as ProfileIcon } from './ProfileIcon';
 export { default as HeartIcon } from './HeartIcon';
 export { default as StarIcon } from './StarIcon';
+export { default as StarSmallIcon } from './StarSmallIcon';
 export { default as MinusIcon } from './MinusIcon';
 export { default as PlusIcon } from './PlusIcon';
 export { default as MapIcon } from './MapIcon';

@@ -20,4 +20,5 @@ export interface Book {
 
 export interface Author extends Vendor {
   role: string;
+  description: string;
 }

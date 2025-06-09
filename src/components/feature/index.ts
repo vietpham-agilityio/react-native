@@ -19,3 +19,4 @@ export { default as ReceivedOrderContent } from './ReceivedOrderContent';
 export { default as ConfirmOrderThumbnail } from './ConfirmOrderThumbnail';
 export { default as GiveFeedbackCard } from './GiveFeedbackCard';
 export { default as ListValidateMessage } from './ListValidateMessage';
+export { default as OrderDetailCard } from './OrderDetailCard';

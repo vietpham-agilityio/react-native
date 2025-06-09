@@ -19,3 +19,5 @@ export { default as EyeSlashFilledIcon } from './EyeSlashFilledIcon';
 export { default as NotificationIcon } from './NotificationIcon';
 export { default as SearchIcon } from './SearchIcon';
 export { default as BazerIcon } from './BazerIcon';
+export { default as CheckPupleIcon } from './CheckPupleIcon';
+export { default as CrossRedIcon } from './CrossRedIcon';

@@ -4,6 +4,7 @@ const baseColors = {
     primary: '#54408C',
     accent: '#7B6F97',
     secondary: '#E5DEF8',
+    tertiary: '#FAF9FD',
   },
   gray: {
     100: '#FAFAFA',
@@ -60,6 +61,7 @@ const colors = {
   // Card colors
   cardBackground: baseColors.gray[100],
   cardBackgroundLight: baseColors.gray[200],
+  cardBackgroundTertiary: baseColors.purple.tertiary,
 
   // Status colors
   error: baseColors.red.error,

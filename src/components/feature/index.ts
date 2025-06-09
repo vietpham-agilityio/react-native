@@ -16,3 +16,4 @@ export { default as VendorDetailCard } from './VendorDetailCard';
 export { default as AuthorHorizontalCard } from './AuthorHorizontalCard';
 export { default as AuthorDetailCard } from './AuthorDetailCard';
 export { default as ReceivedOrderContent } from './ReceivedOrderContent';
+export { default as ConfirmOrderThumbnail } from './ConfirmOrderThumbnail';

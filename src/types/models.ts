@@ -22,3 +22,18 @@ export interface Author extends Vendor {
   role: string;
   description: string;
 }
+
+export interface OrderBookItem {
+  book: Book;
+  quantity: number;
+}
+
+export interface OrderDetails {
+  id: string;
+  orderDate: string;
+  orderStatus: string;
+  shippingFee: number;
+  deliveryIn: string;
+  deliveryTime: string;
+  listBooks: OrderBookItem[];
+}

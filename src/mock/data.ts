@@ -1,4 +1,4 @@
-import { Author, Book, Vendor } from '@/types/models';
+import { Author, Book, OrderDetails, Vendor } from '@/types/models';
 
 export const VENDOR_DATA_MOCK: Vendor[] = [
   {
@@ -175,3 +175,26 @@ export const BOOKS_DATA_MOCK: Book[] = [
     reviews: 6720,
   },
 ];
+
+export const ORDER_DETAILS_MOCK: OrderDetails = {
+  id: '1',
+  orderDate: '2021-01-01',
+  orderStatus: 'Pending',
+  shippingFee: 10,
+  deliveryIn: '15 - 20 mins',
+  deliveryTime: '15',
+  listBooks: [
+    {
+      book: BOOKS_DATA_MOCK[0],
+      quantity: 2,
+    },
+    {
+      book: BOOKS_DATA_MOCK[1],
+      quantity: 1,
+    },
+    {
+      book: BOOKS_DATA_MOCK[2],
+      quantity: 1,
+    },
+  ],
+};

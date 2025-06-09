@@ -5,6 +5,7 @@ const radius = {
   medium: 40,
   extraLarge: 48,
   large: 50,
+  full: 100,
 };
 
 export default radius;

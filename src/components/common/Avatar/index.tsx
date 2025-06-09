@@ -22,10 +22,7 @@ const Avatar = ({ source, size = 40, style }: AvatarProps) => {
     <Image
       source={source}
       testID="avatar-image"
-      style={[
-        { width: size, height: size, borderRadius: radius.extraLarge },
-        style,
-      ]}
+      style={[{ width: size, height: size, borderRadius: radius.full }, style]}
     />
   );
 };

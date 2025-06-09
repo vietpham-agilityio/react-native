@@ -29,6 +29,8 @@ export const AUTHORS_DATA_MOCK: Author[] = [
     image: require('@assets/images/authors/harper-lee.webp'),
     name: 'Harper Lee',
     role: 'Writer',
+    description:
+      'Nelle Harper Lee was an American novelist whose 1960 novel To Kill a Mockingbird won the 1961 Pulitzer Prize and became a classic of modern American literature. She assisted her close friend Truman Capote in his research for the book In Cold Blood.',
   },
 
   {
@@ -36,18 +38,24 @@ export const AUTHORS_DATA_MOCK: Author[] = [
     image: require('@assets/images/authors/jose-mauro-de.webp'),
     name: 'Jose Mauro',
     role: 'Novelist',
+    description:
+      'José Mauro was born in Rio de Janeiro on February 26, 1920. His family was very poor, and when he was still very young, he migrated to Natal where relatives took care of him. Entering the Medical faculty, Mauro abandoned the course of studies in his second year and returned to Rio de Janeiro.',
   },
   {
     id: '3',
     image: require('@assets/images/authors/murakami.webp'),
     name: 'H.Murakami',
     role: 'Novelist',
+    description:
+      'Haruki Murakami is a Japanese writer. His novels, essays, and short stories have been best-sellers in Japan and internationally, with his work translated into 50 languages and having sold millions of copies outside Japan.',
   },
   {
     id: '4',
     image: require('@assets/images/authors/nhat-anh.webp'),
     name: 'Nhat Anh',
     role: 'Writer',
+    description:
+      "Nguyễn Nhật Ánh is a Vietnamese author who writes for teenagers and adults. He also works as a teacher, poet and correspondent. His works include approximately 30 novels, 4 essays, 2 series and some collections of poems. He is regarded as one of Vietnam's most successful contemporary writers.",
   },
 ];
 

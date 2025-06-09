@@ -14,3 +14,4 @@ export { default as NotificationHeaderButton } from './NotificationHeaderButton'
 export { default as SearchHeaderButton } from './SearchHeaderButton';
 export { default as VendorDetailCard } from './VendorDetailCard';
 export { default as AuthorHorizontalCard } from './AuthorHorizontalCard';
+export { default as AuthorDetailCard } from './AuthorDetailCard';

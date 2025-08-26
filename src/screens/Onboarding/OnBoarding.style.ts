@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 
 // Theme
 import { colors } from '@/theme';
@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     width: 60,
     padding: 16,
+    paddingTop: Platform.OS === 'android' ? 60 : 16,
   },
   skipText: {
     color: '#6C4AB6',
@@ -48,12 +49,29 @@ const styles = StyleSheet.create({
     marginTop: 14,
     textAlign: 'center',
   },
+  headingStepOne: {
+    paddingHorizontal: 32,
+  },
+  headingStepThree: {
+    marginBottom: 44,
+  },
+  headingDefault: {
+    marginBottom: 12,
+  },
   description: {
     textAlign: 'center',
     color: colors.grayMedium,
   },
+  descriptionAndroid: {
+    fontSize: 18,
+    marginHorizontal: 10,
+  },
+  safeAreaView: {
+    flex: 1,
+    backgroundColor: colors.white,
+  },
   buttonContainer: {
-    marginBottom: 4,
+    marginBottom: Platform.OS === 'android' ? 32 : 4,
     gap: 8,
   },
   button: {

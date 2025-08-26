@@ -17,6 +17,9 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginTop: 24,
   },
+  buttonNotification: {
+    gap: 16,
+  },
 });
 
 export default styles;

@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 
 // Theme
 import { colors } from '@/theme';
@@ -27,6 +27,9 @@ const styles = StyleSheet.create({
   },
   horizontalList: {
     gap: 16,
+  },
+  scrollViewContentContainer: {
+    paddingBottom: Platform.OS === 'android' ? 80 : 100,
   },
 });
 

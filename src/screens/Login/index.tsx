@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import {
   View,
   TouchableOpacity,
@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 
 // Components
-import { Input, Button, Typography, Heading } from '@/components';
+import { Input, Button, Typography, Heading, StatusBar } from '@/components';
 
 // Theme
 import { colors } from '@/theme';
@@ -41,11 +41,11 @@ const SignInScreen = () => {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
-  const handleDismissKeyboard = () => {
+  const handleDismissKeyboard = useCallback(() => {
     Keyboard.dismiss();
-  };
+  }, []);
 
-  const handleLogin = () => {
+  const handleLogin = useCallback(() => {
     handleDismissKeyboard();
 
     let emailErr = '';
@@ -72,20 +72,25 @@ const SignInScreen = () => {
 
     // Simulate sign in
     signIn({ email, password });
-  };
+  }, [email, password, signIn, handleDismissKeyboard]);
 
-  const handleSignUp = () => {
-    handleDismissKeyboard();
-  };
+  const handleTogglePassword = useCallback(() => {
+    setShowPassword(prev => !prev);
+  }, []);
 
-  const handleForgotPassword = () => {
+  const handleSignUp = useCallback(() => {
     handleDismissKeyboard();
-  };
+  }, [handleDismissKeyboard]);
+
+  const handleForgotPassword = useCallback(() => {
+    handleDismissKeyboard();
+  }, [handleDismissKeyboard]);
 
   return (
     <KeyboardAvoidingView
       behavior={isIOS ? 'padding' : 'height'}
       style={styles.container}>
+      <StatusBar />
       <TouchableWithoutFeedback
         onPress={handleDismissKeyboard}
         accessible={false}>
@@ -131,7 +136,7 @@ const SignInScreen = () => {
                 <EyeSlashFilledIcon color={colors.grayNeutral} />
               )
             }
-            onRightIconPress={() => setShowPassword(!showPassword)}
+            onRightIconPress={handleTogglePassword}
             style={styles.input}
           />
 
@@ -194,7 +199,7 @@ const SignInScreen = () => {
             icon={
               <Image
                 source={require('@assets/images/vendors/google-icon.webp')}
-                style={{ width: 16, height: 16 }}
+                style={styles.googleIcon}
               />
             }
             style={styles.socialButton}
@@ -205,13 +210,7 @@ const SignInScreen = () => {
             title="Sign in with Apple"
             variant="thirdParty"
             size="medium"
-            icon={
-              <AppleIcon
-                style={{
-                  marginBottom: 4,
-                }}
-              />
-            }
+            icon={<AppleIcon style={styles.appleIcon} />}
             style={styles.socialButton}
             textStyle={styles.socialButtonText}
             onPress={handleDismissKeyboard}

@@ -7,6 +7,9 @@ import { SearchIcon } from '@/icons';
 // Theme
 import { colors } from '@/theme';
 
+// Styles
+import styles from './SearchHeaderButton.style';
+
 // Types
 interface SearchHeaderButtonProps {
   onPress?: () => void;
@@ -18,24 +21,13 @@ const SearchHeaderButton = ({
   onPress,
   iconColor = colors.black,
   style,
-}: SearchHeaderButtonProps) => {
-  return (
-    <TouchableOpacity
-      accessibilityRole="button"
-      onPress={onPress}
-      style={[
-        {
-          marginLeft: 16,
-          width: 40,
-          height: 40,
-          alignItems: 'center',
-          justifyContent: 'center',
-        },
-        style,
-      ]}>
-      <SearchIcon color={iconColor} testID="search-icon" />
-    </TouchableOpacity>
-  );
-};
+}: SearchHeaderButtonProps) => (
+  <TouchableOpacity
+    accessibilityRole="button"
+    onPress={onPress}
+    style={[styles.touchable, style]}>
+    <SearchIcon color={iconColor} testID="search-icon" />
+  </TouchableOpacity>
+);
 
 export default SearchHeaderButton;

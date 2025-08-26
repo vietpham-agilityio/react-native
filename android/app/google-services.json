@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "490196557071",
+    "project_id": "bazerbookapplication",
+    "storage_bucket": "bazerbookapplication.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:490196557071:android:63abbf756a2f0f0582727a",
+        "android_client_info": {
+          "package_name": "com.bazerbooksapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC61srKuXDcoH0Fh9ajlgOzejboRxlO8v0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

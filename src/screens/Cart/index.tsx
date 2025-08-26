@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { View, ScrollView } from 'react-native';
 
 // Components
-import { Button, CartItem } from '@/components';
+import { Button, CartItem, StatusBar } from '@/components';
 
 // Styles
 import styles from './Cart.style';
@@ -24,6 +24,7 @@ const CartScreen = ({ navigation }: { navigation: any }) => {
 
   return (
     <View style={styles.container}>
+      <StatusBar />
       <ScrollView
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}>

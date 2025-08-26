@@ -9,6 +9,7 @@ import {
   Heading,
   HorizontalList,
   OfferDiscountCard,
+  StatusBar,
   Typography,
   VendorCard,
 } from '@/components';
@@ -29,12 +30,7 @@ import { Author, Book, Vendor } from '@/types/models';
 // Route
 import { ROUTES } from '@/constants/route';
 
-// Hooks
-import usePlatform from '@/hooks/usePlatform';
-
 const HomeScreen = ({ navigation }: { navigation: any }) => {
-  const { isIOS } = usePlatform();
-
   const handleClickTopWeekSeeAll = useCallback(() => {
     navigation.navigate(ROUTES.CATEGORY);
   }, [navigation]);
@@ -80,11 +76,10 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
 
   return (
     <View style={styles.screenContainer}>
+      <StatusBar />
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={
-          isIOS ? { paddingBottom: 100 } : { paddingBottom: 80 }
-        }
+        contentContainerStyle={styles.scrollViewContentContainer}
         style={styles.carouselSection}>
         <Carousel
           listItems={BOOKS_DATA_MOCK.slice(0, 5).map((book: Book) => {

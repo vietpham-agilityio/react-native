@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BookModal as BookDetailScreen } from '@/components';
+import { BookModal as BookDetailScreen, StatusBar } from '@/components';
 
 // Constants
 import { ROUTES } from '@/constants/route';
@@ -30,21 +30,24 @@ const BookDetail = () => {
   };
 
   return (
-    <BookDetailScreen
-      visible={true}
-      image={book.image}
-      title={book.title}
-      brandLogo={book.vendor.image}
-      description={book.description}
-      isFavorite={false}
-      price={book.price}
-      rating={book.rating}
-      onCloseModal={handleClose}
-      onAddToCart={handleAddToCart}
-      onToggleFavorite={() => {}}
-      quantity={1}
-      setQuantity={() => {}}
-    />
+    <>
+      <StatusBar />
+      <BookDetailScreen
+        visible={true}
+        image={book.image}
+        title={book.title}
+        brandLogo={book.vendor.image}
+        description={book.description}
+        isFavorite={false}
+        price={book.price}
+        rating={book.rating}
+        onCloseModal={handleClose}
+        onAddToCart={handleAddToCart}
+        onToggleFavorite={() => {}}
+        quantity={1}
+        setQuantity={() => {}}
+      />
+    </>
   );
 };
 

@@ -2,13 +2,10 @@ import React, { useCallback } from 'react';
 import { View, SafeAreaView, TouchableOpacity, Image } from 'react-native';
 
 // Components
-import { Button, Typography, Heading, Carousel } from '@/components';
+import { Button, Typography, Heading, Carousel, StatusBar } from '@/components';
 
 // Constants
 import { LIST_ONBOARDING_STEPS } from '@/constants/listData';
-
-// Theme
-import { colors } from '@/theme';
 
 // Styles
 import styles from './OnBoarding.style';
@@ -57,8 +54,10 @@ const OnboardingScreen = ({ navigation }: OnboardingScreenProps) => {
                 level={3}
                 style={[
                   styles.heading,
-                  { paddingHorizontal: key === 'STEP_ONE' ? 32 : 0 },
-                  { marginBottom: key === 'STEP_THREE' ? 44 : 12 },
+                  key === 'STEP_ONE' && styles.headingStepOne,
+                  key === 'STEP_THREE'
+                    ? styles.headingStepThree
+                    : styles.headingDefault,
                 ]}>
                 {step.title}
               </Heading>
@@ -66,10 +65,7 @@ const OnboardingScreen = ({ navigation }: OnboardingScreenProps) => {
             <Typography
               variant="typoLarge"
               weight="regular"
-              style={[
-                styles.description,
-                !isIOS && { fontSize: 18, marginHorizontal: 10 },
-              ]}>
+              style={[styles.description, !isIOS && styles.descriptionAndroid]}>
               {step.description}
             </Typography>
           </View>
@@ -79,44 +75,47 @@ const OnboardingScreen = ({ navigation }: OnboardingScreenProps) => {
   );
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: colors.white }}>
-      <View style={styles.container}>
-        {/* Skip Button */}
-        <TouchableOpacity
-          onPress={handleSkipOnboarding}
-          style={styles.skipButton}>
-          <Typography
-            variant="typoMedium"
-            weight="medium"
-            style={styles.skipText}>
-            Skip
-          </Typography>
-        </TouchableOpacity>
+    <>
+      <StatusBar />
+      <SafeAreaView style={styles.safeAreaView}>
+        <View style={styles.container}>
+          {/* Skip Button */}
+          <TouchableOpacity
+            onPress={handleSkipOnboarding}
+            style={styles.skipButton}>
+            <Typography
+              variant="typoMedium"
+              weight="medium"
+              style={styles.skipText}>
+              Skip
+            </Typography>
+          </TouchableOpacity>
 
-        {/* Carousel */}
-        <View style={styles.carouselContainer}>
-          <Carousel listItems={carouselItems} />
-        </View>
+          {/* Carousel */}
+          <View style={styles.carouselContainer}>
+            <Carousel listItems={carouselItems} />
+          </View>
 
-        {/* Buttons */}
-        <View style={styles.buttonContainer}>
-          <Button
-            title="Get Started"
-            variant="primary"
-            size="small"
-            onPress={handleSignIn}
-            style={styles.button}
-          />
-          <Button
-            title="Sign in"
-            variant="secondary"
-            size="small"
-            onPress={handleSignIn}
-            style={styles.button}
-          />
+          {/* Buttons */}
+          <View style={styles.buttonContainer}>
+            <Button
+              title="Get Started"
+              variant="primary"
+              size="small"
+              onPress={handleSignIn}
+              style={styles.button}
+            />
+            <Button
+              title="Sign in"
+              variant="secondary"
+              size="small"
+              onPress={handleSignIn}
+              style={styles.button}
+            />
+          </View>
         </View>
-      </View>
-    </SafeAreaView>
+      </SafeAreaView>
+    </>
   );
 };
 

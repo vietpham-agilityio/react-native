@@ -1,10 +1,11 @@
 export { default as Avatar } from './Avatar';
-export { default as Input } from './Input';
 export { default as Button } from './Button';
 export { default as Heading } from './Heading';
-export { default as Typography } from './Typography';
-export { default as RatingStars } from './RatingStars';
-export { default as TopicItem } from './TopicItem';
+export { default as HorizontalList } from './HorizontalList';
+export { default as Input } from './Input';
 export { default as ListCategories } from './ListCategories';
 export { default as ListDot } from './ListDot';
-export { default as HorizontalList } from './HorizontalList';
+export { default as RatingStars } from './RatingStars';
+export { default as StatusBar } from './StatusBar';
+export { default as TopicItem } from './TopicItem';
+export { default as Typography } from './Typography';

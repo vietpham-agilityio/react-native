@@ -2,7 +2,13 @@ import React from 'react';
 import { View, ScrollView } from 'react-native';
 
 // Components
-import { AddressCard, SummaryCard, SelectionCard, Button } from '@/components';
+import {
+  AddressCard,
+  SummaryCard,
+  SelectionCard,
+  Button,
+  StatusBar,
+} from '@/components';
 
 // Icons
 import { CalendarIcon, CreditCardIcon } from '@/icons';
@@ -23,45 +29,48 @@ const CheckoutScreen = () => {
   const handleOrder = () => {};
 
   return (
-    <View style={styles.container}>
-      <ScrollView
-        contentContainerStyle={styles.scrollContent}
-        showsVerticalScrollIndicator={false}>
-        <AddressCard
-          address="Utama Street No.20"
-          addressDetail="Dumbo Street No.20, Dumbo, New York 10001, United States"
-          onChange={handleChangeAddress}
-        />
-        <SummaryCard
-          price={87.1}
-          shipping={2}
-          total={89.1}
-          onSeeDetails={() => {}}
-        />
-        <SelectionCard
-          title="Date and time"
-          rightIcon={<CalendarIcon color={colors.primary} />}
-          label="Date & time"
-          description="Choose date and time"
-          onPress={handleChangeDateAndTime}
-        />
-        <SelectionCard
-          title="Payment"
-          rightIcon={<CreditCardIcon color={colors.primary} />}
-          label="Payment"
-          description="Choose your payment"
-          onPress={handleChangePayment}
-        />
+    <>
+      <StatusBar />
+      <View style={styles.container}>
+        <ScrollView
+          contentContainerStyle={styles.scrollContent}
+          showsVerticalScrollIndicator={false}>
+          <AddressCard
+            address="Utama Street No.20"
+            addressDetail="Dumbo Street No.20, Dumbo, New York 10001, United States"
+            onChange={handleChangeAddress}
+          />
+          <SummaryCard
+            price={87.1}
+            shipping={2}
+            total={89.1}
+            onSeeDetails={() => {}}
+          />
+          <SelectionCard
+            title="Date and time"
+            rightIcon={<CalendarIcon color={colors.primary} />}
+            label="Date & time"
+            description="Choose date and time"
+            onPress={handleChangeDateAndTime}
+          />
+          <SelectionCard
+            title="Payment"
+            rightIcon={<CreditCardIcon color={colors.primary} />}
+            label="Payment"
+            description="Choose your payment"
+            onPress={handleChangePayment}
+          />
 
-        <Button
-          title="Order"
-          size="medium"
-          variant="primary"
-          onPress={handleOrder}
-          style={styles.orderButton}
-        />
-      </ScrollView>
-    </View>
+          <Button
+            title="Order"
+            size="medium"
+            variant="primary"
+            onPress={handleOrder}
+            style={styles.orderButton}
+          />
+        </ScrollView>
+      </View>
+    </>
   );
 };
 

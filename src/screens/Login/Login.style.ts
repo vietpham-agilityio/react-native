@@ -68,6 +68,13 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     fontWeight: '500',
   },
+  googleIcon: {
+    width: 16,
+    height: 16,
+  },
+  appleIcon: {
+    marginBottom: 4,
+  },
 });
 
 export default styles;

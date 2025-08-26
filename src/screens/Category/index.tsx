@@ -2,7 +2,12 @@ import React, { useCallback } from 'react';
 import { View } from 'react-native';
 
 // Components
-import { ListCategories, BookCard, HorizontalList } from '@/components';
+import {
+  ListCategories,
+  BookCard,
+  HorizontalList,
+  StatusBar,
+} from '@/components';
 
 // Styles
 import styles from './Category.style';
@@ -44,7 +49,8 @@ const CategoryScreen = ({ navigation }: { navigation: any }) => {
   const keyExtractor = useCallback((item: Book) => item.id, []);
 
   return (
-    <View>
+    <>
+      <StatusBar />
       <View style={styles.container}>
         <ListCategories />
         <HorizontalList
@@ -57,7 +63,7 @@ const CategoryScreen = ({ navigation }: { navigation: any }) => {
           renderItem={renderItem}
         />
       </View>
-    </View>
+    </>
   );
 };
 

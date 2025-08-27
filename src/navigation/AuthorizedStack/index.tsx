@@ -1,11 +1,11 @@
 import React, { useCallback } from 'react';
 
 // Navigation Stack
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import BottomTabNavigation from '@/navigation/BottomTabNavigation';
 
 // Screen
-import { CheckoutScreen } from '@/screens';
+import { CheckoutScreen, PaymentDetail } from '@/screens';
 
 // Components
 import { NotificationHeaderButton } from '@/components';
@@ -17,7 +17,7 @@ import { HEADER_TITLE } from '@/constants/header';
 // Screens
 import BookDetail from '@/screens/BookDetail';
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 const AuthorizedStack = () => {
   const CheckoutHeaderRight = useCallback(
@@ -41,8 +41,21 @@ const AuthorizedStack = () => {
         component={BookDetail}
         options={{
           headerShown: false,
-          presentation: 'modal',
+          presentation: 'formSheet',
+          sheetAllowedDetents: 'fitToContents',
           animation: 'slide_from_bottom',
+          sheetCornerRadius: 24,
+        }}
+      />
+      <Stack.Screen
+        name={ROUTES.GUSTER_PAYMENT_DETAIL}
+        component={PaymentDetail}
+        options={{
+          headerShown: false,
+          presentation: 'formSheet',
+          sheetAllowedDetents: 'fitToContents',
+          animation: 'slide_from_bottom',
+          sheetCornerRadius: 24,
         }}
       />
       <Stack.Screen

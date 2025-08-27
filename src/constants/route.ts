@@ -11,6 +11,7 @@ const ROOT_ROUTES = {
   MAIN: 'Main',
   CHECKOUT: 'Checkout',
   BOOK_DETAIL: 'BookDetail',
+  GUSTER_PAYMENT_DETAIL: 'GusterPaymentDetail',
 };
 
 export const ROUTES = {

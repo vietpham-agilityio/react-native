@@ -25,3 +25,4 @@ export { default as CarouselSection } from './CarouselSection';
 export { default as ListBooksSection } from './ListBooksSection';
 export { default as PaymentDetailSheet } from './PaymentDetailSheet';
 export { default as SelectPaymentMethodSheet } from './SelectPaymentMethodSheet';
+export { default as SelectDeliveryDateTimeSheet } from './SelectDeliveryDateTimeSheet';

@@ -5,7 +5,12 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import BottomTabNavigation from '@/navigation/BottomTabNavigation';
 
 // Screen
-import { CheckoutScreen, PaymentDetail, SelectPaymentMethod } from '@/screens';
+import {
+  CheckoutScreen,
+  PaymentDetail,
+  SelectPaymentMethod,
+  SelectDeliveryDateTime,
+} from '@/screens';
 
 // Components
 import { NotificationHeaderButton } from '@/components';
@@ -61,6 +66,17 @@ const AuthorizedStack = () => {
       <Stack.Screen
         name={ROUTES.SELECT_PAYMENT_METHOD}
         component={SelectPaymentMethod}
+        options={{
+          headerShown: false,
+          presentation: 'formSheet',
+          sheetAllowedDetents: 'fitToContents',
+          animation: 'slide_from_bottom',
+          sheetCornerRadius: 24,
+        }}
+      />
+      <Stack.Screen
+        name={ROUTES.SELECT_DELIVERY_DATETIME}
+        component={SelectDeliveryDateTime}
         options={{
           headerShown: false,
           presentation: 'formSheet',

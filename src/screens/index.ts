@@ -8,3 +8,4 @@ export { default as CheckoutScreen } from './Checkout';
 export { default as SplashScreen } from './Splash';
 export { default as PaymentDetail } from './PaymentDetail';
 export { default as SelectPaymentMethod } from './SelectPaymentMethod';
+export { default as SelectDeliveryDateTime } from './SelectDeliveryDateTime';

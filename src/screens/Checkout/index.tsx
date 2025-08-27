@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, ScrollView } from 'react-native';
 
 // Components
@@ -11,7 +11,7 @@ import {
 } from '@/components';
 
 // Navigation
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 // Constants
 import { ROUTES } from '@/constants/route';
@@ -27,10 +27,26 @@ import { colors } from '@/theme';
 
 const CheckoutScreen = () => {
   const navigation = useNavigation<any>();
+  const route = useRoute<any>();
+
+  const [selectedPaymentMethod, setSelectedPaymentMethod] =
+    useState<string>('');
+  const [selectedDateTime, setSelectedDateTime] = useState<string>('');
+
+  useEffect(() => {
+    if (route.params?.selectedPaymentMethod) {
+      setSelectedPaymentMethod(route.params.selectedPaymentMethod);
+    }
+    if (route.params?.selectedDateTime) {
+      setSelectedDateTime(route.params.selectedDateTime);
+    }
+  }, [route.params]);
 
   const handleChangeAddress = () => {};
 
-  const handleChangeDateAndTime = () => {};
+  const handleChangeDateAndTime = () => {
+    navigation.navigate(ROUTES.SELECT_DELIVERY_DATETIME);
+  };
 
   const handleChangePayment = () => {
     navigation.navigate(ROUTES.SELECT_PAYMENT_METHOD);
@@ -83,14 +99,14 @@ const CheckoutScreen = () => {
             title="Date and time"
             rightIcon={<CalendarIcon color={colors.primary} />}
             label="Date & time"
-            description="Choose date and time"
+            description={selectedDateTime || 'Choose date and time'}
             onPress={handleChangeDateAndTime}
           />
           <SelectionCard
             title="Payment"
             rightIcon={<CreditCardIcon color={colors.primary} />}
             label="Payment"
-            description="Choose your payment"
+            description={selectedPaymentMethod || 'Choose your payment'}
             onPress={handleChangePayment}
           />
 

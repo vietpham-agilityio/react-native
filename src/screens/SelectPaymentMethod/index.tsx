@@ -5,11 +5,14 @@ import { SelectPaymentMethodSheet, StatusBar } from '@/components';
 // Navigation
 import { useNavigation } from '@react-navigation/native';
 
+// Constants
+import { ROUTES } from '@/constants/route';
+
 const SelectPaymentMethod = () => {
   const navigation = useNavigation<any>();
 
-  const handleSelectPaymentMethod = (_method: string) => {
-    navigation.goBack();
+  const handleSelectPaymentMethod = (method: string) => {
+    navigation.navigate(ROUTES.CHECKOUT, { selectedPaymentMethod: method });
   };
 
   return (

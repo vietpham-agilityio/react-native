@@ -12,6 +12,7 @@ const ROOT_ROUTES = {
   CHECKOUT: 'Checkout',
   BOOK_DETAIL: 'BookDetail',
   GUSTER_PAYMENT_DETAIL: 'GusterPaymentDetail',
+  SELECT_PAYMENT_METHOD: 'SelectPaymentMethod',
 };
 
 export const ROUTES = {

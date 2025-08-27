@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingTop: 16,
-    borderTopWidth: 2,
+    borderTopWidth: 1,
     borderTopColor: colors.grayLight,
   },
   buttonWrapper: {

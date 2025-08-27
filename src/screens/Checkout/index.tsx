@@ -32,7 +32,9 @@ const CheckoutScreen = () => {
 
   const handleChangeDateAndTime = () => {};
 
-  const handleChangePayment = () => {};
+  const handleChangePayment = () => {
+    navigation.navigate(ROUTES.SELECT_PAYMENT_METHOD);
+  };
 
   const handleOrder = () => {};
 

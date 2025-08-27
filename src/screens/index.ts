@@ -7,3 +7,4 @@ export { default as OnboardingScreen } from './Onboarding';
 export { default as CheckoutScreen } from './Checkout';
 export { default as SplashScreen } from './Splash';
 export { default as PaymentDetail } from './PaymentDetail';
+export { default as SelectPaymentMethod } from './SelectPaymentMethod';

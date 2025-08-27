@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect } from 'react';
+import React, { memo, useCallback } from 'react';
 
 import {
   View,
@@ -34,7 +34,6 @@ import {
 import styles from './BookModal.style';
 
 interface BookModalProps {
-  visible: boolean;
   image: ImageSourcePropType;
   title: string;
   brandLogo: ImageSourcePropType;
@@ -42,7 +41,7 @@ interface BookModalProps {
   isFavorite: boolean;
   price: number;
   rating: number;
-  quantity: number;
+  initialQuantity: number;
   onCloseModal: () => void;
   setQuantity: (quantity: number) => void;
   onToggleFavorite: () => void;
@@ -50,8 +49,6 @@ interface BookModalProps {
 }
 
 const BookModal = ({
-  visible,
-  onCloseModal,
   image,
   title,
   brandLogo,
@@ -59,8 +56,9 @@ const BookModal = ({
   isFavorite,
   price,
   rating,
-  quantity,
+  initialQuantity,
   setQuantity,
+  onCloseModal,
   onToggleFavorite,
   onAddToCart,
 }: BookModalProps) => {
@@ -106,14 +104,7 @@ const BookModal = ({
     transform: [{ translateY: translateY.value }],
   }));
 
-  // Reset translateY when modal opens
-  useEffect(() => {
-    if (visible) {
-      translateY.value = 0;
-    }
-  }, [visible, translateY]);
-
-  return visible ? (
+  return (
     <View style={styles.absoluteOverlay}>
       <TouchableWithoutFeedback onPress={handleCloseModal}>
         <View style={styles.overlay} />
@@ -137,7 +128,7 @@ const BookModal = ({
           </View>
           <View style={styles.quantityControlBarWrapper}>
             <QuantityControlBar
-              value={quantity}
+              value={initialQuantity}
               onChange={setQuantity}
               min={1}
               max={10}
@@ -146,7 +137,7 @@ const BookModal = ({
               variant="typoLarge"
               weight="semibold"
               style={styles.priceText}>
-              ${quantity * price}
+              ${initialQuantity * price}
             </Typography>
           </View>
           <View style={[styles.buttonWrapper, isIOS && { marginBottom: 8 }]}>
@@ -166,7 +157,7 @@ const BookModal = ({
         </Animated.View>
       </GestureDetector>
     </View>
-  ) : null;
+  );
 };
 
 export default memo(BookModal);

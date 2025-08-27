@@ -15,12 +15,14 @@ import { AuthorizedStack, UnauthorizedStack } from '@/navigation';
 // Constants
 import linking from '@/constants/deeplink';
 import { ROUTES } from '@/constants/route';
-
 // Screens
 import { SplashScreen } from '@/screens';
 
-// Layouts
-import RootLayout from '@/layouts/RootLayout';
+// Query Client
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+// Create a client
+const queryClient = new QueryClient();
 
 const RootNavigation = () => {
   const [state, dispatch] = useReducer(authReducer, initialState);
@@ -84,27 +86,25 @@ const RootNavigation = () => {
   const authContext = {
     signIn: async (data: { email: string; password: string }) => {
       dispatch({ type: 'SIGN_IN', token: 'dummy-auth-token' });
-      console.log(data);
+      console.log('signIn', data);
     },
     signOut: () => dispatch({ type: 'SIGN_OUT', token: null }),
   };
 
   return (
-    <AuthContext.Provider value={authContext}>
-      <NavigationContainer linking={linking}>
-        {isLoading ? (
-          <SplashScreen />
-        ) : (
-          <RootLayout>
-            {state.userToken ? (
-              <AuthorizedStack />
-            ) : (
-              <UnauthorizedStack isSignout={state.isSignout} />
-            )}
-          </RootLayout>
-        )}
-      </NavigationContainer>
-    </AuthContext.Provider>
+    <QueryClientProvider client={queryClient}>
+      <AuthContext.Provider value={authContext}>
+        <NavigationContainer linking={linking}>
+          {isLoading ? (
+            <SplashScreen />
+          ) : state.userToken ? (
+            <AuthorizedStack />
+          ) : (
+            <UnauthorizedStack isSignout={state.isSignout} />
+          )}
+        </NavigationContainer>
+      </AuthContext.Provider>
+    </QueryClientProvider>
   );
 };
 

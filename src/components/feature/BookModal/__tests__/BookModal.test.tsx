@@ -41,7 +41,6 @@ describe('BookModal', () => {
     const { getByText } = render(
       <WrapperTestWithProvider>
         <BookModal
-          visible={true}
           onCloseModal={() => {}}
           image={mockBook.image}
           title={mockBook.title}
@@ -66,7 +65,6 @@ describe('BookModal', () => {
     const { getByTestId } = render(
       <WrapperTestWithProvider>
         <BookModal
-          visible={true}
           onCloseModal={() => {}}
           image={mockBook.image}
           title={mockBook.title}
@@ -92,7 +90,6 @@ describe('BookModal', () => {
     const { getByTestId } = render(
       <WrapperTestWithProvider>
         <BookModal
-          visible={true}
           onCloseModal={() => {}}
           image={mockBook.image}
           title={mockBook.title}
@@ -118,7 +115,6 @@ describe('BookModal', () => {
     const { getByText } = render(
       <WrapperTestWithProvider>
         <BookModal
-          visible={true}
           onCloseModal={() => {}}
           image={mockBook.image}
           title={mockBook.title}
@@ -144,7 +140,6 @@ describe('BookModal', () => {
     const { getByText } = render(
       <WrapperTestWithProvider>
         <BookModal
-          visible={true}
           onCloseModal={onCloseModal}
           image={mockBook.image}
           title={mockBook.title}

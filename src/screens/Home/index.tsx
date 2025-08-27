@@ -1,28 +1,23 @@
 import React, { useCallback } from 'react';
-import { ScrollView, TouchableOpacity, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 
 // Components
 import {
   AuthorCard,
-  BookCard,
-  Carousel,
+  CarouselSection,
   Heading,
   HorizontalList,
-  OfferDiscountCard,
   StatusBar,
   Typography,
   VendorCard,
+  ListBooksSection,
 } from '@/components';
 
 // Styles
 import styles from './Home.style';
 
 // Mock
-import {
-  AUTHORS_DATA_MOCK,
-  BOOKS_DATA_MOCK,
-  VENDOR_DATA_MOCK,
-} from '@/mock/data';
+import { AUTHORS_DATA_MOCK, VENDOR_DATA_MOCK } from '@/mock/data';
 
 // Types
 import { Author, Book, Vendor } from '@/types/models';
@@ -47,23 +42,6 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
     [],
   );
 
-  const renderItem = useCallback(
-    ({ item }: { item: Book }) => {
-      const { id, image, title, price } = item;
-
-      return (
-        <BookCard
-          key={id}
-          image={image}
-          title={title}
-          price={price}
-          onPress={() => handleBookPress(item)}
-        />
-      );
-    },
-    [handleBookPress],
-  );
-
   const renderVendorItem = useCallback(({ item }: { item: Vendor }) => {
     const { id, image, name } = item;
     return <VendorCard key={id} image={image} name={name} />;
@@ -81,47 +59,14 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollViewContentContainer}
         style={styles.carouselSection}>
-        <Carousel
-          listItems={BOOKS_DATA_MOCK.slice(0, 5).map((book: Book) => {
-            const { id, image } = book;
-
-            return {
-              id,
-              item: (
-                <OfferDiscountCard
-                  key={id}
-                  title="Special Offer"
-                  discountPercentage={25}
-                  image={image}
-                  onPress={() => handleBookPress(book)}
-                />
-              ),
-            };
-          })}
-        />
+        <CarouselSection handleBookPress={handleBookPress} />
         <View style={styles.sectionsWrapper}>
           {/* Top book week */}
-          <View style={styles.sectionContainer}>
-            <View style={styles.sectionHeader}>
-              <Heading level={5}>Top of Week</Heading>
-              <TouchableOpacity
-                onPress={handleClickTopWeekSeeAll}
-                activeOpacity={0.8}>
-                <Typography
-                  variant="typoMedium"
-                  weight="bold"
-                  style={styles.seeAllText}>
-                  See all
-                </Typography>
-              </TouchableOpacity>
-            </View>
-            <HorizontalList
-              data={BOOKS_DATA_MOCK.slice(0, 5)}
-              keyExtractor={keyExtractor}
-              contentContainerStyle={styles.horizontalList}
-              renderItem={renderItem}
-            />
-          </View>
+          <ListBooksSection
+            title="Top of Week"
+            onBookPress={handleBookPress}
+            onSeeAllPress={handleClickTopWeekSeeAll}
+          />
 
           {/* Best vendors */}
           <View style={styles.sectionContainer}>

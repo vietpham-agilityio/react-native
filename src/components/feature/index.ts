@@ -23,3 +23,4 @@ export { default as OrderDetailCard } from './OrderDetailCard';
 export { default as BookList } from './BookList';
 export { default as CarouselSection } from './CarouselSection';
 export { default as ListBooksSection } from './ListBooksSection';
+export { default as PaymentDetailSheet } from './PaymentDetailSheet';

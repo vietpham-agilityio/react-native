@@ -10,6 +10,12 @@ import {
   StatusBar,
 } from '@/components';
 
+// Navigation
+import { useNavigation } from '@react-navigation/native';
+
+// Constants
+import { ROUTES } from '@/constants/route';
+
 // Icons
 import { CalendarIcon, CreditCardIcon } from '@/icons';
 
@@ -20,6 +26,8 @@ import styles from './Checkout.style';
 import { colors } from '@/theme';
 
 const CheckoutScreen = () => {
+  const navigation = useNavigation<any>();
+
   const handleChangeAddress = () => {};
 
   const handleChangeDateAndTime = () => {};
@@ -27,6 +35,29 @@ const CheckoutScreen = () => {
   const handleChangePayment = () => {};
 
   const handleOrder = () => {};
+
+  const handleSeeDetails = () => {
+    navigation.navigate(ROUTES.GUSTER_PAYMENT_DETAIL, {
+      items: MOCK_PAYMENT_DETAILS,
+      total: total + 2,
+    });
+  };
+
+  const MOCK_PAYMENT_DETAILS = [
+    {
+      name: 'Squid Sweet and Sour Salad',
+      price: 19.99,
+    },
+    {
+      name: 'Japan Hainanese Sashimi',
+      price: 39.99,
+    },
+    {
+      name: 'Black Pepper Beef Lumpia',
+      price: 27.12,
+    },
+  ];
+  const total = MOCK_PAYMENT_DETAILS.reduce((acc, item) => acc + item.price, 0);
 
   return (
     <>
@@ -41,10 +72,10 @@ const CheckoutScreen = () => {
             onChange={handleChangeAddress}
           />
           <SummaryCard
-            price={87.1}
+            price={total}
             shipping={2}
-            total={89.1}
-            onSeeDetails={() => {}}
+            total={total + 2}
+            onSeeDetails={handleSeeDetails}
           />
           <SelectionCard
             title="Date and time"

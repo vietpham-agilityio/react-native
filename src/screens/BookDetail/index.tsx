@@ -16,6 +16,7 @@ const BookDetail = () => {
   const navigation = useNavigation<any>();
 
   const { book } = route.params as { book: Book };
+  const { image, title, price, rating, description, vendor } = book;
 
   const handleAddToCart = () => {
     navigation.goBack();
@@ -33,18 +34,17 @@ const BookDetail = () => {
     <>
       <StatusBar />
       <BookDetailScreen
-        visible={true}
-        image={book.image}
-        title={book.title}
-        brandLogo={book.vendor.image}
-        description={book.description}
+        image={image}
+        title={title}
+        brandLogo={vendor.image}
+        description={description}
         isFavorite={false}
-        price={book.price}
-        rating={book.rating}
+        price={price}
+        rating={rating}
         onCloseModal={handleClose}
         onAddToCart={handleAddToCart}
         onToggleFavorite={() => {}}
-        quantity={1}
+        initialQuantity={1}
         setQuantity={() => {}}
       />
     </>

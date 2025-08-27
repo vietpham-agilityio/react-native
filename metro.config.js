@@ -10,8 +10,23 @@ const defaultConfig = getDefaultConfig(__dirname);
  *
  * @type {import('metro-config').MetroConfig}
  */
-const config = {};
-// set your own config here 👆
+const config = {
+  resolver: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+      '@assets': path.resolve(__dirname, 'assets'),
+      '@components': path.resolve(__dirname, 'src/components'),
+      '@screens': path.resolve(__dirname, 'src/screens'),
+      '@navigation': path.resolve(__dirname, 'src/navigation'),
+      '@utils': path.resolve(__dirname, 'src/utils'),
+      '@hooks': path.resolve(__dirname, 'src/hooks'),
+      '@types': path.resolve(__dirname, 'src/types'),
+      '@mock': path.resolve(__dirname, 'src/mock'),
+      '@theme': path.resolve(__dirname, 'src/theme'),
+      '@icons': path.resolve(__dirname, 'src/icons'),
+    },
+  },
+};
 
 const finalConfig = mergeConfig(defaultConfig, config);
 

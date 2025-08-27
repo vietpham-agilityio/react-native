@@ -9,3 +9,4 @@ export { default as RatingStars } from './RatingStars';
 export { default as StatusBar } from './StatusBar';
 export { default as TopicItem } from './TopicItem';
 export { default as Typography } from './Typography';
+export { default as ErrorFeedback } from './ErrorFeedback';

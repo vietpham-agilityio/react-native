@@ -1,3 +1,6 @@
+if (__DEV__) {
+  require('./ReactotronConfig');
+}
 import './gesture-handler';
 import React, { useState, useEffect } from 'react';
 import { PermissionsAndroid, Platform } from 'react-native';

@@ -16,7 +16,6 @@ type Story = StoryObj<typeof BookModal>;
 
 export const Default: Story = {
   args: {
-    visible: true,
     onCloseModal: () => {},
     image: BOOKS_DATA_MOCK[0].image,
     title: BOOKS_DATA_MOCK[0].title,

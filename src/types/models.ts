@@ -12,6 +12,7 @@ export interface Book {
   author: string;
   image: ImageSourcePropType;
   description: string;
+  coverImage: any;
   vendor: Vendor;
   price: number;
   rating: number;

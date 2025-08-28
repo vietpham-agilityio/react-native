@@ -18,10 +18,11 @@ export const useBooks = () => {
   >({
     queryKey: [QUERY_KEYS.BOOKS],
     queryFn: async () => {
-      const response = await apiClient.get<Book[]>(API_ROUTES.BOOKS);
-      return response.data;
+      const response = await apiClient.get<Book[]>(API_ROUTES.BOOKS, {
+        populate: '*',
+      });
+      return response;
     },
-    retry: 2,
   });
 
   return {

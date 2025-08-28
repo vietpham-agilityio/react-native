@@ -17,19 +17,28 @@ interface ValidationParams {
   name?: string;
   email: string;
   password: string;
+  isValidateName?: boolean;
 }
 
 export const useFormValidation = () => {
   const validateForm = useCallback(
-    ({ name = '', email, password }: ValidationParams): ValidationResult => {
+    ({
+      name = '',
+      email,
+      password,
+      isValidateName = false,
+    }: ValidationParams): ValidationResult => {
       let nameError = '';
       let emailError = '';
       let passwordError = '';
 
-      if (!name.trim()) {
-        nameError = ERROR_MESSAGES.NAME_REQUIRED;
-      } else if (name.trim().length < 2) {
-        nameError = ERROR_MESSAGES.NAME_MIN_LENGTH;
+      // Name validation (only for signup)
+      if (isValidateName) {
+        if (!name.trim()) {
+          nameError = ERROR_MESSAGES.NAME_REQUIRED;
+        } else if (name.trim().length < 2) {
+          nameError = ERROR_MESSAGES.NAME_MIN_LENGTH;
+        }
       }
 
       // Email validation

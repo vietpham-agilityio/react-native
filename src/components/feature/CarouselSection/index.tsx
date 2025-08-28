@@ -13,6 +13,9 @@ import { useBooks } from '@/hooks';
 // Types
 import { Book } from '@/types/models';
 
+// Utils
+import { extractImageUrl } from '@/utils';
+
 const CarouselSection = ({
   handleBookPress,
 }: {
@@ -28,14 +31,15 @@ const CarouselSection = ({
     return <ErrorFeedback error={error} />;
   }
 
-  if (books.length === 0) {
-    return <Typography>Data is empty</Typography>;
+  if (!books || books.length === 0) {
+    return <Typography>No books data</Typography>;
   }
 
   return (
     <Carousel
       listItems={books.map((book: Book) => {
-        const { id, image } = book;
+        const image = extractImageUrl(book.coverImage);
+        const { id } = book;
 
         return {
           id,
@@ -44,7 +48,7 @@ const CarouselSection = ({
               key={id}
               title="Special Offer"
               discountPercentage={25}
-              image={image}
+              image={{ uri: image }}
               onPress={() => handleBookPress(book)}
             />
           ),

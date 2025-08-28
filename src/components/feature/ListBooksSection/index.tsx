@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo } from 'react';
-import { ActivityIndicator, TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 
 // Components
 import {
@@ -8,6 +8,7 @@ import {
   HorizontalList,
   Typography,
   ErrorFeedback,
+  BookSkeleton,
 } from '@/components';
 
 // Hooks
@@ -15,9 +16,6 @@ import { useBooks } from '@/hooks';
 
 // Types
 import { Book } from '@/types/models';
-
-// Theme
-import { colors } from '@/theme';
 
 // Styles
 import styles from './ListBooksSection.style';
@@ -79,7 +77,12 @@ const ListBooksSection = ({
         )}
       </View>
       {isLoading ? (
-        <ActivityIndicator size="small" color={colors.primary} />
+        <HorizontalList
+          data={[1, 2, 3, 4]}
+          keyExtractor={item => item.toString()}
+          contentContainerStyle={styles.horizontalList}
+          renderItem={() => <BookSkeleton />}
+        />
       ) : error ? (
         <ErrorFeedback error={error} />
       ) : (

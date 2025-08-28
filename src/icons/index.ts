@@ -23,3 +23,4 @@ export { default as CheckPupleIcon } from './CheckPupleIcon';
 export { default as CrossRedIcon } from './CrossRedIcon';
 export { default as KnetIcon } from './KnetIcon';
 export { default as CreditCardPaymentIcon } from './CreditCardPaymentIcon';
+export { default as MysteryBox } from './MysteryBox';

@@ -2,7 +2,12 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
 // Screens
-import { LoginScreen, SignUpScreen, OnboardingScreen } from '@/screens';
+import {
+  LoginScreen,
+  SignUpScreen,
+  SignUpSuccessScreen,
+  OnboardingScreen,
+} from '@/screens';
 
 // Constants
 import { ROUTES } from '@/constants/route';
@@ -36,6 +41,11 @@ const UnauthorizedStack = ({ isSignout }: { isSignout: boolean }) => (
       name={ROUTES.SIGNUP}
       component={SignUpScreen}
       options={{ headerTitle: HEADER_TITLE.SIGNUP }}
+    />
+    <Stack.Screen
+      name={ROUTES.SIGNUP_SUCCESS}
+      component={SignUpSuccessScreen}
+      options={{ headerShown: false }}
     />
   </Stack.Navigator>
 );

@@ -2,7 +2,6 @@ import React, { useCallback, useState } from 'react';
 import {
   View,
   TouchableOpacity,
-  Image,
   TouchableWithoutFeedback,
   Keyboard,
   KeyboardAvoidingView,
@@ -13,7 +12,14 @@ import {
 import { useNavigation } from '@react-navigation/native';
 
 // Components
-import { Input, Button, Typography, Heading, StatusBar } from '@/components';
+import {
+  Input,
+  Button,
+  Typography,
+  Heading,
+  StatusBar,
+  ListValidateMessage,
+} from '@/components';
 
 // Theme
 import { colors } from '@/theme';
@@ -22,27 +28,29 @@ import { colors } from '@/theme';
 import { ROUTES } from '@/constants/route';
 
 // Styles
-import styles from './Login.style';
+import styles from './SignUp.style';
 
 // Store
 import { useAuth } from '@/store/AuthContext';
 
 // Icons
-import { AppleIcon, EyeFilledIcon, EyeSlashFilledIcon } from '@/icons';
+import { EyeFilledIcon, EyeSlashFilledIcon } from '@/icons';
 
 // Hooks
 import { usePlatform, useFormValidation } from '@/hooks';
 
-const SignInScreen = () => {
-  const { signIn } = useAuth();
+const SignUpScreen = () => {
   const navigation = useNavigation<any>();
 
+  const { signIn } = useAuth();
   const { isIOS } = usePlatform();
   const { validateForm } = useFormValidation();
 
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [nameErrorMessage, setNameErrorMessage] = useState('');
   const [emailErrorMessage, setEmailErrorMessage] = useState('');
   const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
 
@@ -50,14 +58,16 @@ const SignInScreen = () => {
     Keyboard.dismiss();
   }, []);
 
-  const handleLogin = useCallback(() => {
+  const handleSignUp = useCallback(() => {
     handleDismissKeyboard();
 
-    const { emailError, passwordError, isValid } = validateForm({
+    const { nameError, emailError, passwordError, isValid } = validateForm({
+      name,
       email,
       password,
     });
 
+    setNameErrorMessage(nameError);
     setEmailErrorMessage(emailError);
     setPasswordErrorMessage(passwordError);
 
@@ -65,20 +75,20 @@ const SignInScreen = () => {
       return;
     }
 
-    // Simulate sign in
+    // Simulate sign up
     signIn({ email, password });
-  }, [email, password, signIn, handleDismissKeyboard, validateForm]);
+  }, [name, email, password, signIn, handleDismissKeyboard, validateForm]);
 
   const handleTogglePassword = useCallback(() => {
     setShowPassword(prev => !prev);
   }, []);
 
-  const handleSignUp = useCallback(() => {
+  const handleSignIn = useCallback(() => {
     handleDismissKeyboard();
-    navigation.navigate(ROUTES.SIGNUP);
+    navigation.navigate(ROUTES.LOGIN);
   }, [handleDismissKeyboard, navigation]);
 
-  const handleForgotPassword = useCallback(() => {
+  const handleTermsAndPolicy = useCallback(() => {
     handleDismissKeyboard();
   }, [handleDismissKeyboard]);
 
@@ -96,14 +106,24 @@ const SignInScreen = () => {
           showsVerticalScrollIndicator={false}>
           {/* Title */}
           <Heading level={3} style={styles.title}>
-            Welcome 👋
+            Sign Up
           </Heading>
           <Typography
             variant="typoLarge"
             weight="regular"
             style={styles.subtitle}>
-            Sign to your account
+            Create account and choose favorite menu
           </Typography>
+
+          {/* Name Input */}
+          <Input
+            label="Name"
+            placeholder="Your name"
+            error={nameErrorMessage}
+            value={name}
+            onChangeText={setName}
+            autoCapitalize="words"
+          />
 
           {/* Email Input */}
           <Input
@@ -134,85 +154,62 @@ const SignInScreen = () => {
             onRightIconPress={handleTogglePassword}
           />
 
-          {/* Forgot Password */}
-          <TouchableOpacity
-            onPress={handleForgotPassword}
-            style={styles.forgotPasswordContainer}>
-            <Typography
-              variant="typoMedium"
-              style={styles.forgotPassword}
-              weight="semibold">
-              Forgot Password?
-            </Typography>
-          </TouchableOpacity>
+          {/* Password Validation Rules */}
+          {password.length > 0 && (
+            <View style={styles.passwordValidation}>
+              <ListValidateMessage value={password} />
+            </View>
+          )}
 
-          {/* Login Button */}
+          {/* Register Button */}
           <Button
-            title="Login"
+            title="Register"
             size="medium"
             variant="primary"
-            onPress={handleLogin}
-            style={styles.loginButton}
+            onPress={handleSignUp}
+            style={styles.registerButton}
           />
-
-          {/* Sign Up Link */}
-          <View style={styles.signupContainer}>
-            <Typography
-              variant="typoLarge"
-              weight="medium"
-              style={styles.signupText}>
-              Don't have an account?
-            </Typography>
-            <TouchableOpacity onPress={handleSignUp}>
+          <View style={styles.signupContentContainer}>
+            {/* Sign In Link */}
+            <View style={styles.signinContainer}>
               <Typography
                 variant="typoLarge"
-                weight="semibold"
-                style={styles.signupLink}>
-                Sign Up
+                weight="medium"
+                style={styles.signinText}>
+                Have an account?
               </Typography>
-            </TouchableOpacity>
-          </View>
+              <TouchableOpacity onPress={handleSignIn}>
+                <Typography
+                  variant="typoLarge"
+                  weight="semibold"
+                  style={styles.signinLink}>
+                  Sign In
+                </Typography>
+              </TouchableOpacity>
+            </View>
 
-          {/* Divider */}
-          <View style={styles.dividerContainer}>
-            <View style={styles.divider} />
-            <Typography
-              variant="typoMedium"
-              weight="regular"
-              style={styles.orWith}>
-              Or with
-            </Typography>
-            <View style={styles.divider} />
+            {/* Terms and Policy */}
+            <View style={styles.termsContainer}>
+              <Typography
+                variant="typoMedium"
+                weight="regular"
+                style={styles.termsText}>
+                By clicking Register, you agree to our
+              </Typography>
+              <TouchableOpacity onPress={handleTermsAndPolicy}>
+                <Typography
+                  variant="typoMedium"
+                  weight="semibold"
+                  style={styles.termsLink}>
+                  Terms and Data Policy.
+                </Typography>
+              </TouchableOpacity>
+            </View>
           </View>
-
-          {/* Social Buttons */}
-          <Button
-            title="Sign in with Google"
-            variant="thirdParty"
-            size="medium"
-            icon={
-              <Image
-                source={require('@assets/images/vendors/google-icon.webp')}
-                style={styles.googleIcon}
-              />
-            }
-            style={styles.socialButton}
-            textStyle={styles.socialButtonText}
-            onPress={handleDismissKeyboard}
-          />
-          <Button
-            title="Sign in with Apple"
-            variant="thirdParty"
-            size="medium"
-            icon={<AppleIcon style={styles.appleIcon} />}
-            style={styles.socialButton}
-            textStyle={styles.socialButtonText}
-            onPress={handleDismissKeyboard}
-          />
         </ScrollView>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
   );
 };
 
-export default SignInScreen;
+export default SignUpScreen;

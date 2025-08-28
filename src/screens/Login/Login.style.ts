@@ -21,9 +21,6 @@ const styles = StyleSheet.create({
     color: colors.grayMedium,
     marginBottom: 24,
   },
-  input: {
-    marginBottom: 16,
-  },
   forgotPasswordContainer: {
     width: '40%',
   },
@@ -44,6 +41,7 @@ const styles = StyleSheet.create({
   signupLink: {
     marginLeft: 4,
     color: colors.primary,
+    fontWeight: '600',
   },
   dividerContainer: {
     flexDirection: 'row',

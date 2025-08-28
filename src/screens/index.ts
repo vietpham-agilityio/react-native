@@ -1,4 +1,5 @@
 export { default as LoginScreen } from './Login';
+export { default as SignUpScreen } from './SignUp';
 export { default as CartScreen } from './Cart';
 export { default as HomeScreen } from './Home';
 export { default as CategoryScreen } from './Category';

@@ -7,6 +7,7 @@ const MAIN_ROUTES = {
 
 const ROOT_ROUTES = {
   LOGIN: 'Login',
+  SIGNUP: 'SignUp',
   ONBOARDING: 'Onboarding',
   MAIN: 'Main',
   CHECKOUT: 'Checkout',

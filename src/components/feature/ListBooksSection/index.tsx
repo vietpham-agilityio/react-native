@@ -20,6 +20,9 @@ import { Book } from '@/types/models';
 // Styles
 import styles from './ListBooksSection.style';
 
+// Utils
+import { extractImageUrl } from '@/utils';
+
 interface ListBooksSectionProps {
   title: string;
   onBookPress: (book: Book) => void;
@@ -34,18 +37,19 @@ const ListBooksSection = ({
   showSeeAll = true,
 }: ListBooksSectionProps) => {
   const { data: books, isLoading, error } = useBooks();
+
   const keyExtractor = useCallback((item: Book) => item.id, []);
 
   const isDisabled = useMemo(() => !!error || isLoading, [error, isLoading]);
 
   const renderItem = useCallback(
     ({ item }: { item: Book }) => {
-      const { id, image, title: bookTitle, price } = item;
+      const { id, title: bookTitle, price } = item;
 
       return (
         <BookCard
           key={id}
-          image={image}
+          image={{ uri: extractImageUrl(item.coverImage) }}
           title={bookTitle}
           price={price}
           onPress={() => onBookPress(item)}

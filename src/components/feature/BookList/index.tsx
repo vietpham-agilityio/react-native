@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 // Components
 import {
   HorizontalList,
   ErrorFeedback,
   BookSkeleton,
+  Typography,
 } from '@/components/common';
 import { BookCard } from '@/components';
 
@@ -17,14 +18,29 @@ import { Book } from '@/types/models';
 // Styles
 import styles from '@/screens/Home/Home.style';
 
-import { BOOKS_DATA_MOCK } from '@/mock/data';
+import { extractImageUrl } from '@/utils';
 
 const BookList = ({
   handleBookPress,
 }: {
   handleBookPress: (book: Book) => void;
 }) => {
-  const { data: books = [], isLoading, error } = useBooks();
+  const { data: books, isLoading, error } = useBooks();
+
+  const renderBookItem = useCallback(
+    ({ item }: { item: Book }) => {
+      return (
+        <BookCard
+          key={item.id}
+          image={{ uri: extractImageUrl(item.coverImage) }}
+          title={item.title}
+          price={item.price}
+          onPress={() => handleBookPress(item)}
+        />
+      );
+    },
+    [handleBookPress],
+  );
 
   if (isLoading) {
     return <BookSkeleton />;
@@ -34,25 +50,16 @@ const BookList = ({
     return <ErrorFeedback error={error} />;
   }
 
-  const booksData = books.map(book => ({
-    ...book,
-    image: book.image || BOOKS_DATA_MOCK[Number(book.id) - 1].image,
-  }));
+  if (!books || books.length === 0) {
+    return <Typography>No books data</Typography>;
+  }
 
   return (
     <HorizontalList
-      data={booksData}
+      data={books}
       keyExtractor={item => item.id}
       contentContainerStyle={styles.horizontalList}
-      renderItem={({ item }: { item: Book }) => (
-        <BookCard
-          key={item.id}
-          image={item.image}
-          title={item.title}
-          price={item.price}
-          onPress={() => handleBookPress(item)}
-        />
-      )}
+      renderItem={renderBookItem}
     />
   );
 };

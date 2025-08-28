@@ -54,21 +54,27 @@ class APIClient {
 
   async get<T>(
     url: string,
+    queryParams?: Record<string, string>,
     init?: Omit<RequestOption, 'method'>,
-  ): Promise<{
-    data: T;
-    meta: { total: number } | null;
-  }> {
-    const res = await this.apiRequest(url, init);
+  ): Promise<T> {
+    // Add query parameters to URL
+    const urlWithParams = queryParams
+      ? `${url}?${new URLSearchParams(queryParams).toString()}`
+      : url;
+
+    const res = await this.apiRequest(urlWithParams, init);
     const contentType = res.headers.get('content-type');
 
     if (contentType && contentType.includes('application/json')) {
-      const data = (await res.json()) as T;
-      const total = res.headers.get('X-Total-Count');
-      return { data, meta: total ? { total: Number(total) } : null };
+      const responseData = (await res.json()) as any;
+
+      const data =
+        responseData.data !== undefined ? responseData.data : responseData;
+
+      return data as T;
     }
 
-    throw new Error(`Unexpected response type from ${url}`);
+    throw new Error(`Unexpected response type from ${urlWithParams}`);
   }
 
   async post<T>(url: string, init?: Omit<RequestOption, 'method'>) {

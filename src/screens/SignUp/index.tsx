@@ -61,6 +61,7 @@ const SignUpScreen = () => {
       name,
       email,
       password,
+      isValidateName: true,
     });
 
     setNameErrorMessage(nameError);

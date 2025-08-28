@@ -30,9 +30,6 @@ import { ROUTES } from '@/constants/route';
 // Styles
 import styles from './SignUp.style';
 
-// Store
-import { useAuth } from '@/store/AuthContext';
-
 // Icons
 import { EyeFilledIcon, EyeSlashFilledIcon } from '@/icons';
 
@@ -42,7 +39,6 @@ import { usePlatform, useFormValidation } from '@/hooks';
 const SignUpScreen = () => {
   const navigation = useNavigation<any>();
 
-  const { signIn } = useAuth();
   const { isIOS } = usePlatform();
   const { validateForm } = useFormValidation();
 
@@ -75,9 +71,9 @@ const SignUpScreen = () => {
       return;
     }
 
-    // Simulate sign up
-    signIn({ email, password });
-  }, [name, email, password, signIn, handleDismissKeyboard, validateForm]);
+    // Simulate sign up success and navigate to success screen
+    navigation.replace(ROUTES.SIGNUP_SUCCESS);
+  }, [name, email, password, handleDismissKeyboard, validateForm, navigation]);
 
   const handleTogglePassword = useCallback(() => {
     setShowPassword(prev => !prev);

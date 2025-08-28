@@ -1,8 +1,11 @@
 import React from 'react';
-import { ActivityIndicator } from 'react-native';
 
 // Components
-import { HorizontalList, Typography } from '@/components/common';
+import {
+  HorizontalList,
+  ErrorFeedback,
+  BookSkeleton,
+} from '@/components/common';
 import { BookCard } from '@/components';
 
 // Hooks
@@ -10,9 +13,6 @@ import { useBooks } from '@/hooks/useBooks';
 
 // Types
 import { Book } from '@/types/models';
-
-// Theme
-import { colors } from '@/theme';
 
 // Styles
 import styles from '@/screens/Home/Home.style';
@@ -27,15 +27,11 @@ const BookList = ({
   const { data: books = [], isLoading, error } = useBooks();
 
   if (isLoading) {
-    return (
-      <>
-        <ActivityIndicator size="small" color={colors.primary} />
-      </>
-    );
+    return <BookSkeleton />;
   }
 
   if (error) {
-    return <Typography>Error: {error.message}</Typography>;
+    return <ErrorFeedback error={error} />;
   }
 
   const booksData = books.map(book => ({

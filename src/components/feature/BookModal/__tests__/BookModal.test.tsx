@@ -49,7 +49,7 @@ describe('BookModal', () => {
           isFavorite={mockBook.isFavorite}
           price={mockBook.price}
           rating={mockBook.rating}
-          quantity={2}
+          initialQuantity={2}
           setQuantity={() => {}}
           onToggleFavorite={() => {}}
           onAddToCart={() => {}}
@@ -73,7 +73,7 @@ describe('BookModal', () => {
           isFavorite={mockBook.isFavorite}
           price={mockBook.price}
           rating={mockBook.rating}
-          quantity={1}
+          initialQuantity={2}
           setQuantity={setQuantity}
           onToggleFavorite={() => {}}
           onAddToCart={() => {}}
@@ -82,7 +82,7 @@ describe('BookModal', () => {
     );
 
     fireEvent.press(getByTestId('increase-btn'));
-    expect(setQuantity).toHaveBeenCalledWith(2);
+    expect(setQuantity).toHaveBeenCalledWith(3);
   });
 
   it('calls onToggleFavorite when favorite is pressed', () => {
@@ -98,7 +98,7 @@ describe('BookModal', () => {
           isFavorite={mockBook.isFavorite}
           price={mockBook.price}
           rating={mockBook.rating}
-          quantity={1}
+          initialQuantity={1}
           setQuantity={() => {}}
           onToggleFavorite={onToggleFavorite}
           onAddToCart={() => {}}
@@ -123,7 +123,7 @@ describe('BookModal', () => {
           isFavorite={mockBook.isFavorite}
           price={mockBook.price}
           rating={mockBook.rating}
-          quantity={1}
+          initialQuantity={1}
           setQuantity={() => {}}
           onToggleFavorite={() => {}}
           onAddToCart={onAddToCart}
@@ -148,7 +148,7 @@ describe('BookModal', () => {
           isFavorite={mockBook.isFavorite}
           price={mockBook.price}
           rating={mockBook.rating}
-          quantity={1}
+          initialQuantity={1}
           setQuantity={() => {}}
           onToggleFavorite={() => {}}
           onAddToCart={() => {}}

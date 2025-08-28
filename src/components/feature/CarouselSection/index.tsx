@@ -1,13 +1,14 @@
-import { ActivityIndicator } from 'react-native';
-
 // Components
-import { Carousel, ErrorFeedback, OfferDiscountCard } from '@/components';
+import {
+  Carousel,
+  ErrorFeedback,
+  OfferDiscountCard,
+  Typography,
+  CarouselSkeleton,
+} from '@/components';
 
 // Hooks
 import { useBooks } from '@/hooks';
-
-// Theme
-import { colors } from '@/theme';
 
 // Types
 import { Book } from '@/types/models';
@@ -20,11 +21,15 @@ const CarouselSection = ({
   const { data: books, isLoading, error } = useBooks();
 
   if (isLoading) {
-    return <ActivityIndicator size="small" color={colors.primary} />;
+    return <CarouselSkeleton />;
   }
 
   if (error) {
     return <ErrorFeedback error={error} />;
+  }
+
+  if (books.length === 0) {
+    return <Typography>Data is empty</Typography>;
   }
 
   return (

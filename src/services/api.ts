@@ -78,8 +78,12 @@ class APIClient {
   }
 
   async post<T>(url: string, init?: Omit<RequestOption, 'method'>) {
-    const res = await this.apiRequest(url, { ...init, method: 'POST' });
-    return res.json() as T;
+    try {
+      const res = await this.apiRequest(url, { ...init, method: 'POST' });
+      return res.json() as T;
+    } catch (error) {
+      throw error;
+    }
   }
 
   async put<T>(url: string, init?: Omit<RequestOption, 'method'>) {

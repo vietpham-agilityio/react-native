@@ -6,6 +6,9 @@ import {
   Keyboard,
   KeyboardAvoidingView,
   ScrollView,
+  ToastAndroid,
+  Platform,
+  Alert,
 } from 'react-native';
 
 // Navigation
@@ -27,6 +30,9 @@ import { colors } from '@/theme';
 // Constants
 import { ROUTES } from '@/constants/route';
 
+// Utils
+import { isPasswordValid } from '@/utils';
+
 // Styles
 import styles from './SignUp.style';
 
@@ -34,13 +40,15 @@ import styles from './SignUp.style';
 import { EyeFilledIcon, EyeSlashFilledIcon } from '@/icons';
 
 // Hooks
-import { usePlatform, useFormValidation } from '@/hooks';
+import { usePlatform, useFormValidation, useAuth } from '@/hooks';
 
 const SignUpScreen = () => {
   const navigation = useNavigation<any>();
 
   const { isIOS } = usePlatform();
   const { validateForm } = useFormValidation();
+  const { signUp } = useAuth();
+  const { mutateAsync: signUpMutation, isPending: isSignUpPending } = signUp;
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -68,13 +76,54 @@ const SignUpScreen = () => {
     setEmailErrorMessage(emailError);
     setPasswordErrorMessage(passwordError);
 
-    if (!isValid) {
+    if (!isValid || !isPasswordValid(password)) {
       return;
     }
 
-    // Simulate sign up success and navigate to success screen
-    navigation.replace(ROUTES.SIGNUP_SUCCESS);
-  }, [name, email, password, handleDismissKeyboard, validateForm, navigation]);
+    signUpMutation(
+      {
+        username: name,
+        email,
+        password,
+      },
+      {
+        onSuccess: data => {
+          navigation.replace(ROUTES.SIGNUP_SUCCESS, {
+            email: data.user.email,
+            password: password,
+            user: data.user,
+            jwt: data.jwt,
+          });
+        },
+        onError: (error: any) => {
+          // Handle signup errors
+          let errorMessage = 'Signup failed. Please try again.';
+
+          if (error instanceof Error && error.message) {
+            const extractedJson = error.message.match(/\{.*\}/);
+            if (extractedJson) {
+              const parsedError = JSON.parse(extractedJson[0]);
+              errorMessage = parsedError?.error?.message || errorMessage;
+            }
+          }
+
+          if (Platform.OS === 'android') {
+            ToastAndroid.show(errorMessage, ToastAndroid.LONG);
+          } else {
+            Alert.alert('Signup Failed', errorMessage);
+          }
+        },
+      },
+    );
+  }, [
+    name,
+    email,
+    password,
+    handleDismissKeyboard,
+    validateForm,
+    navigation,
+    signUpMutation,
+  ]);
 
   const handleTogglePassword = useCallback(() => {
     setShowPassword(prev => !prev);
@@ -165,6 +214,7 @@ const SignUpScreen = () => {
             variant="primary"
             onPress={handleSignUp}
             style={styles.registerButton}
+            disabled={isSignUpPending}
           />
           <View style={styles.signupContentContainer}>
             {/* Sign In Link */}

@@ -7,6 +7,9 @@ import {
   Keyboard,
   KeyboardAvoidingView,
   ScrollView,
+  ToastAndroid,
+  Platform,
+  Alert,
 } from 'react-native';
 
 // Navigation
@@ -28,14 +31,19 @@ import styles from './Login.style';
 import { AppleIcon, EyeFilledIcon, EyeSlashFilledIcon } from '@/icons';
 
 // Hooks
-import { usePlatform, useFormValidation, useLogin } from '@/hooks';
+import { usePlatform, useFormValidation, useAuth } from '@/hooks';
+
+// Store
+import { useAuth as useAuthContext } from '@/store/AuthContext';
 
 const SignInScreen = () => {
   const navigation = useNavigation<any>();
 
   const { isIOS } = usePlatform();
   const { validateForm } = useFormValidation();
-  const { login, isLoading } = useLogin();
+  const { login } = useAuth();
+  const { mutateAsync: loginMutation, isPending: isLoginPending } = login;
+  const { signIn } = useAuthContext();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -62,8 +70,49 @@ const SignInScreen = () => {
       return;
     }
 
-    await login(email, password);
-  }, [email, password, login, handleDismissKeyboard, validateForm]);
+    loginMutation(
+      {
+        identifier: email,
+        password,
+      },
+      {
+        onSuccess: data => {
+          // Auto-login after successful login
+          signIn({
+            email: data.user.email,
+            password: '',
+            token: data.jwt,
+            user: data.user,
+          });
+        },
+        onError: (error: any) => {
+          // Handle login errors
+          let errorMessage = 'Login failed. Please try again.';
+
+          if (error instanceof Error && error.message) {
+            const extractedJson = error.message.match(/\{.*\}/);
+            if (extractedJson) {
+              const parsedError = JSON.parse(extractedJson[0]);
+              errorMessage = parsedError?.error?.message || errorMessage;
+            }
+          }
+
+          if (Platform.OS === 'android') {
+            ToastAndroid.show(errorMessage, ToastAndroid.LONG);
+          } else {
+            Alert.alert('Login Failed', errorMessage);
+          }
+        },
+      },
+    );
+  }, [
+    email,
+    password,
+    loginMutation,
+    signIn,
+    handleDismissKeyboard,
+    validateForm,
+  ]);
 
   const handleTogglePassword = useCallback(() => {
     setShowPassword(prev => !prev);
@@ -149,7 +198,7 @@ const SignInScreen = () => {
             variant="primary"
             onPress={handleLogin}
             style={styles.loginButton}
-            disabled={isLoading}
+            disabled={isLoginPending}
           />
 
           {/* Sign Up Link */}

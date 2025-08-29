@@ -5,6 +5,12 @@ export interface LoginCredentials {
   password: string;
 }
 
+export interface SignupCredentials {
+  username: string;
+  email: string;
+  password: string;
+}
+
 export interface StrapiAuthResponse {
   jwt: string;
   user: {
@@ -19,10 +25,12 @@ export interface StrapiAuthResponse {
   };
 }
 
-export interface LoginError {
+export interface ErrorResponse {
   error: {
     status: number;
+    name: string;
     message: string;
+    details: any;
   };
 }
 

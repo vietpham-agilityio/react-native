@@ -8,7 +8,7 @@ export const PASSWORD_VALIDATE_RULES = [
   },
   {
     id: 'atleast-1-number',
-    label: 'At least 1 number (1-9)',
+    label: 'At least 1 number (0-9)',
     validate: (val: string) => /\d/.test(val),
   },
   {

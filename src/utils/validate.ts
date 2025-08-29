@@ -7,3 +7,7 @@ export const validateEmail = (email: string) => {
 export const validatePassword = (password: string) => {
   return PASSWORD_VALIDATE_RULES.every(rule => rule.validate(password));
 };
+
+export const isPasswordValid = (password: string): boolean => {
+  return PASSWORD_VALIDATE_RULES.every(rule => rule.validate(password));
+};

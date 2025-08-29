@@ -1,0 +1,34 @@
+import { User } from './models';
+
+export interface LoginCredentials {
+  identifier: string;
+  password: string;
+}
+
+export interface StrapiAuthResponse {
+  jwt: string;
+  user: {
+    id: number;
+    username: string;
+    email: string;
+    provider: string;
+    confirmed: boolean;
+    blocked: boolean;
+    createdAt: string;
+    updatedAt: string;
+  };
+}
+
+export interface LoginError {
+  error: {
+    status: number;
+    message: string;
+  };
+}
+
+export interface AuthData {
+  email: string;
+  password?: string;
+  token?: string;
+  user?: User;
+}

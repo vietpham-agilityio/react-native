@@ -24,21 +24,18 @@ import { ROUTES } from '@/constants/route';
 // Styles
 import styles from './Login.style';
 
-// Store
-import { useAuth } from '@/store/AuthContext';
-
 // Icons
 import { AppleIcon, EyeFilledIcon, EyeSlashFilledIcon } from '@/icons';
 
 // Hooks
-import { usePlatform, useFormValidation } from '@/hooks';
+import { usePlatform, useFormValidation, useLogin } from '@/hooks';
 
 const SignInScreen = () => {
-  const { signIn } = useAuth();
   const navigation = useNavigation<any>();
 
   const { isIOS } = usePlatform();
   const { validateForm } = useFormValidation();
+  const { login, isLoading } = useLogin();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -50,7 +47,7 @@ const SignInScreen = () => {
     Keyboard.dismiss();
   }, []);
 
-  const handleLogin = useCallback(() => {
+  const handleLogin = useCallback(async () => {
     handleDismissKeyboard();
 
     const { emailError, passwordError, isValid } = validateForm({
@@ -65,9 +62,8 @@ const SignInScreen = () => {
       return;
     }
 
-    // Simulate sign in
-    signIn({ email, password });
-  }, [email, password, signIn, handleDismissKeyboard, validateForm]);
+    await login(email, password);
+  }, [email, password, login, handleDismissKeyboard, validateForm]);
 
   const handleTogglePassword = useCallback(() => {
     setShowPassword(prev => !prev);
@@ -153,6 +149,7 @@ const SignInScreen = () => {
             variant="primary"
             onPress={handleLogin}
             style={styles.loginButton}
+            disabled={isLoading}
           />
 
           {/* Sign Up Link */}

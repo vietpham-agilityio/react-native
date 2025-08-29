@@ -8,7 +8,7 @@ import { Button, Typography, Heading, StatusBar } from '@/components';
 import styles from './SignUpSuccess.style';
 
 // Navigation
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 // Constants
 import { ROUTES } from '@/constants/route';
@@ -16,13 +16,31 @@ import { ROUTES } from '@/constants/route';
 // Icons
 import { MysteryBox } from '@/icons';
 
+// Store
+import { useAuth as useAuthContext } from '@/store/AuthContext';
+
 const SignUpSuccessScreen = () => {
   const navigation = useNavigation<any>();
+  const route = useRoute();
+  const { signIn } = useAuthContext();
+
+  const { email, password, user, jwt } = route.params as {
+    email: string;
+    password: string;
+    user: any;
+    jwt: string;
+  };
 
   const handleGetStarted = useCallback(() => {
-    // Navigate to the main part of the app
+    signIn({
+      email,
+      password,
+      token: jwt,
+      user,
+    });
+
     navigation.navigate(ROUTES.MAIN);
-  }, [navigation]);
+  }, [navigation, signIn, email, jwt, user, password]);
 
   return (
     <View style={styles.container}>

@@ -6,9 +6,6 @@ import {
   Keyboard,
   KeyboardAvoidingView,
   ScrollView,
-  ToastAndroid,
-  Platform,
-  Alert,
 } from 'react-native';
 
 // Navigation
@@ -31,7 +28,7 @@ import { colors } from '@/theme';
 import { ROUTES } from '@/constants/route';
 
 // Utils
-import { isPasswordValid } from '@/utils';
+import { isPasswordValid, showToast } from '@/utils';
 
 // Styles
 import styles from './SignUp.style';
@@ -94,6 +91,11 @@ const SignUpScreen = () => {
             user: data.user,
             jwt: data.jwt,
           });
+
+          showToast.success(
+            'Hope you enjoy the best menu from us 🥳',
+            `Hi ${data.user.username} ✌🏻`,
+          );
         },
         onError: (error: any) => {
           // Handle signup errors
@@ -107,11 +109,7 @@ const SignUpScreen = () => {
             }
           }
 
-          if (Platform.OS === 'android') {
-            ToastAndroid.show(errorMessage, ToastAndroid.LONG);
-          } else {
-            Alert.alert('Signup Failed', errorMessage);
-          }
+          showToast.error(errorMessage);
         },
       },
     );

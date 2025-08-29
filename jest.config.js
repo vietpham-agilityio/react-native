@@ -11,6 +11,7 @@ module.exports = {
       '|react-native-vector-icons' +
       '|@react-navigation' +
       '|react-native-reanimated' +
+      '|react-native-toast-message' +
       ')/)',
   ],
   moduleNameMapper: {

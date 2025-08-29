@@ -11,6 +11,9 @@ import { DevSettings } from 'react-native';
 // Bottom Sheet
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 
+// Toast
+import Toast from 'react-native-toast-message';
+
 // Messaging
 import messaging from '@react-native-firebase/messaging';
 import notifee, { AndroidImportance } from '@notifee/react-native';
@@ -137,6 +140,7 @@ const App = () => {
   return (
     <BottomSheetModalProvider>
       <RootNavigation />
+      <Toast />
     </BottomSheetModalProvider>
   );
 };

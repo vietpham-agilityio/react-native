@@ -7,9 +7,6 @@ import {
   Keyboard,
   KeyboardAvoidingView,
   ScrollView,
-  ToastAndroid,
-  Platform,
-  Alert,
 } from 'react-native';
 
 // Navigation
@@ -35,6 +32,9 @@ import { usePlatform, useFormValidation, useAuth } from '@/hooks';
 
 // Store
 import { useAuth as useAuthContext } from '@/store/AuthContext';
+
+// Utils
+import { showToast } from '@/utils';
 
 const SignInScreen = () => {
   const navigation = useNavigation<any>();
@@ -97,11 +97,7 @@ const SignInScreen = () => {
             }
           }
 
-          if (Platform.OS === 'android') {
-            ToastAndroid.show(errorMessage, ToastAndroid.LONG);
-          } else {
-            Alert.alert('Login Failed', errorMessage);
-          }
+          showToast.error(errorMessage);
         },
       },
     );
